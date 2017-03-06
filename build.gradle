@@ -47,3 +47,8 @@ test {
         events "PASSED", "STARTED", "FAILED", "SKIPPED"
     }
 }
+test {
+    testLogging {
+        events "PASSED", "STARTED", "FAILED", "SKIPPED"
+    }
+}
