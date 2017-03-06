@@ -24,7 +24,11 @@ public final class EANValidator {
         int[] numbers = convertArray(num);
 
         for (int i = 0; i < numbers.length - 1; i++) {
-            suma += i % 2 == 0 ? numbers[i] * PAR : numbers[i] * IMPAR;
+            if (i % 2 == 0) {
+                suma = suma + (numbers[i] * PAR);
+            } else {
+                suma = suma + (numbers[i] * IMPAR);
+            }
         }
 
         if (suma % DIVISOR == 0) {
@@ -45,10 +49,9 @@ public final class EANValidator {
      * @return int[] with numbers
      */
     public static int[] convertArray(final String num) {
-
         int[] numbers = new int[num.length()];
         for (int i = 0; i < num.length(); i++) {
-            numbers[i] = Integer.parseInt(String.valueOf(num.charAt(i)));
+            numbers[i] = num.charAt(i) - '0';
         }
         return numbers;
     }
