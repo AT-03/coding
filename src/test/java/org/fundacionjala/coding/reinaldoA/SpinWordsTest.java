@@ -62,7 +62,7 @@ public class SpinWordsTest {
     }
 
     /**
-     * Test when sentence has one just word.
+     * Test when sentence has one just word rey.
      */
     @Test
     public void testSpinWordsWhenSentenceHasOneWord() {
