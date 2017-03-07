@@ -10,7 +10,7 @@ import static org.junit.Assert.assertEquals;
 public class SpinWordsTest {
 
     /**
-     * Test when sentence has words with more than 5 characters.
+     * Test when sentence  has words with more than 5 characters.
      */
     @Test
     public void testSpinWordsWhenSentenceHasWordsWithMoreThanFiveCharacters() {
