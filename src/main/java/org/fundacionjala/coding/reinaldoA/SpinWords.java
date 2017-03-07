@@ -19,8 +19,6 @@ public final class SpinWords {
     }
 
     /**
-     * Takes in a string of one or more words, and returns the same string,
-     * but with all five or more letter words reversed.
      *
      * @param sentence String with words.
      * @return the same string, but with all five or more letter words reversed.
