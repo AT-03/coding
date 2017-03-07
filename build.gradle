@@ -41,3 +41,9 @@ tasks.withType(Pmd) {
         html.enabled = true
     }
 }
+
+test {
+    testLogging {
+        events "PASSED", "STARTED", "FAILED", "SKIPPED"
+    }
+}
