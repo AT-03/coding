@@ -1,5 +1,7 @@
-package org.fundacionjala.coding.YVR;
+package org.fundacionjala.coding.Yuri;
 
+import org.fundacionjala.coding.YVR.SpinWords;
+import org.junit.Assert;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 /**
@@ -10,7 +12,7 @@ import static org.junit.Assert.assertEquals;
 public class SpinWordsTest {
     @Test
     public void test() {
-        assertEquals("emocleW", new SpinWords().spinWords("Welcome"));
+        Assert.assertEquals("emocleW", new SpinWords().spinWords("Welcome"));
         assertEquals("Hey wollef sroirraw", new SpinWords().spinWords("Hey fellow warriors"));
     }
 
