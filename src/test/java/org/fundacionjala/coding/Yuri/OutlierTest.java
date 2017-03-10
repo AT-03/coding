@@ -1,6 +1,6 @@
 package org.fundacionjala.coding.Yuri;
 
-import org.fundacionjala.coding.YVR.FindOutlier;
+import org.fundacionjala.coding.Yuri.Katas.FindOutlier;
 import org.junit.Assert;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;

@@ -1,6 +1,6 @@
 package org.fundacionjala.coding.Yuri;
 
-import org.fundacionjala.coding.YVR.SpinWords;
+import org.fundacionjala.coding.Yuri.Katas.SpinWords;
 import org.junit.Assert;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
