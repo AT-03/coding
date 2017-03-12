@@ -35,43 +35,43 @@ public class BankOcr {
      */
     public BankOcr() {
         stringMap.put(KEY.ZERO.ordinal(),
-                " _ "
+                          " _ "
                         + "| |"
                         + "|_|");
         stringMap.put(KEY.ONE.ordinal(),
-                "  |"
+                          "  |"
                         + "  |"
                         + "  |");
         stringMap.put(KEY.TWO.ordinal(),
-                " _ "
+                          " _ "
                         + " _|"
                         + "|_ ");
         stringMap.put(KEY.THREE.ordinal(),
-                "__ "
+                          "__ "
                         + " _|"
                         + "__|");
         stringMap.put(KEY.FOUR.ordinal(),
-                "   "
+                          "   "
                         + "|_|"
                         + "  |");
         stringMap.put(KEY.FIVE.ordinal(),
-                " __"
+                          " __"
                         + "|__"
                         + " __|");
         stringMap.put(KEY.SIX.ordinal(),
-                " __"
+                          " __"
                         + "|__"
                         + "|__|");
         stringMap.put(KEY.SEVEN.ordinal(),
-                "__ "
+                          "__ "
                         + "  |"
                         + "  |");
         stringMap.put(KEY.EIGHT.ordinal(),
-                " _ "
+                          " _ "
                         + "|_|"
                         + "|_|");
         stringMap.put(KEY.NINE.ordinal(),
-                " _ "
+                          " _ "
                         + "|_|"
                         + " _|");
     }
