@@ -15,7 +15,7 @@ public class Movie {
      * @param title The movie's name
      * @param priceCode The movie's price code
      */
-    public Movie(final String title, final int priceCode) {
+    public Movie(String title, int priceCode) {
         this.title = title;
         this.priceCode = priceCode;
     }
@@ -32,7 +32,7 @@ public class Movie {
      * To set price code for movie.
      * @param arg The new code
      */
-    public void setPriceCode(final int arg) {
+    public void setPriceCode(int arg) {
         priceCode = arg;
     }
 
