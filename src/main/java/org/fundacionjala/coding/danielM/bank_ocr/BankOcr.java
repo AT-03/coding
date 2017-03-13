@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * Created by Administrator on 3/10/2017.
  */
-public class BankOcr {
+public final class BankOcr {
 
     /**
      * This enum type will contain the key values.
@@ -28,46 +28,46 @@ public class BankOcr {
     private static final int MODULUS_FACTOR = 11;
     private static final int CORRECT_ACCOUNT_LENGTH = 9;
     private static final int MULTIPLY_FACTOR = 9;
-    private static Map<Integer, String> STRING_MAP = new HashMap<>();
+    private static Map<Integer, String> stringMap = new HashMap<>();
 
     static {
-        STRING_MAP.put(KEY.ZERO.ordinal(),
+        stringMap.put(KEY.ZERO.ordinal(),
                           " _ "
                         + "| |"
                         + "|_|");
-        STRING_MAP.put(KEY.ONE.ordinal(),
+        stringMap.put(KEY.ONE.ordinal(),
                           "  |"
                         + "  |"
                         + "  |");
-        STRING_MAP.put(KEY.TWO.ordinal(),
+        stringMap.put(KEY.TWO.ordinal(),
                           " _ "
                         + " _|"
                         + "|_ ");
-        STRING_MAP.put(KEY.THREE.ordinal(),
+        stringMap.put(KEY.THREE.ordinal(),
                           "__ "
                         + " _|"
                         + "__|");
-        STRING_MAP.put(KEY.FOUR.ordinal(),
+        stringMap.put(KEY.FOUR.ordinal(),
                           "   "
                         + "|_|"
                         + "  |");
-        STRING_MAP.put(KEY.FIVE.ordinal(),
+        stringMap.put(KEY.FIVE.ordinal(),
                           " __"
                         + "|__"
                         + " __|");
-        STRING_MAP.put(KEY.SIX.ordinal(),
+        stringMap.put(KEY.SIX.ordinal(),
                           " __"
                         + "|__"
                         + "|__|");
-        STRING_MAP.put(KEY.SEVEN.ordinal(),
+        stringMap.put(KEY.SEVEN.ordinal(),
                           "__ "
                         + "  |"
                         + "  |");
-        STRING_MAP.put(KEY.EIGHT.ordinal(),
+        stringMap.put(KEY.EIGHT.ordinal(),
                           " _ "
                         + "|_|"
                         + "|_|");
-        STRING_MAP.put(KEY.NINE.ordinal(),
+        stringMap.put(KEY.NINE.ordinal(),
                           " _ "
                         + "|_|"
                         + " _|");
@@ -87,7 +87,7 @@ public class BankOcr {
      */
     private static String getKey(final String value) {
         String key = "?";
-        for (Map.Entry<Integer, String> entry : STRING_MAP.entrySet()) {
+        for (Map.Entry<Integer, String> entry : stringMap.entrySet()) {
             if (entry.getValue().equalsIgnoreCase(value)) {
                 key = entry.getKey().toString();
             }
