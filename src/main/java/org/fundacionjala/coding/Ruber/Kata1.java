@@ -4,8 +4,6 @@ package org.fundacionjala.coding.Ruber;
  * Created by Ruber Cuellar on 2/24/2017.
  */
 public final class Kata1 {
-    private static String text;
-
     private static final int NUMBERLIMIT = 5;
     /**
      * Constructor.
@@ -17,7 +15,7 @@ public final class Kata1 {
      * This method divides a word.
      * @return String[] with the words
      */
-    public static String[] diviceWords() {
+    public static String[] diviceWords(String text) {
         return text.split(" ");
     }
 
@@ -46,8 +44,7 @@ public final class Kata1 {
      * @return String with the new sentence
      */
     public static String start(final String text) {
-        Kata1.text = text;
-        String[] words = diviceWords();
+        String[] words = diviceWords(text);
         for (int i = 0; i < words.length; i++) {
             if (count(words[i])) {
                 words[i] = reverse(words[i]);
