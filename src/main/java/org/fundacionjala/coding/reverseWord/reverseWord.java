@@ -10,6 +10,7 @@ public class reverseWord {
         for(int i = 0; i < splitWord.length; i++){
             splitWord[i] = (splitWord[i].length() >= 5) ? new StringBuilder(splitWord[i]).reverse().toString() : splitWord[i].toString();
         }
+
         return String.join(" ", splitWord);
     }
 }

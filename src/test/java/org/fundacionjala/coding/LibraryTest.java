@@ -1,4 +1,4 @@
-package org.fundacionjala.coding;
+//package org.fundacionjala.coding;
 
 import org.junit.Test;
 
@@ -12,9 +12,9 @@ public class LibraryTest {
     /**
      * Verify some library method.
      */
-    @Test
+    /*@Test
     public void testSomeLibraryMethod() {
         Library classUnderTest = new Library();
         assertTrue("someLibraryMethod should return 'true'", classUnderTest.someLibraryMethod());
-    }
+    }*/
 }
