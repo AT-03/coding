@@ -2,7 +2,7 @@ package org.fundacionjala.coding.danielM;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by Administrator on 3/3/2017.
@@ -20,8 +20,7 @@ public class EANValidatorTest {
         final boolean actualResult = EANValidator.checkCorrectLength(eanStringNumber);
 
         // then:
-        final boolean expectedResult = true;
-        assertEquals(expectedResult, actualResult);
+        assertTrue(actualResult);
     }
 
     /**
@@ -36,8 +35,7 @@ public class EANValidatorTest {
         final boolean actualResult = EANValidator.checkCorrectLength(eanStringNumber);
 
         // then:
-        final boolean expectedResult = false;
-        assertEquals(expectedResult, actualResult);
+        assertTrue(!actualResult);
     }
 
     /**
@@ -52,8 +50,7 @@ public class EANValidatorTest {
         final boolean actualResult = EANValidator.checkCorrectLength(eanStringNumber);
 
         // then:
-        final boolean expectedResult = false;
-        assertEquals(expectedResult, actualResult);
+        assertTrue(!actualResult);
     }
 
     /**
@@ -68,8 +65,7 @@ public class EANValidatorTest {
         final boolean actualResult = EANValidator.validate(eanStringNumber);
 
         // then:
-        final boolean expectedResult = true;
-        assertEquals(expectedResult, actualResult);
+        assertTrue(actualResult);
     }
 
     /**
@@ -84,7 +80,6 @@ public class EANValidatorTest {
         final boolean actualResult = EANValidator.validate(eanStringNumber);
 
         // then:
-        final boolean expectedResult = false;
-        assertEquals(expectedResult, actualResult);
+        assertTrue(!actualResult);
     }
 }
