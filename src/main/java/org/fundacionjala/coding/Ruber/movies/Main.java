@@ -7,12 +7,12 @@ public class Main {
 
     /**
      * Main.
-     * @param args new param
+     * @param args
      */
-    private static void main(final String[] args) {
+    public static void main(String[] args) {
         Customer customer = new Customer("Test");
         customer.addRental(new Rental(new Movie("The Revenant", 1), 2));
         customer.addRental(new Rental(new Movie("Terminator", 0), 2));
-        customer.statement();
+        System.out.println(customer.statement());
     }
 }
