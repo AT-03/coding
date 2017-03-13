@@ -3,6 +3,7 @@ package org.fundacionjala.coding.danielM.bank_ocr;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by Administrator on 3/12/2017.
@@ -14,7 +15,6 @@ public class BankOcrTest {
     @Test
     public void testGetKeyWhenScannedNumbersAreBetween0And9() {
         // given:
-        BankOcr scanNumbers = new BankOcr();
         String[] scannedImage = {
                           " _ "
                         + "| |"
@@ -58,7 +58,7 @@ public class BankOcrTest {
         };
 
         // when:
-        String actualResult = scanNumbers.accountRepresentation(scannedImage);
+        String actualResult = BankOcr.accountRepresentation(scannedImage);
 
         // then:
         String expectedResult = "0123456789";
@@ -71,7 +71,6 @@ public class BankOcrTest {
     @Test
     public void testGetKeyWhenScannedImageHasDifferentValues() {
         // given:
-        BankOcr scanNumbers = new BankOcr();
         String[] scannedImage = {
                           " _ "
                         + "| |"
@@ -89,7 +88,7 @@ public class BankOcrTest {
         };
 
         // when:
-        String actualResult = scanNumbers.accountRepresentation(scannedImage);
+        String actualResult = BankOcr.accountRepresentation(scannedImage);
 
         // then:
         String expectedResult = "09??5";
@@ -102,7 +101,6 @@ public class BankOcrTest {
     @Test
     public void testValidateAccountWhenTheGivenAccountIsCorrect() {
         // given:
-        BankOcr scanNumbers = new BankOcr();
         String[] scannedImage = {
                           "__ "
                         + " _|"
@@ -140,14 +138,13 @@ public class BankOcrTest {
                         + "|__"
                         + " __|",
         };
-        String correctAccount = scanNumbers.accountRepresentation(scannedImage);
+        String correctAccount = BankOcr.accountRepresentation(scannedImage);
 
         // when:
-        boolean actualResult = scanNumbers.validateAccount(correctAccount);
+        boolean actualResult = BankOcr.validateAccount(correctAccount);
 
         // then:
-        boolean expectedResult = true;
-        assertEquals(expectedResult, actualResult);
+        assertTrue(actualResult);
 
     }
     /**
@@ -156,7 +153,6 @@ public class BankOcrTest {
     @Test
     public void testValidateAccountWhenTheGivenAccountIsIncorrect() {
         // given:
-        BankOcr scanNumbers = new BankOcr();
         String[] scannedImage = {
                           "   "
                         + "|_|"
@@ -175,14 +171,13 @@ public class BankOcrTest {
                         + "  |",
 
         };
-        String incorrectAccount = scanNumbers.accountRepresentation(scannedImage);
+        String incorrectAccount = BankOcr.accountRepresentation(scannedImage);
 
         // when:
-        boolean actualResult = scanNumbers.validateAccount(incorrectAccount);
+        boolean actualResult = BankOcr.validateAccount(incorrectAccount);
 
         // then:
-        boolean expectedResult = false;
-        assertEquals(expectedResult, actualResult);
+        assertTrue(!actualResult);
     }
     /**
      * Test if the status of a correct account is "".
@@ -190,11 +185,10 @@ public class BankOcrTest {
     @Test
     public void testGetAccountStatusWithACorrectAccount() {
         // given:
-        BankOcr scanNumbers = new BankOcr();
         String correctAccount = "345882865";
 
         // when:
-        String actualResult = scanNumbers.getAccountStatus(correctAccount);
+        String actualResult = BankOcr.getAccountStatus(correctAccount);
 
         // then:
         String expectResult = "";
@@ -207,11 +201,10 @@ public class BankOcrTest {
     @Test
     public void testGetAccountStatusWithAnIncorrectAccount() {
         // given:
-        BankOcr scanNumbers = new BankOcr();
         String incorrectAccount = "021453789";
 
         // when:
-        String actualResult = scanNumbers.getAccountStatus(incorrectAccount);
+        String actualResult = BankOcr.getAccountStatus(incorrectAccount);
 
         // then:
         String expectedResult = "ERR";
@@ -224,11 +217,10 @@ public class BankOcrTest {
     @Test
     public void testGetAccountStatusWithAnIllegibleAccount() {
         // given:
-        BankOcr scanNumbers = new BankOcr();
         String illegibleAccount = "  560  |";
 
         // when:
-        String actualResult = scanNumbers.getAccountStatus(illegibleAccount);
+        String actualResult = BankOcr.getAccountStatus(illegibleAccount);
 
         // then:
         String expectedResult = "ILL";

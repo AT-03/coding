@@ -25,55 +25,59 @@ public class BankOcr {
         }
     }
 
-    private Map<Integer, String> stringMap = new HashMap<>();
     private static final int MODULUS_FACTOR = 11;
     private static final int CORRECT_ACCOUNT_LENGTH = 9;
     private static final int MULTIPLY_FACTOR = 9;
+    private static Map<Integer, String> STRING_MAP = new HashMap<>();
+
+    static {
+        STRING_MAP.put(KEY.ZERO.ordinal(),
+                          " _ "
+                        + "| |"
+                        + "|_|");
+        STRING_MAP.put(KEY.ONE.ordinal(),
+                          "  |"
+                        + "  |"
+                        + "  |");
+        STRING_MAP.put(KEY.TWO.ordinal(),
+                          " _ "
+                        + " _|"
+                        + "|_ ");
+        STRING_MAP.put(KEY.THREE.ordinal(),
+                          "__ "
+                        + " _|"
+                        + "__|");
+        STRING_MAP.put(KEY.FOUR.ordinal(),
+                          "   "
+                        + "|_|"
+                        + "  |");
+        STRING_MAP.put(KEY.FIVE.ordinal(),
+                          " __"
+                        + "|__"
+                        + " __|");
+        STRING_MAP.put(KEY.SIX.ordinal(),
+                          " __"
+                        + "|__"
+                        + "|__|");
+        STRING_MAP.put(KEY.SEVEN.ordinal(),
+                          "__ "
+                        + "  |"
+                        + "  |");
+        STRING_MAP.put(KEY.EIGHT.ordinal(),
+                          " _ "
+                        + "|_|"
+                        + "|_|");
+        STRING_MAP.put(KEY.NINE.ordinal(),
+                          " _ "
+                        + "|_|"
+                        + " _|");
+    }
 
     /**
      * Constructor private.
      */
-    public BankOcr() {
-        stringMap.put(KEY.ZERO.ordinal(),
-                          " _ "
-                        + "| |"
-                        + "|_|");
-        stringMap.put(KEY.ONE.ordinal(),
-                          "  |"
-                        + "  |"
-                        + "  |");
-        stringMap.put(KEY.TWO.ordinal(),
-                          " _ "
-                        + " _|"
-                        + "|_ ");
-        stringMap.put(KEY.THREE.ordinal(),
-                          "__ "
-                        + " _|"
-                        + "__|");
-        stringMap.put(KEY.FOUR.ordinal(),
-                          "   "
-                        + "|_|"
-                        + "  |");
-        stringMap.put(KEY.FIVE.ordinal(),
-                          " __"
-                        + "|__"
-                        + " __|");
-        stringMap.put(KEY.SIX.ordinal(),
-                          " __"
-                        + "|__"
-                        + "|__|");
-        stringMap.put(KEY.SEVEN.ordinal(),
-                          "__ "
-                        + "  |"
-                        + "  |");
-        stringMap.put(KEY.EIGHT.ordinal(),
-                          " _ "
-                        + "|_|"
-                        + "|_|");
-        stringMap.put(KEY.NINE.ordinal(),
-                          " _ "
-                        + "|_|"
-                        + " _|");
+    private BankOcr() {
+
     }
 
     /**
@@ -81,9 +85,9 @@ public class BankOcr {
      * @return "?" if the value is not in range 0-9 otherwise
      * return a number between 0 and 9.
      */
-    private String getKey(final String value) {
+    private static String getKey(final String value) {
         String key = "?";
-        for (Map.Entry<Integer, String> entry : stringMap.entrySet()) {
+        for (Map.Entry<Integer, String> entry : STRING_MAP.entrySet()) {
             if (entry.getValue().equalsIgnoreCase(value)) {
                 key = entry.getKey().toString();
             }
@@ -97,7 +101,7 @@ public class BankOcr {
      * @param account image of type String.
      * @return true or false
      */
-    private boolean isLegible(final String account) {
+    private static boolean isLegible(final String account) {
         boolean isCorrect = true;
 
         for (int i = 0; i < account.length(); i++) {
@@ -115,7 +119,7 @@ public class BankOcr {
      * @param account String variable is the account to validate
      * @return true if the passed account is true, false otherwise.
      */
-    public boolean validateAccount(final String account) {
+    public static boolean validateAccount(final String account) {
         if (account.length() == CORRECT_ACCOUNT_LENGTH && isLegible(account)) {
 
             String[] acct = account.split("");
@@ -141,7 +145,7 @@ public class BankOcr {
      * @param account String variable to determine its status.
      * @return an String result with the values mentioned earlier.
      */
-    public String getAccountStatus(final String account) {
+    public static String getAccountStatus(final String account) {
         String status = "";
 
         if (!isLegible(account)) {
@@ -158,7 +162,7 @@ public class BankOcr {
      * @param scannedImage array string.
      * @return String representation of scanned image.
      */
-    public String accountRepresentation(final String[] scannedImage) {
+    public static String accountRepresentation(final String[] scannedImage) {
         StringBuilder acctRepresentation = new StringBuilder();
 
         for (String number : scannedImage) {
