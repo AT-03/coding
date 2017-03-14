@@ -13,9 +13,10 @@ public final class Kata1 {
 
     /**
      * This method divides a word.
+     * @param text The test to divice
      * @return String[] with the words
      */
-    public static String[] diviceWords(String text) {
+    public static String[] diviceWords(final String text) {
         return text.split(" ");
     }
 

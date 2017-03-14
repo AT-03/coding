@@ -1,14 +1,14 @@
 package org.fundacionjala.coding.Ruber.movies;
 
-import java.util.Enumeration;
-import java.util.Vector;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Class Customer.
  */
 class Customer {
     private final String name;
-    private static Vector rentals = new Vector();
+    private static List<Rental> rentals = new ArrayList<Rental>();
     private static final int REGULAR_AMOUNT = 2;
     private static final double CHILDRENS_AMOUNT = 1.5;
     private static final double NORMAL_FINE = 1.5;
@@ -20,7 +20,7 @@ class Customer {
      * Constructor.
      * @param name The customer's name
      */
-    public Customer(String name) {
+    public Customer(final String name) {
         this.name = name;
     }
 
@@ -28,8 +28,8 @@ class Customer {
      * This method add a new rental to the vector.
      * @param arg The rental
      */
-    public void addRental(Rental arg) {
-        rentals.addElement(arg);
+    public void addRental(final Rental arg) {
+        rentals.add(arg);
     }
 
     /**
@@ -42,35 +42,33 @@ class Customer {
 
     /**
      * This method calculates runs the entire vector to calculate.
-     * @return String with the result
      */
-    public String statement() {
+    public void statement() {
         double totalAmount = 0;
         int frequentRenterPoints = 0;
-        Enumeration rentals = this.rentals.elements();
-        String result = "Rental Record for " + getName() + "\n";
-        while (rentals.hasMoreElements()) {
-            Rental each = (Rental) rentals.nextElement();
+        //Enumeration rentals = this.rentals.toArray();
+        for (Rental each : rentals) {
             double thisAmount = calculateAmount(each);
             frequentRenterPoints += getFrequentRenterPoints(each);
-            // add frequent renter points
-
-            //show figures for this rental
-            result += "\t"
-                    + each.getMovie().getTitle()
-                    + "\t"
-                    + String.valueOf(thisAmount)
-                    + "\n";
+            //result += getResult(result, each, thisAmount);
             totalAmount += thisAmount;
         }
-        //add footer lines
-        result += "Amount owed is "
-                + String.valueOf(totalAmount)
-                + "\n";
-        result += "You earned "
-                + String.valueOf(frequentRenterPoints)
-                + " frequent renter points";
-        return result;
+        getResult(rentals, totalAmount, frequentRenterPoints);
+    }
+
+    /**
+     * To print the result.
+     * @param rentals The rentals list
+     * @param totalAmount Total amount for the rentals
+     * @param frequentRenterPoints Total frequent renter points for the rentals
+     */
+    public void getResult(final List<Rental> rentals, final double totalAmount, final int frequentRenterPoints) {
+        System.out.print("Rental Record for " + getName() + "\n");
+        for (Rental ren : rentals) {
+            System.out.print(ren.getMovie().getTitle() + "\t" + String.valueOf(calculateAmount(ren) + "\n"));
+        }
+        System.out.print("Amount owed is " + String.valueOf(totalAmount) + "\n"
+                + "You earned " + String.valueOf(frequentRenterPoints));
     }
 
     /**
@@ -78,7 +76,7 @@ class Customer {
      * @param each The rental to be calculated
      * @return A double with the amount
      */
-    public double calculateAmount(Rental each) {
+    public double calculateAmount(final Rental each) {
         double thisAmount = 0;
         switch (each.getMovie().getPriceCode()) {
             case Movie.REGULAR:
@@ -107,10 +105,10 @@ class Customer {
      * @param each The rental to be calculated
      * @return int with the frequent points
      */
-    public int getFrequentRenterPoints(Rental each) {
+    public int getFrequentRenterPoints(final Rental each) {
         int frequentRenterPoints = 1;
         // add bonus for a two day new release rental
-        if ((each.getMovie().getPriceCode() == Movie.NEW_RELEASE) && each.getDaysRented() > 1) {
+        if (each.getMovie().getPriceCode() == Movie.NEW_RELEASE && each.getDaysRented() > 1) {
             frequentRenterPoints++;
         }
         return frequentRenterPoints;
