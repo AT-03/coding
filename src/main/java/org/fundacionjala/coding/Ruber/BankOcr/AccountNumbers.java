@@ -11,14 +11,14 @@ public class AccountNumbers {
     public static final int NUMBERS = 9;
     public static final int COL = 3;
     public static final int FIL = 3;
+    public static Map<String, Integer> numbers = new HashMap<>();
     /**
      * Constructor.
      */
     private AccountNumbers() {
     }
 
-    private static Map numbers() {
-        Map<String, Integer> numbers = new HashMap<>();
+    static {
         numbers.put("   " +
                 "  |" +
                 "  |", 1);
@@ -49,17 +49,44 @@ public class AccountNumbers {
         numbers.put(" _ " +
                 "| |" +
                 "|_|",0);
-        return numbers;
+    }
+
+    public static int exists(final String entry) {
+        for(Map.Entry<String, Integer> num : numbers.entrySet())
+        {
+            if(num.getKey().equals(entry)) {
+                return num.getValue();
+            }
+        }
+        return Integer.parseInt(null);
+    }
+
+    public static String parse(String [] numbersRead) {
+        String numGenerated = "";
+        for (String read : numbersRead)
+        {
+            numGenerated += exists(read);
+        }
+        return numGenerated;
     }
 
     public static void main(String args[])
     {
-        AccountNumbers num = new AccountNumbers();
-        Map<String, Integer> numbers  = num.numbers();
-        if(numbers.containsKey(" _ " + "|_|" +"|_|_"))
-        {
-            System.out.println("true");
 
-        }
+        AccountNumbers num = new AccountNumbers();
+        String [] numbersRead = {" _ "
+                + "| |"
+                +"|_|", " _ " +
+                "|_|" +
+                " _|", " _ " +
+                " _|" +
+                " _|"};
+        System.out.println(num.parse(numbersRead));
+
+
+
+
     }
+
+
 }
