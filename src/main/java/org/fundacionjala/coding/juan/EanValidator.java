@@ -29,7 +29,7 @@ public final class EanValidator {
                 sum += (eanCode.charAt(i) - aux);
             }
         }
-        if (sum % finalFactor != 0) {
+        if (sum % finalFactor !=0) {
             checksum = (finalFactor - (sum % finalFactor));
         }
         if (eanCode.charAt(eanCode.length() - 1) - aux == checksum) {
