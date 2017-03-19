@@ -23,7 +23,7 @@ public final class EanValidator {
         final int finalFactor = 10;
         final int aux = 48;
         for (int i = 0; i < finalNumber; i++) {
-            if (i % 2 == 1) {
+            if (i % 2 != 0) {
                 sum += ((eanCode.charAt(i) - aux) * multiply);
             } else {
                 sum += (eanCode.charAt(i) - aux);
