@@ -59,6 +59,7 @@ public class QuicksortTest {
 
     @Test
     public void testQuickSort() {
+        //int[] numbers = {44,75,23,43,55,12,64,77,33};
         for (Integer i : numbers) {
             System.out.println(i + " ");
         }
@@ -74,6 +75,16 @@ public class QuicksortTest {
         if (!validate(numbers)) {
             fail("Should not happen");
         }
+        assertTrue(true);
+    }
+
+    @Test
+    public void testQuickSort1() {
+        int[] numbers = {44,75,23,43,55,55,12,64,77,33};
+        int[] numbers2 = {55,15,21,5,1,12,14};
+        Quicksort sorter = new Quicksort();
+        sorter.sort(numbers2);
+        printResult(sorter.getNumbers());
         assertTrue(true);
     }
 
@@ -101,7 +112,7 @@ public class QuicksortTest {
 
     private void printResult(int[] numbers) {
         for (int i = 0; i < numbers.length; i++) {
-            System.out.print(numbers[i]);
+            System.out.print(numbers[i] + " ");
         }
         System.out.println();
     }
