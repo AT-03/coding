@@ -7,4 +7,5 @@ public class Main {
         customer.addRental(new Rental(new Movie("Terminator", 0), 2));
         System.out.println(customer.statement());
     }
+
 }
