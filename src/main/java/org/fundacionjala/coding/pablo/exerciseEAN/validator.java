@@ -3,20 +3,40 @@ package org.fundacionjala.coding.pablo.exerciseEAN;
 /**
  * Created by PABLO on 3/12/2017.
  */
-public class validator {
+public final class Validator {
 
+    public static final int DIGIT_MULTIPLIER = 3;
+    public static final int NUMBER_DIVISIBILITY = 10;
 
-    public  boolean validator(String EAN){
+    /**
+     * Constructor.
+     */
+
+    private Validator() {
+
+    }
+
+    /**
+     * Check if a number is correct.
+     */
+
+    /**
+     *
+     * @param numberEAN number with 13 digits.
+     * @return If the number is correct it returns true
+     */
+
+    public static boolean validator(final String numberEAN) {
         int sum = 0;
 
-        for(int i = 1; i < EAN.length(); i++){
-            int numericValue = Character.getNumericValue(EAN.charAt(i - 1));
+        for (int i = 1; i < numberEAN.length(); i++) {
+            int numericValue = Character.getNumericValue(numberEAN.charAt(i - 1));
 
-            sum += i % 2 == 0 ? numericValue * 3 : numericValue;
+            sum += i % 2 == 0 ? numericValue * DIGIT_MULTIPLIER : numericValue;
         }
 
-        int ver = sum % 10 != 0 ? 10 - (sum % 10) : 0;
+        int ver = sum % NUMBER_DIVISIBILITY != 0 ? NUMBER_DIVISIBILITY - (sum % NUMBER_DIVISIBILITY) : 0;
 
-        return ver == Character.getNumericValue(EAN.charAt(EAN.length() - 1));
+        return ver == Character.getNumericValue(numberEAN.charAt(numberEAN.length() - 1));
     }
 }
