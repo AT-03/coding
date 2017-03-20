@@ -27,47 +27,51 @@ public final class BankOcr {
 
     private static final int MODULUS_FACTOR = 11;
     private static final int CORRECT_ACCOUNT_LENGTH = 9;
+    private static final int CORRECT_SCANNED_ACCOUNT_LENGTH = 72;
     private static final int MULTIPLY_FACTOR = 9;
-    private static Map<Integer, String> stringMap = new HashMap<>();
+    private static final int INDEX_MODULUS_FACTOR = 9;
+    private static final int SUB_STRING_START = 0;
+    private static final int SUB_STRING_END = 3;
+    private static final Map<Integer, String> STRING_MAP = new HashMap<>();
 
     static {
-        stringMap.put(KEY.ZERO.ordinal(),
+        STRING_MAP.put(KEY.ZERO.ordinal(),
                           " _ "
                         + "| |"
                         + "|_|");
-        stringMap.put(KEY.ONE.ordinal(),
-                          "  |"
+        STRING_MAP.put(KEY.ONE.ordinal(),
+                         "   "
                         + "  |"
                         + "  |");
-        stringMap.put(KEY.TWO.ordinal(),
+        STRING_MAP.put(KEY.TWO.ordinal(),
                           " _ "
                         + " _|"
                         + "|_ ");
-        stringMap.put(KEY.THREE.ordinal(),
+        STRING_MAP.put(KEY.THREE.ordinal(),
                           "__ "
                         + " _|"
                         + "__|");
-        stringMap.put(KEY.FOUR.ordinal(),
-                          "   "
+        STRING_MAP.put(KEY.FOUR.ordinal(),
+                         "   "
                         + "|_|"
                         + "  |");
-        stringMap.put(KEY.FIVE.ordinal(),
-                          " __"
-                        + "|__"
-                        + " __|");
-        stringMap.put(KEY.SIX.ordinal(),
-                          " __"
-                        + "|__"
-                        + "|__|");
-        stringMap.put(KEY.SEVEN.ordinal(),
+        STRING_MAP.put(KEY.FIVE.ordinal(),
+                          " _ "
+                        + "|_ "
+                        + " _|");
+        STRING_MAP.put(KEY.SIX.ordinal(),
+                          " _ "
+                        + "|_ "
+                        + "|_|");
+        STRING_MAP.put(KEY.SEVEN.ordinal(),
                           "__ "
                         + "  |"
                         + "  |");
-        stringMap.put(KEY.EIGHT.ordinal(),
+        STRING_MAP.put(KEY.EIGHT.ordinal(),
                           " _ "
                         + "|_|"
                         + "|_|");
-        stringMap.put(KEY.NINE.ordinal(),
+        STRING_MAP.put(KEY.NINE.ordinal(),
                           " _ "
                         + "|_|"
                         + " _|");
@@ -87,8 +91,8 @@ public final class BankOcr {
      */
     private static String getKey(final String value) {
         String key = "?";
-        for (Map.Entry<Integer, String> entry : stringMap.entrySet()) {
-            if (entry.getValue().equalsIgnoreCase(value)) {
+        for (Map.Entry<Integer, String> entry : STRING_MAP.entrySet()) {
+            if (entry.getValue().equals(value)) {
                 key = entry.getKey().toString();
             }
         }
@@ -170,5 +174,45 @@ public final class BankOcr {
         }
 
         return acctRepresentation.toString();
+    }
+
+    /**
+     * This method take and scanned account of exactly 9 digits and return
+     * an array representation of them.
+     *
+     * @param scannedAccount String, represents the account.
+     * @return an array of nine string digits.
+     */
+    public static String[] parseScannedNumbers(final String scannedAccount) {
+
+        String[] scannedDigits = {"", "", "", "", "", "", "", "", ""};
+
+        if (!lengthScannedImageIsValid(scannedAccount)) {
+            int index = 0;
+            int start = SUB_STRING_START;
+            int end = SUB_STRING_END;
+
+            for (int i = 0; i < scannedAccount.length(); i += SUB_STRING_END) {
+                index = index % INDEX_MODULUS_FACTOR;
+
+                scannedDigits[index] += scannedAccount.substring(start, end);
+
+                start = end;
+                end += SUB_STRING_END;
+                index++;
+            }
+        }
+        return scannedDigits;
+    }
+
+    /**
+     * This method validates if an scanned account has the correct digit
+     * numbers.
+     *
+     * @param scannedAccount of String type.
+     * @return true.
+     */
+    private static boolean lengthScannedImageIsValid(final String scannedAccount) {
+        return scannedAccount.length() == CORRECT_SCANNED_ACCOUNT_LENGTH;
     }
 }

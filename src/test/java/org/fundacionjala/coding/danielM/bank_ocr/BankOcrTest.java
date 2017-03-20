@@ -16,43 +16,43 @@ public class BankOcrTest {
     public void testGetKeyWhenScannedNumbersAreBetween0And9() {
         // given:
         String[] scannedImage = {
-                          " _ "
+                " _ "
                         + "| |"
                         + "|_|",
 
-                          "  |"
+                "   "
                         + "  |"
                         + "  |",
 
-                          " _ "
+                " _ "
                         + " _|"
                         + "|_ ",
 
-                          "__ "
+                "__ "
                         + " _|"
                         + "__|",
 
-                          "   "
+                "   "
                         + "|_|"
                         + "  |",
 
-                          " __"
-                        + "|__"
-                        + " __|",
+                " _ "
+                        + "|_ "
+                        + " _|",
 
-                          " __"
-                        + "|__"
-                        + "|__|",
+                " _ "
+                        + "|_ "
+                        + "|_|",
 
-                          "__ "
+                "__ "
                         + "  |"
                         + "  |",
 
-                          " _ "
+                " _ "
                         + "|_|"
                         + "|_|",
 
-                          " _ "
+                " _ "
                         + "|_|"
                         + " _|"
         };
@@ -72,19 +72,19 @@ public class BankOcrTest {
     public void testGetKeyWhenScannedImageHasDifferentValues() {
         // given:
         String[] scannedImage = {
-                          " _ "
+                " _ "
                         + "| |"
                         + "|_|",
 
-                          " _ "
+                " _ "
                         + "|_|"
                         + " _|",
 
-                        "Wrong number",
-                        "",
-                          " __"
-                        + "|__"
-                        + " __|"
+                "Wrong number",
+                "",
+                " _ "
+                        + "|_ "
+                        + " _|"
         };
 
         // when:
@@ -102,41 +102,41 @@ public class BankOcrTest {
     public void testValidateAccountWhenTheGivenAccountIsCorrect() {
         // given:
         String[] scannedImage = {
-                          "__ "
+                "__ "
                         + " _|"
                         + "__|",
 
-                          "   "
+                "   "
                         + "|_|"
                         + "  |",
 
-                          " __"
-                        + "|__"
-                        + " __|",
+                " _ "
+                        + "|_ "
+                        + " _|",
 
-                          " _ "
+                " _ "
                         + "|_|"
                         + "|_|",
 
-                          " _ "
+                " _ "
                         + "|_|"
                         + "|_|",
 
-                          " _ "
+                " _ "
                         + " _|"
                         + "|_ ",
 
-                          " _ "
+                " _ "
                         + "|_|"
                         + "|_|",
 
-                          " __"
-                        + "|__"
-                        + "|__|",
+                " _ "
+                        + "|_ "
+                        + "|_|",
 
-                          " __"
-                        + "|__"
-                        + " __|",
+                " _ "
+                        + "|_ "
+                        + " _|",
         };
         String correctAccount = BankOcr.accountRepresentation(scannedImage);
 
@@ -147,6 +147,7 @@ public class BankOcrTest {
         assertTrue(actualResult);
 
     }
+
     /**
      * Test if the scanned account is an incorrect one.
      */
@@ -154,19 +155,19 @@ public class BankOcrTest {
     public void testValidateAccountWhenTheGivenAccountIsIncorrect() {
         // given:
         String[] scannedImage = {
-                          "   "
+                "   "
                         + "|_|"
                         + "  |",
 
-                          " __"
-                        + "|__"
-                        + " __|",
+                " _ "
+                        + "|_ "
+                        + " _|",
 
-                          " __"
-                        + "|__"
-                        + "|__|",
+                " _ "
+                        + "|_ "
+                        + "|_|",
 
-                          "__ "
+                "__ "
                         + "  |"
                         + "  |",
 
@@ -179,6 +180,7 @@ public class BankOcrTest {
         // then:
         assertTrue(!actualResult);
     }
+
     /**
      * Test if the status of a correct account is "".
      */
@@ -224,6 +226,47 @@ public class BankOcrTest {
 
         // then:
         String expectedResult = "ILL";
+        assertEquals(expectedResult, actualResult);
+    }
+
+    /**
+     * Test if a scanned account has the incorrect number of digits.
+     */
+    @Test
+    public void testParseScannedNumberWithIncorrectNumberOfDigits() {
+        //given:
+        String scannedString =
+                " _ "
+                        + "| |"
+                        + "|_|";
+        String[] accountArray = BankOcr.parseScannedNumbers(scannedString);
+
+        // when:
+        String actualResult = BankOcr.accountRepresentation(accountArray);
+
+        // then:
+        String expectedResult = "??????????";
+        assertEquals(expectedResult, actualResult);
+    }
+
+    /**
+     * Test if a scanned account with nine digits is parsed correctly.
+     */
+    @Test
+    public void testParseScannedNumbersWithNineDigits() {
+        // given:
+        String scannedString =
+          "__     _  _  _  _  _  _  _ "
+        + " _||_||_ |_||_| _||_||_ |_ "
+        + "__|  | _||_||_||_ |_||_| _|";
+
+        String[] accountArray = BankOcr.parseScannedNumbers(scannedString);
+
+        // when:
+        String actualResult = BankOcr.accountRepresentation(accountArray);
+
+        // then:
+        String expectedResult = "345882865";
         assertEquals(expectedResult, actualResult);
     }
 }
