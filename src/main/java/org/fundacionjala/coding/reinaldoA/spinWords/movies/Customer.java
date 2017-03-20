@@ -1,4 +1,4 @@
-package org.fundacionjala.coding.reinaldoA.movies;
+package org.fundacionjala.coding.reinaldoA.spinWords.movies;
 
 import java.util.Enumeration;
 import java.util.Vector;
@@ -14,7 +14,7 @@ public class Customer {
      * @param nameCustomer String with words.
      *                     Constructor.
      */
-    public Customer(final String nameCustomer) {
+    Customer(final String nameCustomer) {
         this.nameCustomer = nameCustomer;
     }
 
@@ -37,21 +37,20 @@ public class Customer {
      */
     public String statement() {
         double totalAmount = 0;
+        StringBuffer result = new StringBuffer();
         int frequentRenterPoints = 0;
         Enumeration rentals = this.rentalsCustomer.elements();
-        String result = "Rental Record for " + getName() + "\n";
+        result.append("Rental Record for " + getName() + "\n");
         while (rentals.hasMoreElements()) {
             Rental each = (Rental) rentals.nextElement();
             frequentRenterPoints++;
             frequentRenterPoints += each.getFrequentRenterPoint();
-            result += "\t" + each.getMovie().getTitle() + "\t"
-                    + String.valueOf(each.eachMethod()) + "\n";
+            result.append("\t" + each.getMovie().getTitle() + "\t");
+            result.append(String.valueOf(each.eachMethod()) + "\n");
             totalAmount += each.eachMethod();
         }
-        result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
-        result += "You earned " + String.valueOf(frequentRenterPoints)
-                +
-                " frequent renter points";
-        return result;
+        result.append("Amount owed is " + String.valueOf(totalAmount) + "\n");
+        result.append("You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points");
+        return result.toString();
     }
 }

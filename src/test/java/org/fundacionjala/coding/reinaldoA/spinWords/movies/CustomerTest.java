@@ -1,4 +1,4 @@
-package org.fundacionjala.coding.reinaldoA.movies;
+package org.fundacionjala.coding.reinaldoA.spinWords.movies;
 
 import org.junit.Test;
 
@@ -12,7 +12,7 @@ public class CustomerTest {
      * Created testCase first.
      */
     @Test
-    public void statement() {
+    public void testSpinWordsWhenCustomeIsTest() {
         Customer customer = new Customer("Test");
         customer.addRental(new Rental(new Movie("The Revenant", 1), 2));
         customer.addRental(new Rental(new Movie("Terminator", 0), 2));

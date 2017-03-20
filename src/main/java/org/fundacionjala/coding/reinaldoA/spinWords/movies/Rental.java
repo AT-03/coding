@@ -1,4 +1,4 @@
-package org.fundacionjala.coding.reinaldoA.movies;
+package org.fundacionjala.coding.reinaldoA.spinWords.movies;
 
 /**
  * Created by reinaldo on 11/03/2017.
@@ -11,7 +11,7 @@ class Rental {
      * @param movie      Movie.
      * @param daysRented DaysRented.
      */
-    public Rental(final Movie movie, final int daysRented) {
+    Rental(final Movie movie, final int daysRented) {
         this.movie = movie;
         this.daysRented = daysRented;
     }

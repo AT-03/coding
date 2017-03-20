@@ -1,4 +1,4 @@
-package org.fundacionjala.coding.reinaldoA.movies;
+package org.fundacionjala.coding.reinaldoA.spinWords.movies;
 
 /**
  * This is the class Movie.
@@ -21,7 +21,7 @@ class Movie {
      * @param priceCode String with words.
      *                  Constructor.
      */
-    public Movie(final String title, final int priceCode) {
+    Movie(final String title, final int priceCode) {
         this.title = title;
         this.priceCode = priceCode;
     }
