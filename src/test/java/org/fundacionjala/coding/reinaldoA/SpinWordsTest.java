@@ -1,8 +1,12 @@
-package org.fundacionjala.coding.carlos;
+package org.fundacionjala.coding.reinaldoA;
 
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+/**
+ * Created by reinaldo on 06/03/2017.
+ */
+
 
 /**
  * Tests for {@link SpinWords}.
@@ -58,7 +62,7 @@ public class SpinWordsTest {
     }
 
     /**
-     * Test when sentence has one just word.
+     * Test when sentence has  one just word rey.
      */
     @Test
     public void testSpinWordsWhenSentenceHasOneWord() {

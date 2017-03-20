@@ -1,4 +1,4 @@
-package org.fundacionjala.coding.reinaldoA.spinWords;
+package org.fundacionjala.coding.reinaldoA;
 
 /**
  * Write a function that takes in a string of one or more words, and returns the same string,
@@ -19,6 +19,7 @@ public final class SpinWords {
     }
 
     /**
+     *
      * @param sentence String with words.
      * @return the same string, but with all five or more letter words reversed.
      */
@@ -31,4 +32,6 @@ public final class SpinWords {
         }
         return spinWords.toString().trim();
     }
+
 }
+
