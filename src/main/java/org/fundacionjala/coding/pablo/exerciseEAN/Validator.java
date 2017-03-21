@@ -1,10 +1,9 @@
-package org.fundacionjala.coding.pablo.validator;
+package org.fundacionjala.coding.pablo.exerciseEAN;
 
 /**
  * Created by Administrator on 3/21/2017.
  */
-public final class Validator {
-
+public class Validator {
     public static final int DIGIT_MULTIPLIER = 3;
     public static final int NUMBER_DIVISIBILITY = 10;
 
