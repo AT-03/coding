@@ -3,7 +3,7 @@ package org.fundacionjala.coding.pablo.Validator;
 /**
  * Created by Administrator on 3/21/2017.
  */
-public class Validator {
+public final class Validator {
     public static final int DIGIT_MULTIPLIER = 3;
     public static final int NUMBER_DIVISIBILITY = 10;
 

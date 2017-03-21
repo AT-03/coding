@@ -5,7 +5,7 @@ package org.fundacionjala.coding.pablo.ReverseWord;
  */
 public final class ReverseWord {
 
-    public static final int _MINIMAL_WORD = 5;
+    public static final int MINIMAL_WORD = 5;
 
     /**
      * Constructor.
@@ -29,7 +29,7 @@ public final class ReverseWord {
         String[] splitWord = reverseString.split(" ");
 
         for (int i = 0; i < splitWord.length; i++) {
-            splitWord[i] = (splitWord[i].length() >= _MINIMAL_WORD)
+            splitWord[i] = (splitWord[i].length() >= MINIMAL_WORD)
                     ? new StringBuilder(splitWord[i]).reverse().toString() : splitWord[i].toString();
         }
 
