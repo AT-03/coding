@@ -5,7 +5,7 @@ package org.fundacionjala.coding.pablo.Validator;
  */
 public class Validator {
     public static final int DIGIT_MULTIPLIER = 3;
-    public static final int NUMBER_DIVISIBILITY = 10;
+    public static final int NUMBER_DVISIBILITY = 10;
 
     /**
      * Constructor.
