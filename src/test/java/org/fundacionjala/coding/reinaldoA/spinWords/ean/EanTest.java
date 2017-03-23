@@ -19,7 +19,7 @@ public class EanTest {
         final String sentence = "4003301018398";
 
         // when:
-        final boolean actualResult = Ean.validate(sentence);
+        final boolean actualResult = Ean.checksumValidate(sentence);
 
         // then:
         final boolean expectedResult = true;
@@ -35,7 +35,7 @@ public class EanTest {
         final String eanStringNumber = "4003301018392";
 
         // when:
-        final boolean actualResult = Ean.validate(eanStringNumber);
+        final boolean actualResult = Ean.checksumValidate(eanStringNumber);
 
         // then:
         final boolean expectedResult = false;

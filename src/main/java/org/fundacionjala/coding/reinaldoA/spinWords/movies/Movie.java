@@ -1,82 +1,39 @@
 package org.fundacionjala.coding.reinaldoA.spinWords.movies;
 
 /**
- * This is the class Movie.
+ * Created by Administrator on 3/21/2017.
  */
-class Movie {
-    public static final int CHILDRENS = 2;
-    public static final int REGULAR = 0;
-    public static final int NEW_RELEASE = 1;
-
-
-    private static final int LIMITREGULAR = 2;
-    private static final int LIMITNEWCHILD = 3;
-    private static final double PRICE = 1.5;
-
+public abstract class Movie {
     private String title;
-    private int priceCode;
 
     /**
-     * @param title     String with words.
-     * @param priceCode String with words.
-     *                  Constructor.
+     * This is the constructor of Movie class.
+     * @param title String with title for Movie movie.
      */
-    Movie(final String title, final int priceCode) {
+    public Movie(final String title) {
         this.title = title;
-        this.priceCode = priceCode;
     }
 
     /**
-     * @return the pricecode
-     * Method .
+     * This is an abstract method.
+     * @param daysRented int with daysRented.
+     * @return calculateAmount movie
      */
-    public int getPriceCode() {
-        return this.priceCode;
-    }
+    public abstract double calculateAmount(final int daysRented);
 
     /**
-     * @param arg the pricecode
-     *            Method .
+     * This is an abstract method.
+     * @param daysRented int with daysRented.
+     * @return calculateFrequentRenterPoints movie
      */
-    public void setPriceCode(final int arg) {
-        this.priceCode = arg;
-    }
+    public abstract int calculateFrequentRenterPoints(final int daysRented);
 
     /**
-     * @return the title
-     * Method .
+     * This is an abstract method.
+     * @return getTitle movie.
+     *
      */
     public String getTitle() {
-        return this.title;
-    }
-
-    /**
-     * @param daysRented this parameter
-     * @return the daysRented
-     * Method .
-     */
-    public double thisAmount(final int daysRented) {
-        double resultado = 0;
-        switch (getPriceCode()) {
-            case Movie.REGULAR:
-                resultado += LIMITREGULAR;
-                if (daysRented > LIMITREGULAR) {
-                    resultado += (daysRented - LIMITREGULAR) * PRICE;
-                }
-                break;
-            case Movie.NEW_RELEASE:
-                resultado += daysRented * LIMITNEWCHILD;
-                break;
-            case Movie.CHILDRENS:
-                resultado += PRICE;
-                if (daysRented > LIMITNEWCHILD) {
-                    resultado += (daysRented - LIMITNEWCHILD) * PRICE;
-                }
-                break;
-            default:
-                throw new NullPointerException("Price incorrect");
-
-        }
-        return resultado;
+        return title;
     }
 }

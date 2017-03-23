@@ -33,17 +33,15 @@ class Rental {
     /**
      * @return price object.
      */
-    public double eachMethod() {
-        return getMovie().thisAmount(this.daysRented);
+    public double calculateAmount() {
+        return movie.calculateAmount(daysRented);
     }
 
     /**
-     * @return getFrequentRenterPoint int.
+     * @return calculateFrequentRenterPoint int.
      */
-    public int getFrequentRenterPoint() {
-        return ((getMovie().getPriceCode() == Movie.NEW_RELEASE)
-                &&
-                getDaysRented() > 1) ? 2 : 1;
+    public int calculateFrequentRenterPoint() {
+        return movie.calculateFrequentRenterPoints(daysRented);
     }
 }
 

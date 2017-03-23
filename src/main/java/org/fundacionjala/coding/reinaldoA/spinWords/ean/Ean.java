@@ -1,5 +1,7 @@
 package org.fundacionjala.coding.reinaldoA.spinWords.ean;
 
+
+
 /**
  * Created by reinaldo on 12/03/2017.
  */
@@ -17,15 +19,14 @@ public final class Ean {
     }
 
     /**
-     * @param datoEa validate checksum.
+     * @param sentence validate checksum.
      * @return boolean is checksum.
      */
-    public static boolean validate(final String datoEa) {
-
-        int comparation = Integer.parseInt(datoEa.substring(datoEa.length() - 1));
-        for (int dato = 0; dato < datoEa.length() - 1; dato++) {
-            int datoint = Integer.parseInt(datoEa.substring(dato, dato + 1));
-            sum += (dato % 2) != 0 ? datoint * ODD_DIGIT_MULTIPLIER : datoint;
+    public static boolean checksumValidate(final String sentence) {
+        int comparation = Integer.parseInt(sentence.substring(sentence.length() - 1));
+        for (int iterator = 0; iterator < sentence.length() - 1; iterator++) {
+            int datoint = Integer.parseInt(sentence.substring(iterator, iterator + 1));
+            sum += (iterator % 2) != 0 ? datoint * ODD_DIGIT_MULTIPLIER : datoint;
         }
         return (sum % DIVISIBILITY_FACTOR != 0 ? DIVISIBILITY_FACTOR - (sum % DIVISIBILITY_FACTOR) : 0) == comparation;
     }
