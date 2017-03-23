@@ -1,4 +1,5 @@
 package org.fundacionjala.coding.Fernando.CheckSum;
+
 /**
  * Write a description of class CheckSum here.
  *
@@ -6,52 +7,61 @@ package org.fundacionjala.coding.Fernando.CheckSum;
  * @version (a version number or a date)
  */
 public class CheckSum {
-   static final int TRES = 3;
-   static final int UNO = 1;
-   static final int DIEZ = 10;
-   static final int DOS = 2;
-   static final int OCHO = 8;
+    static final int TRES = 3;
+    static final int UNO = 1;
+    static final int DIEZ = 10;
+    static final int DOS = 2;
+    static final int OCHO = 8;
+
     /**
      * constructor.
      */
     public CheckSum() {
 
     }
+
     /**
-     * @param valor parametro
-     *@return boolean retorna un booleano
+     * @param valor parametro.
+     * @return boolean retorna un booleano.
      */
     public boolean canValores(final String valor) {
-        return canValores(valor, 0);
+        return canValores(valor, 1);
     }
+
     /**
-     * @param valor parametro
-     * @param aux parametro
-     *@return boolean retorna un booleano
+     * @param valor parametro.
+     * @param pos   parametro.
+     * @return boolean retorna un booleano.
      */
 
-    private boolean canValores(final String valor, final int aux) {
+    private boolean canValores(final String valor, final int pos) {
         int res = 0;
-        while (aux < valor.length()) {
-            int aux1 = (int) valor.charAt(aux);
+        int sum = 0;
+        int res1 = 0;
+        if (pos < valor.length()) {
+            int aux1 = (int) valor.charAt(pos - 1);
 
-            if (aux1 % DOS == 0) {
+            if (pos % 2 == 0) {
                 res = res + aux1 * TRES;
 
+            } else {
+                res1 = res + aux1 * 1;
             }
-                res = res + aux1 * UNO;
 
-            canValores(valor, aux + 1);
+            canValores(valor, pos + 1);
 
         }
-
-        if (DIEZ - (res % DIEZ) == OCHO) {
-            return true;
-        }
-            return false;
-
-
+        sum = res + res1;
+        boolean numValido = numeroValido(sum);
+        return numValido;
     }
 
+    /**
+     * @param sum parametro.
+     * @return boolean retorna un booleano.
+     */
+    public boolean numeroValido(final int sum) {
+        return (DIEZ - (sum % DIEZ) == OCHO) ? true : false;
+    }
 
 }
