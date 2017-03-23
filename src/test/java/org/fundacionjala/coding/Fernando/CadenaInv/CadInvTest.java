@@ -1,75 +1,65 @@
 package org.fundacionjala.coding.Fernando.CadenaInv;
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
 /**
- * @author Administrator
+ * The test class CadInvTest.
+ *
+ * @author (your name)
+ * @version (a version number or a date)
  */
 public class CadInvTest {
-
     /**
-     * testWhenSentenceHasNoString Administrator.
+     * Test when sentence is empty.
      */
     @Test
-    public void testWhenSentenceHasNoString() {
-        CadInv ejercicio = new CadInv();
+    public void testWhenSentenceIsEmpty() {
+        CadInv cadI = new CadInv();
         // given:
-        final String sentence = " ";
+        final String sentence = "";
 
         // when:
-        final String actualResult = ejercicio.cadenaInv(sentence);
+        final String actualResult = cadI.cadenaInv(sentence);
 
         // then:
-        final String expectedResult = null;
+        final String expectedResult = "";
         assertEquals(expectedResult, actualResult);
     }
+
     /**
-     *  testWhenSentenceHasNoWorksMajorToFive Administrator.
+     * Test when sentence has no words major to five.
      */
     @Test
-    public void testWhenSentenceHasNoWorksMajorToFive() {
-        CadInv ejercicio = new CadInv();
+    public void testWhenSentenceHasNoWordsMajorToFive() {
+        CadInv cadI = new CadInv();
         //Hey fellow warriors
         // give:
         final String sentence = "Hi guys how are you";
 
         // when:
-        final String actualResult = ejercicio.cadenaInv(sentence);
+        final String actualResult = cadI.cadenaInv(sentence);
 
         // then:
-        final String expectedResult = "hi guys how are you";
+        final String expectedResult = "Hi guys how are you";
         assertEquals(expectedResult, actualResult);
     }
 
     /**
-     *  testWhenSentenceHasNoWorksMajorToFive Administrator.
+     * Test when sentence has more than one word major that five.
      */
     @Test
     public void testWhenSentenceHasMoreThanOneWordMajorThatFive() {
-        CadInv ejercicio = new CadInv();
+        CadInv cadI = new CadInv();
         // give:
         final String sentence = "Hey fellow warriors";
 
         // when:
-        final String actualResult = ejercicio.cadenaInv(sentence);
+        final String actualResult = cadI.cadenaInv(sentence);
 
         // then:
         final String expectedResult = "Hey wollef sroirraw";
         assertEquals(expectedResult, actualResult);
     }
-
-
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
 }
