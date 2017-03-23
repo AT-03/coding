@@ -35,8 +35,7 @@ public final class Kata1 {
      * @return String with the word reversed
      */
     public static String reverse(final String word) {
-        StringBuilder builder = new StringBuilder(word);
-        return builder.reverse().toString();
+        return new StringBuilder(word).reverse().toString();
     }
 
     /**

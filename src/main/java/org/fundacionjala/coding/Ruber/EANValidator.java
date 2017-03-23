@@ -27,16 +27,9 @@ public final class EANValidator {
             suma += i % 2 == 0 ? numbers[i] * PAR : numbers[i] * IMPAR;
         }
 
-        if (suma % DIVISOR == 0) {
-            suma = 0;
-        } else {
-            suma = DIVISOR - (suma % DIVISOR);
-        }
+        suma = suma % DIVISOR == 0 ? 0 : DIVISOR - (suma % DIVISOR);
 
-        if (suma == numbers[numbers.length - 1]) {
-            return true;
-        }
-        return false;
+        return suma == numbers[numbers.length - 1];
     }
 
     /**

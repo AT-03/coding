@@ -38,7 +38,7 @@ public class AccountNumbersTest {
         };
 
         // when
-        final String actualResult = AccountNumbers.validate(numbersRead);
+        final String actualResult = AccountNumbers.validate(AccountNumbers.convert(numbersRead));
 
         // then
         final String expectedResult = "345882865";
@@ -71,7 +71,7 @@ public class AccountNumbersTest {
         };
 
         // when
-        final String actualResult = AccountNumbers.validate(numbersRead);
+        final String actualResult = AccountNumbers.validate(AccountNumbers.convert(numbersRead));
 
         // then
         final String expectedResult = "";
@@ -106,7 +106,7 @@ public class AccountNumbersTest {
         };
 
         // when
-        final String actualResult = AccountNumbers.validate(numbersRead);
+        final String actualResult = AccountNumbers.validate(AccountNumbers.convert(numbersRead));
 
         // then
         final String expectedResult = "3?5682?65 ILL";
@@ -141,7 +141,7 @@ public class AccountNumbersTest {
         };
 
         // when
-        final String actualResult = AccountNumbers.validate(numbersRead);
+        final String actualResult = AccountNumbers.validate(AccountNumbers.convert(numbersRead));
 
         // then
         final String expectedResult = "345882866 ERR";
