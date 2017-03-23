@@ -3,37 +3,15 @@ package org.fundacionjala.coding.Ruber.movies;
 /**
  * Class Movie.
  */
-public class Movie {
-    public static final int CHILDRENS = 2;
-    public static final int REGULAR = 0;
-    public static final int NEW_RELEASE = 1;
+public abstract class Movie {
     private final String title;
-    private int priceCode;
 
     /**
      * Constructor.
      * @param title The movie's name
-     * @param priceCode The movie's price code
      */
-    public Movie(final String title, final int priceCode) {
+    public Movie(final String title) {
         this.title = title;
-        this.priceCode = priceCode;
-    }
-
-    /**
-     * To get price code from movie.
-     * @return int with the price
-     */
-    public int getPriceCode() {
-        return priceCode;
-    }
-
-    /**
-     * To set price code for movie.
-     * @param arg The new code
-     */
-    public void setPriceCode(final int arg) {
-        priceCode = arg;
     }
 
     /**
@@ -43,4 +21,18 @@ public class Movie {
     public String getTitle() {
         return title;
     }
+
+    /**
+     * To get frequent renter points.
+     * @param dayRented Day's rented
+     * @return int Frequent rented points
+     */
+    public abstract int getFrequentRenterPoints(int dayRented);
+
+    /**
+     * To get Amount.
+     * @param dayRented days rented
+     * @return double containing amount
+     */
+    public abstract double getAmount(int dayRented);
 }

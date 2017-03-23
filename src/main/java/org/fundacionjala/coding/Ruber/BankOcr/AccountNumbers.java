@@ -12,7 +12,7 @@ public final class AccountNumbers {
     public static final int MULTIPLY = 9;
     public static final int ACCOUNT_LENGTH = 9;
     public static final int DIV_CHECKSUM = 11;
-    private static Map<String, String> numbers = new HashMap<>();
+    private static final Map<String, String> NUMBERS = new HashMap<>();
 
     /**
      * Constructor.
@@ -21,34 +21,34 @@ public final class AccountNumbers {
     }
 
     static {
-        numbers.put("   "
+        NUMBERS.put("   "
                 + "  |"
                 + "  |", "1");
-        numbers.put(" _ "
+        NUMBERS.put(" _ "
                 + " _| "
                 + "|_ ", "2");
-        numbers.put(" _ "
+        NUMBERS.put(" _ "
                 + " _|"
                 + " _|", "3");
-        numbers.put("   "
+        NUMBERS.put("   "
                 + "|_|"
                 + "  |", "4");
-        numbers.put(" _ "
+        NUMBERS.put(" _ "
                 + "|_ "
                 + " _|", "5");
-        numbers.put(" _ "
+        NUMBERS.put(" _ "
                 + "|_ "
                 + "|_|", "6");
-        numbers.put(" _ "
+        NUMBERS.put(" _ "
                 + "  |"
                 + "  |", "7");
-        numbers.put(" _ "
+        NUMBERS.put(" _ "
                 + "|_|"
                 + "|_|", "8");
-        numbers.put(" _ "
+        NUMBERS.put(" _ "
                 + "|_|"
                 + " _|", "9");
-        numbers.put(" _ "
+        NUMBERS.put(" _ "
                 + "| |"
                 + "|_|", "0");
     }
@@ -60,7 +60,7 @@ public final class AccountNumbers {
      */
     public static String exists(final String entry) {
         String value = "?";
-        for (Map.Entry<String, String> num : numbers.entrySet()) {
+        for (Map.Entry<String, String> num : NUMBERS.entrySet()) {
             if (num.getKey().equals(entry)) {
                 value = num.getValue();
             }
@@ -97,10 +97,10 @@ public final class AccountNumbers {
      * @param account The account's to validate
      * @return boolean with the validation
      */
-    public static boolean validAccount(final String account) {
+    public static boolean validAccount(final StringBuffer account) {
         int checksum = 0;
         int multi = MULTIPLY;
-        char[] charArray = account.toCharArray();
+        char[] charArray = account.toString().toCharArray();
         for (char num : charArray) {
             int number = Integer.parseInt(String.valueOf(num)) * multi;
             checksum += number;
@@ -112,13 +112,13 @@ public final class AccountNumbers {
     /**
      * This method validate if the account is valid for checksum or if
      * it has an invalid number.
-     * @param numbersRead The account's string to validate
+     * @param number The account's string to validate
      * @return String with validation
      */
-    public static String validate(final String [] numbersRead) {
-        String number = convert(numbersRead).toString();
+    public static String validate(final StringBuffer number) {
+        //String number = convert(numbersRead).toString();
         String result = "";
-        if (number.contains("?")) {
+        if (number.toString().contains("?")) {
                 result = " ILL";
             } else {
             if (!validAccount(number)) {

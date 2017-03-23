@@ -3,7 +3,7 @@ package org.fundacionjala.coding.Ruber.movies;
 /**
  * Class Rental.
  */
-class Rental {
+public class Rental {
     private final Movie movie;
     private final int daysRented;
 
