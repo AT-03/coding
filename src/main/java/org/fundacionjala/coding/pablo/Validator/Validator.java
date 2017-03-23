@@ -1,7 +1,11 @@
 package org.fundacionjala.coding.pablo.Validator;
 
 /**
+<<<<<<< HEAD
  * Created by PABLO on 3/21/2017.
+=======
+ * Created by Administrator on 3/21/2017.
+>>>>>>> origin/develop
  */
 public final class Validator {
     public static final int DIGIT_MULTIPLIER = 3;

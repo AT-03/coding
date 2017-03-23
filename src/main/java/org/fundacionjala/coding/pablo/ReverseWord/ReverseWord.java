@@ -1,9 +1,16 @@
 package org.fundacionjala.coding.pablo.ReverseWord;
 
 /**
+<<<<<<< HEAD
  * Created by PABLO on 3/20/2017.
  */
 public final class ReverseWord {
+=======
+ * Created by Administrator on 3/14/2017.
+ */
+public final class ReverseWord {
+
+>>>>>>> origin/develop
     public static final int MINIMAL_WORD = 5;
 
     /**
