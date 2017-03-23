@@ -1,62 +1,48 @@
 package org.fundacionjala.coding.Fernando.CadenaInv;
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates.
- * and open the template in the editor.
- */
 
 /**
- * @author Administrator
+ * Write a description of class CadInv here.
+ *
+ * @author (your name)
+ * @version (a version number or a date)
  */
-public class CadInv {
-    static final int VAR = 5;
+public final class CadInv {
+    static final int CANTMAYOR = 5;
 
     /**
-     * @param string ingresamos un string.
-     * @return String devuelve una string.
+     * Constructor.
+     */
+    public CadInv() {
+
+    }
+
+    /**
+     * @param string param.
+     * @return String param.
      */
     public String cadenaInv(final String string) {
         String[] parts = string.split(" ");
-        return cadenaInv(parts, 0, 0, 0);
+        return cadenaInv(parts, 0);
     }
 
     /**
-     * @param parts parametro
-     * @param pos   parametro
-     * @param posstring parametro
-     * @param cant parametro
-     * @return String Aumentamos parametros al metodo.
+     * @param parts param.
+     * @param pos   param.
+     * @return String param.
      */
-    private String cadenaInv(final String[] parts, final int pos, final int posstring, final int cant) {
-        String res = null;
+    private String cadenaInv(final String[] parts, final int pos) {
+
         if (pos < parts.length) {
-            String aux = parts[pos];
-            if (posstring < aux.length()) {
-                return cadenaInv(parts, 0, 1, cant + 1);
+            String palabra = parts[pos];
+            if (palabra.length() > CANTMAYOR) {
+                StringBuilder sb = new StringBuilder(parts[pos]);
+                parts[pos] = sb.reverse().toString();
             }
-            if (cant > VAR) {
-                String aux2 = invertir(aux);
-                res = res + aux2;
-            } else {
-                return cadenaInv(parts, pos + 1, 0, 0);
-
-            }
-            return cadenaInv(parts, 0, posstring + 1, 0);
+            return cadenaInv(parts, pos + 1);
 
         }
-        return res;
-    }
+        return String.join(" ", parts);
 
-    /**
-     * @param aux parametro
-     * @return String Inv the String.
-     */
-    public String invertir(final String aux) {
-        String res = null;
-        for (int x = aux.length() - 1; x >= 0; x--) {
-            res = res + aux.charAt(x);
-        }
-        return res;
     }
 
 }
