@@ -28,5 +28,4 @@ public class ReverseWordTest {
         assertEquals(expectedResult, actualResult);
 
     }
-
 }

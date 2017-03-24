@@ -24,7 +24,7 @@ public class ChildrenTest {
 
         //then
         final double expectedResult = 1.5;
-        assertEquals(0, expectedResult, actualResult);
+        assertEquals(0,expectedResult, actualResult);
     }
 
     /**
@@ -42,7 +42,6 @@ public class ChildrenTest {
 
         //then
         final double expectedResult = 4.5;
-        assertEquals(0, expectedResult,actualResult);
+        assertEquals(0,expectedResult,actualResult);
     }
-
 }

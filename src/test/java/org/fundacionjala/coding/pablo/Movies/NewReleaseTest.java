@@ -44,5 +44,4 @@ public class NewReleaseTest {
         final double expectedResult = 15;
         assertEquals(0, expectedResult,actualResult);
     }
-
 }
