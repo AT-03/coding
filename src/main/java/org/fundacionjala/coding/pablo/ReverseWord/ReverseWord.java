@@ -22,7 +22,7 @@ public final class ReverseWord {
     /**
      *
      * @param reverseString Message String of one or more words.
-     * @return String with inverted words and words without inverting.
+     * @return String inverted words and words without inverting.
      */
 
     public static String reverseWord(final String reverseString) {
