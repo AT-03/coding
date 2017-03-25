@@ -23,8 +23,11 @@ public class CheckSum {
     /**
      * @param valor parametro.
      * @return boolean retorna un booleano.
+     * @CheckReturnValue valor.
      */
+
     public boolean canValores(final String valor) {
+
         return canValores(valor, 1);
     }
 
@@ -32,8 +35,9 @@ public class CheckSum {
      * @param valor parametro.
      * @param pos   parametro.
      * @return boolean retorna un booleano.
+     * @CheckReturnValue valor.
      */
-
+    @CheckReturnValue
     private boolean canValores(final String valor, final int pos) {
         int res = 0;
         int sum = 0;
