@@ -39,12 +39,12 @@ public class chechsum {
     {
      int res=0;
         
-    for(int x=0;x<check.size();x++)
-    {
-        if((x%2)==0)
-            res+=check.get(x);
-       else
-            res+=check.get(x)*3;
+        for(int x=0;x<check.size();x++)
+         {
+            if((x%2)==0)
+                res+=check.get(x);
+            else
+                res+=check.get(x)*3;
     }
     
     return res;
