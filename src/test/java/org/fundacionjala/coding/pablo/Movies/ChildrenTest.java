@@ -24,11 +24,11 @@ public class ChildrenTest {
 
         //then
         final double expectedResult = 1.5;
-        assertEquals(0,expectedResult, actualResult);
+        assertEquals(0, expectedResult, actualResult);
     }
 
     /**
-     * Test for calculate Rented Days Greater Than .3
+     * Test for calculate Rented Days Greater Than 3.
      */
 
     @Test
@@ -42,6 +42,6 @@ public class ChildrenTest {
 
         //then
         final double expectedResult = 4.5;
-        assertEquals(0,expectedResult,actualResult);
+        assertEquals(0, expectedResult, actualResult);
     }
 }

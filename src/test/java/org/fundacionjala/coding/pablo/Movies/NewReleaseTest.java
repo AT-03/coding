@@ -28,7 +28,7 @@ public class NewReleaseTest {
     }
 
     /**
-     * Test for calculate Rented Days Greater Than .3
+     * Test for calculate Rented Days Greater Than 3.
      */
 
     @Test
@@ -42,6 +42,6 @@ public class NewReleaseTest {
 
         //then
         final double expectedResult = 15;
-        assertEquals(0, expectedResult,actualResult);
+        assertEquals(0, expectedResult, actualResult);
     }
 }

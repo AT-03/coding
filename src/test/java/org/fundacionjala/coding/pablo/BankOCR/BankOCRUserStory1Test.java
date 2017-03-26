@@ -7,14 +7,14 @@ import static org.junit.Assert.assertEquals;
 /**
  * Created by Administrator on 3/23/2017.
  */
-public class BankOCRUserStory1Test {
+public abstract class BankOCRUserStory1Test {
 
     /**
      * Test about BankOCR User Story 1.
      */
 
     @Test
-    public void validatorEANIfStringNumberHasEqualsTO13() {
+    public void verifyNumberScannerCorrect() {
 
         //given
         final String[] numberScanned = {
@@ -64,6 +64,60 @@ public class BankOCRUserStory1Test {
 
         //then
         final String expectedResult = "0123456789";
+        assertEquals(expectedResult, actualResult);
+    }
+
+    /**
+     * Test verify number scanner incorrect.
+     */
+
+    @Test
+    public void verifyNumberScannerIncorrect() {
+
+        //given
+        final String[] numberScanned = {
+                " _ "
+                        + "  _|"
+                        + "  |",
+
+                " _ "
+                        + "  |"
+                        + "  |",
+
+                " _ "
+                        + "| |"
+                        + "|_|",
+
+                "   "
+                        + "|_|"
+                        + "  |",
+
+                "   "
+                        + "  |"
+                        + "  |",
+
+                "   "
+                        + "|_|"
+                        + "  |",
+
+                " _ "
+                        + "|_|"
+                        + " _|",
+
+                " _ "
+                        + "|_|"
+                        + "|_|",
+
+                " _ "
+                        + "|_|"
+                        + " _|"
+        };
+
+        //when
+        final String actualResult = BankOCRUserStory1.numberConvertedToString(numberScanned);
+
+        //then
+        final String expectedResult = "?70414989";
         assertEquals(expectedResult, actualResult);
     }
 }
