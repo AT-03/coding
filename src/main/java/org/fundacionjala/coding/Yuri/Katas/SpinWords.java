@@ -46,7 +46,6 @@ public class SpinWords {
      * @return the string reverted
      */
     public String reverseWord(final String word) {
-        StringBuilder builder = new StringBuilder(word);
-        return builder.reverse().toString();
+        return new StringBuilder(word).reverse().toString();
     }
 }

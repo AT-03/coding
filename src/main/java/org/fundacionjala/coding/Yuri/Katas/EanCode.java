@@ -49,24 +49,13 @@ public class EanCode {
         }
         return result;
     }
-
-    /**
-     * this method helps to retrieve the length number.
-     * @return the length number
-     */
-    public int getNumberSize() {
-        int numberSize = number.length();
-        return numberSize;
-    }
-
     /**
      * this method helps to retrieve a digit of the number according a position value.
      * @param position this is the position of the character to be retrieved
      * @return the digit
      */
     public int getSpecificDigit(final int position) {
-        int digit = Character.getNumericValue(number.charAt(position));
-        return digit;
+        return Character.getNumericValue(number.charAt(position));
     }
 
     /**

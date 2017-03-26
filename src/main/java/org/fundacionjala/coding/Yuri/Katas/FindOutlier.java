@@ -13,7 +13,6 @@ package org.fundacionjala.coding.Yuri.Katas;
  Should return: 160
  */
 public final class FindOutlier {
-    private static final int LIMIT_EVALUATE = 3;
     /**
      * Constructor method of the class.
      */
@@ -31,9 +30,10 @@ public final class FindOutlier {
             if (integers[i] % 2 != 0 && flag) {
                 liar = integers[i];
             } else {
+                if (integers[i] % 2 == 0 && !flag) {
                     liar = integers[i];
+                }
             }
-
         }
         return liar;
     }
@@ -46,7 +46,7 @@ public final class FindOutlier {
      */
      public static boolean isEven(final int[] integers) {
         int even = 0;
-        for (int i = 0; i < LIMIT_EVALUATE; i++) {
+        for (int i = 0; i < integers.length; i++) {
             if (integers[i] % 2 == 0) {
                 even++;
             }

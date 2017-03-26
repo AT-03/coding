@@ -3,7 +3,7 @@ package org.fundacionjala.coding.Yuri.Movie;
 /**
  * Created by YVayneR on 3/22/2017.
  */
-public class Renta {
+public class Rental {
     private Movie movie;
     private int daysRented;
     /**

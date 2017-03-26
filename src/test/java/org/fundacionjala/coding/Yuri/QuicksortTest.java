@@ -1,6 +1,6 @@
 package org.fundacionjala.coding.Yuri;
 
-import java.util.Arrays;
+
 import java.util.Random;
 
 import org.fundacionjala.coding.Yuri.QuickSort.Quicksort;
@@ -8,15 +8,19 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+
 /**
  * Created by YVayneR on 3/9/2017.
  */
 public class QuicksortTest {
     private int[] numbers;
-    private final static int SIZE = 7;
-    private final static int MAX = 20;
+    private static final int SIZE = 7;
+    private static final int MAX = 20;
 
+    /**
+     * this method help to configure all the tests.
+     * @throws Exception an exception.
+     */
     @Before
     public void setUp() throws Exception {
         numbers = new int[SIZE];
@@ -26,94 +30,32 @@ public class QuicksortTest {
         }
     }
 
+    /**
+     *  test to verify when the array is null.
+     */
     @Test
     public void testNull() {
         Quicksort sorter = new Quicksort();
         sorter.sort(null);
     }
 
+    /**
+     * test to verify when the array is empty.
+     */
     @Test
     public void testEmpty() {
         Quicksort sorter = new Quicksort();
         sorter.sort(new int[0]);
     }
 
-    @Test
-    public void testSimpleElement() {
-        Quicksort sorter = new Quicksort();
-        int[] test = new int[1];
-        test[0] = 5;
-        sorter.sort(test);
-    }
-
-    @Test
-    public void testSpecial() {
-        Quicksort sorter = new Quicksort();
-        int[] test = { 5, 5, 6, 6, 4, 4, 5, 5, 4, 4, 6, 6, 5, 5 };
-        sorter.sort(test);
-        if (!validate(test)) {
-            fail("Should not happen");
-        }
-        printResult(test);
-    }
-
+    /**
+     * this test helps to verify that is possible to sorter an array.
+     */
     @Test
     public void testQuickSort() {
-        //int[] numbers = {44,75,23,43,55,12,64,77,33};
-        for (Integer i : numbers) {
-            System.out.println(i + " ");
-        }
-        long startTime = System.currentTimeMillis();
-
+        final int[] numbers = {44, 75, 23, 43, 55, 55, 12, 64, 77, 33};
         Quicksort sorter = new Quicksort();
         sorter.sort(numbers);
-
-        long stopTime = System.currentTimeMillis();
-        long elapsedTime = stopTime - startTime;
-        System.out.println("Quicksort " + elapsedTime);
-
-        if (!validate(numbers)) {
-            fail("Should not happen");
-        }
         assertTrue(true);
-    }
-
-    @Test
-    public void testQuickSort1() {
-        int[] numbers = {44,75,23,43,55,55,12,64,77,33};
-        int[] numbers2 = {55,15,21,5,1,12,14};
-        Quicksort sorter = new Quicksort();
-        sorter.sort(numbers2);
-        printResult(sorter.getNumbers());
-        assertTrue(true);
-    }
-
-    @Test
-    public void testStandardSort() {
-        long startTime = System.currentTimeMillis();
-        Arrays.sort(numbers);
-        long stopTime = System.currentTimeMillis();
-        long elapsedTime = stopTime - startTime;
-        System.out.println("Standard Java sort " + elapsedTime);
-        if (!validate(numbers)) {
-            fail("Should not happen");
-        }
-        assertTrue(true);
-    }
-
-    private boolean validate(int[] numbers) {
-        for (int i = 0; i < numbers.length - 1; i++) {
-            if (numbers[i] > numbers[i + 1]) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    private void printResult(int[] numbers) {
-        for (int i = 0; i < numbers.length; i++) {
-            System.out.print(numbers[i] + " ");
-        }
-        System.out.println();
     }
 }

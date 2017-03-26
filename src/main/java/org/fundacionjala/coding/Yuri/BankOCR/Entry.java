@@ -1,6 +1,5 @@
 package org.fundacionjala.coding.Yuri.BankOCR;
 
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,6 +10,9 @@ public class Entry {
     private static final int NUMBER_SIZE = 9;
     private static final String ILLEGIBLE_NUMBER = "?";
     private static final int LINE_SIZE = 27;
+    private final String line1;
+    private final String line2;
+    private final String line3;
     public static final int INCREMENT = 3;
     private String[] numbers;
     private static final Map<String, String> MAP = new HashMap<>();
@@ -28,18 +30,27 @@ public class Entry {
     }
 
     /**
+     * Constructor Method.
+     * @param line1 the first line coded.
+     * @param line2 the second line coded.
+     * @param line3 the third line coded.
+     */
+    public Entry(final String line1, final String line2, final String line3) {
+        initializeArray();
+        this.line1 = line1;
+        this.line2 = line2;
+        this.line3 = line3;
+    }
+
+    /**
      *  This method helps to retrieve all the numbers that were sent on the three lines.
-     * @param line1 the first line coded
-     * @param line2 the second line coded
-     * @param line3 the third line coded
      * @return the array with all lines coded
      */
-    public String[] getNumbers(final String line1, final String line2, final String line3) {
-        initializeArray();
+    public String[] getNumbers() {
         if (validLengthLines(line1, line2, line3)) {
-            numbers = getValues(numbers, getCharacters(line1));
-            numbers = getValues(numbers, getCharacters(line2));
-            numbers = getValues(numbers, getCharacters(line3));
+            numbers = getValues(numbers, line1.split(""));
+            numbers = getValues(numbers, line2.split(""));
+            numbers = getValues(numbers, line3.split(""));
         }
         return numbers;
     }
@@ -70,19 +81,9 @@ public class Entry {
                 values[i] += row[accumulator];
                 accumulator++;
             }
-        }
             aux += INCREMENT;
-
+        }
         return values;
-    }
-
-    /**
-     * This method helps to divide a string.
-     * @param line the line encoded
-     * @return array filled with characters.
-     */
-    public String[] getCharacters(final String line) {
-        return line.split("");
     }
 
     /**
@@ -109,15 +110,16 @@ public class Entry {
      * @return the number decoded.
      */
     public String decodeValues() {
-        String numberDecoded = "";
+        getNumbers();
+        StringBuilder numberDecoded = new StringBuilder();
         for (int i = 0; i < numbers.length; i++) {
             if (MAP.get(numbers[i]) != null) {
-                numberDecoded += MAP.get(numbers[i]);
+                numberDecoded.append(MAP.get(numbers[i]));
             } else {
-                numberDecoded += ILLEGIBLE_NUMBER;
+                numberDecoded.append(ILLEGIBLE_NUMBER);
             }
         }
-        return numberDecoded;
+        return numberDecoded.toString();
     }
 
 }
