@@ -43,11 +43,19 @@ public class SolutionTest {
 
     @Test
     public void nullEmptyTests() {
-        assertEquals("input 'null' should return an empty array"
-                , 0, Solution.averages(null).length);
-        assertEquals("Empty array as input should return an empty array"
-                , 0, Solution.averages(new int[0]).length);
-        assertEquals("Array with only one value as input should return an empty array"
-                , 0, Solution.averages(new int[] {2}).length);
+        int[] nullEmpty1 = null;
+        int[] nullEmpty2 = new int[0];
+        int[] nullEmpty3 = new int[]{2};
+
+        // when
+        double[] actualArray1 = Solution.averages(nullEmpty1);
+        double[] actualArray2 = Solution.averages(nullEmpty2);
+        double[] actualArray3 = Solution.averages(nullEmpty3);
+
+        //final
+        int zero = 0;
+        assertEquals(zero, actualArray1.length);
+        assertEquals(zero, actualArray2.length);
+        assertEquals(zero, actualArray3.length);
     }
 }
