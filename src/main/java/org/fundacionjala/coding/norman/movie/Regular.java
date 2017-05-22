@@ -8,26 +8,30 @@ public class Regular extends Movie {
     private static final double PRICE = 1.5;
 
     private static final int LIMITREGULAR = 2;
+
     /**
      * Constructor regular.
+     *
      * @param title string title.
      */
     public Regular(final String title) {
         super(title);
     }
+
     /**
      * @param daysRented int days.
      * @return double of calculateAmount.
      */
     @Override
     public double calculateAmount(final int daysRented) {
-     //   double amount = LIMITREGULAR;
-      //  if (daysRented > LIMITREGULAR) {
+        //   double amount = LIMITREGULAR;
+        //  if (daysRented > LIMITREGULAR) {
         //    amount += (daysRented - LIMITREGULAR) * PRICE;
-       // }
-       // return amount;
-        return daysRented > LIMITREGULAR ? ((daysRented - LIMITREGULAR) * PRICE)+LIMITREGULAR : LIMITREGULAR ;
+        // }
+        // return amount;
+        return daysRented > LIMITREGULAR ? ((daysRented - LIMITREGULAR) * PRICE) + LIMITREGULAR : LIMITREGULAR;
     }
+
     /**
      * @return calculateFrequentRenterPoint int.
      */
