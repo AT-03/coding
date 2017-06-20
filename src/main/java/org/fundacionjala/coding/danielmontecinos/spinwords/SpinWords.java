@@ -1,5 +1,8 @@
 package org.fundacionjala.coding.danielmontecinos.spinwords;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 /**
  * Created by Daniel Montecinos on 3/10/2017.
  */
@@ -22,14 +25,8 @@ final class SpinWords {
      * @return the same String but with reversed words if its length is 5 or more.
      */
     static String spinWords(final String message) {
-        String[] spinMessage = message.split(" ");
-
-        for (int i = 0; i < spinMessage.length; i++) {
-            if (spinMessage[i].length() >= MINIMAL_WORD_LENGTH) {
-                spinMessage[i] = new StringBuilder(spinMessage[i]).reverse().toString();
-            }
-        }
-
-        return String.join(" ", spinMessage);
+        return Arrays.stream(message.split(" "))
+                .map(word -> word.length() >= MINIMAL_WORD_LENGTH ? new StringBuilder(word).reverse() : word)
+                .collect(Collectors.joining(" "));
     }
 }
