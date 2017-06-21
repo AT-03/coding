@@ -1,17 +1,13 @@
-package org.fundacionjala.coding.Ruber;
+package org.fundacionjala.coding.Ruber.movies;
 
-import org.fundacionjala.coding.Ruber.movies.Regular;
-import org.fundacionjala.coding.Ruber.movies.Childrens;
-import org.fundacionjala.coding.Ruber.movies.Release;
-import org.fundacionjala.coding.Ruber.movies.Customer;
-import org.fundacionjala.coding.Ruber.movies.Rental;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Created by Ruber Cuellar on 3/23/2017.
+ * Created by Ruber Cuellar on 6/21/2017.
  */
 public class CustomerTest {
+
     /**
      * Test Release and Regular.
      */
@@ -28,10 +24,10 @@ public class CustomerTest {
 
         // then
         final String expectedResult = "Rental Record for Ruber\n"
-                + "The Revenant\t6.0\n"
-                + "Terminator\t2.0\n"
-                + "Amount owed is 8.0\n"
-                + "You earned 3";
+            + "The Revenant\t6.0\n"
+            + "Terminator\t2.0\n"
+            + "Amount owed is 8.0\n"
+            + "You earned 3";
         /*final StringBuilder expectedResult =  new StringBuilder();
         expectedResult.append("Rental Record for Ruber\n"
                 + "The Revenant\t6.0\n"
@@ -61,11 +57,11 @@ public class CustomerTest {
 
         // then
         final String expectedResult = "Rental Record for Ruber\n"
-                + "The Revenant\t6.0\n"
-                + "Terminator\t2.0\n"
-                + "Cars\t1.5\n"
-                + "Amount owed is 9.5\n"
-                + "You earned 4";
+            + "The Revenant\t6.0\n"
+            + "Terminator\t2.0\n"
+            + "Cars\t1.5\n"
+            + "Amount owed is 9.5\n"
+            + "You earned 4";
 
         assertEquals(actualResult, expectedResult);
 
@@ -90,9 +86,9 @@ public class CustomerTest {
 
         // then
         final String expectedResult = "Rental Record for Ruber\n"
-                + "Terminator\t2.0\n"
-                + "Amount owed is 2.0\n"
-                + "You earned 1";
+            + "Terminator\t2.0\n"
+            + "Amount owed is 2.0\n"
+            + "You earned 1";
         assertEquals(actualResult, expectedResult);
 
         // Cleanup
@@ -113,9 +109,9 @@ public class CustomerTest {
 
         // then
         final String expectedResult = "Rental Record for Ruber\n"
-                + "Logan\t6.0\n"
-                + "Amount owed is 6.0\n"
-                + "You earned 2";
+            + "Logan\t6.0\n"
+            + "Amount owed is 6.0\n"
+            + "You earned 2";
         assertEquals(actualResult, expectedResult);
 
         // cleanup
@@ -136,9 +132,9 @@ public class CustomerTest {
 
         // then
         final String expectedResult = "Rental Record for Ruber\n"
-                + "Cars\t1.5\n"
-                + "Amount owed is 1.5\n"
-                + "You earned 1";
+            + "Cars\t1.5\n"
+            + "Amount owed is 1.5\n"
+            + "You earned 1";
         assertEquals(actualResult, expectedResult);
 
         // cleanup

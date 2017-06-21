@@ -2,13 +2,14 @@ package org.fundacionjala.coding.Ruber.movies;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Class Customer.
  */
 public class Customer {
     private final String name;
-    private static List<Rental> rentals = new ArrayList<Rental>();
+    private final List<Rental> rentals = new ArrayList<Rental>();
     private static final int REGULAR_AMOUNT = 2;
     private static final double CHILDRENS_AMOUNT = 1.5;
     private static final double NORMAL_FINE = 1.5;
@@ -53,12 +54,11 @@ public class Customer {
      * @return StringBuilder containing the result
      */
     public StringBuilder getResult() {
-        double totalAmount = 0;
         StringBuilder result = new StringBuilder();
         result.append("Rental Record for " + getName() + "\n");
         for (Rental ren : rentals) {
-            result.append(ren.getMovie().getTitle() + "\t"
-                    + String.valueOf(ren.getMovie().getAmount(ren.getDaysRented())) + "\n");
+            result.append(String.format("%s\t%s%s", ren.getMovie().getTitle(),
+                ren.getMovie().getAmount(ren.getDaysRented()), "\n"));
         }
         return result.append("Amount owed is " + String.valueOf(calculateAmount(rentals)) + "\n"
                 + "You earned " + String.valueOf(calculateFrequentRenterPoints(rentals)));
@@ -71,25 +71,18 @@ public class Customer {
      * @return double total amount
      */
     public double calculateAmount(final List<Rental> rentals) {
-        double thisAmount = 0;
-        for (Rental ren : rentals) {
-            thisAmount += ren.getMovie().getAmount(ren.getDaysRented());
-        }
-        return thisAmount;
+        return rentals.stream().collect(Collectors.summingDouble(i -> i.getMovie().
+            getAmount(i.getDaysRented())));
     }
 
     /**
      * This method retrieves the frequent renter points for rentals.
-     * @param rental The rental
+     * @param rentals The rentals
      * @return int the points
      */
-    public int calculateFrequentRenterPoints(final List<Rental> rental) {
-        int frequentRenterPoints = 0;
-        // add bonus for a two day new release rental
-        for (Rental each : rental) {
-            frequentRenterPoints += each.getMovie().getFrequentRenterPoints(each.getDaysRented());
-        }
-        return frequentRenterPoints;
+    public int calculateFrequentRenterPoints(final List<Rental> rentals) {
+        return rentals.stream().collect(Collectors.summingInt(i -> i.getMovie().
+            getFrequentRenterPoints(i.getDaysRented())));
     }
 
     /**
