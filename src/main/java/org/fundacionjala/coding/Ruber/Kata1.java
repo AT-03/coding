@@ -21,24 +21,6 @@ public final class Kata1 {
     }
 
     /**
-     * This method counts the number of characters.
-     * @param word The word to count
-     * @return boolean with the verification
-     */
-    public static boolean count(final String word) {
-        return word.length() >= NUMBERLIMIT;
-    }
-
-    /**
-     * To reverse the word.
-     * @param word The word to reverse
-     * @return String with the word reversed
-     */
-    public static String reverse(final String word) {
-        return new StringBuilder(word).reverse().toString();
-    }
-
-    /**
      * To start divide the words.
      * @param text The sentence to divide.
      * @return String with the new sentence
@@ -46,8 +28,8 @@ public final class Kata1 {
     public static String start(final String text) {
         String[] words = diviceWords(text);
         for (int i = 0; i < words.length; i++) {
-            if (count(words[i])) {
-                words[i] = reverse(words[i]);
+            if (words[i].length() >= NUMBERLIMIT) {
+                words[i] = new StringBuilder(words[i]).reverse().toString();
             }
         }
         return String.join(" ", words);

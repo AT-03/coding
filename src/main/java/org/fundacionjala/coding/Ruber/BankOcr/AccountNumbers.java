@@ -100,10 +100,8 @@ public final class AccountNumbers {
     public static boolean validAccount(final StringBuffer account) {
         int checksum = 0;
         int multi = MULTIPLY;
-        char[] charArray = account.toString().toCharArray();
-        for (char num : charArray) {
-            int number = Integer.parseInt(String.valueOf(num)) * multi;
-            checksum += number;
+        for (char num : account.toString().toCharArray()) {
+            checksum += Integer.parseInt(String.valueOf(num)) * multi;
             multi--;
         }
         return checksum % DIV_CHECKSUM == 0;
