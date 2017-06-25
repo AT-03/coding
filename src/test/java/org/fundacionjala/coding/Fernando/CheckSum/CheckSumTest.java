@@ -2,8 +2,7 @@ package org.fundacionjala.coding.Fernando.CheckSum;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 /**
  * The test class CheckSumTest.
@@ -25,8 +24,8 @@ public class CheckSumTest {
         final boolean actualResult = cs.canValores(sentence);
 
         // then
-        final boolean expectedResult = false;
-        assertTrue(actualResult);
+        final boolean expectedResult = true;
+        assertEquals(actualResult, expectedResult);
     }
 
     /**
@@ -42,7 +41,7 @@ public class CheckSumTest {
         final boolean actualResult = cs.canValores(sentence);
 
         // then
-        final boolean expectedResult = true;
-        assertFalse(actualResult);
+        final boolean expectedResult = false;
+        assertEquals(actualResult, expectedResult);
     }
 }

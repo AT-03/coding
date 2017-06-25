@@ -1,37 +1,151 @@
 package org.fundacionjala.coding.Fernando.BankOCR;
 
-
-import java.io.IOException;
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
- * Write a description of class BankOCR here.
- * * @author (your name)
- *
- * @version (a version number or a date)
+ * Created by PC on 24/06/2017.
  */
+public final class BankOCR {
 
- public final class BankOCR {
+    private static final int ZERO = 0;
+    private static final int ONE = 1;
+    private static final int TWO = 2;
+    private static final int THREE = 3;
+    private static final int FOUR = 4;
+    private static final int FIVE = 5;
+    private static final int SIX = 6;
+    private static final int SEVEN = 7;
+    private static final int EIGHT = 8;
+    private static final int NINE = 9;
+    private static final Map<Integer, String> MAP = new HashMap<>();
+    static final int VALIDATOR = 11;
 
-    /**
-     * Constructor method.
-     */
-    private BankOCR() {
+    static {
+        MAP.put(ZERO,
+                " _ "
+                        + "| |"
+                        + "|_|");
+        MAP.put(ONE,
+                "   "
+                        + "  |"
+                        + "  |");
+        MAP.put(TWO,
+                " _ "
+                        + " _|"
+                        + "|_ ");
+        MAP.put(THREE,
+                "__ "
+                        + " _|"
+                        + "__|");
+        MAP.put(FOUR,
+                "   "
+                        + "|_|"
+                        + "  |");
+        MAP.put(FIVE,
+                " _ "
+                        + "|_ "
+                        + " _|");
+        MAP.put(SIX,
+                " _ "
+                        + "|_ "
+                        + "|_|");
+        MAP.put(SEVEN,
+                "__ "
+                        + "  |"
+                        + "  |");
+        MAP.put(EIGHT,
+                " _ "
+                        + "|_|"
+                        + "|_|");
+        MAP.put(NINE,
+                " _ "
+                        + "|_|"
+                        + " _|");
     }
 
     /**
-     * @param arg recibe un parametro String.
-     * @throws IOException exception.
+     * Constructor BankOCR.
      */
-    public static void main(final String[] arg) throws IOException {
-        FileManager fm = new FileManager();
-        EntryParser e = new EntryParser();
-        ArrayList<String> a = fm.readFile("input.txt");
-        //System.out.println(a);
-        e.parseEntry(a);
-        System.out.println(e.parseEntry(a));
+    private BankOCR() {
 
-        fm.fileWrite(a);
+    }
+
+    /**
+     * @param value of string numbers.
+     * @return String of value number.
+     */
+    private static String getMapKey(final String value) {
+        String res = "?";
+        for (Map.Entry<Integer, String> entry : MAP.entrySet()) {
+            if (entry.getValue().equals(value)) {
+                res = entry.getKey().toString();
+            }
+        }
+        return res;
+    }
+
+    /**
+     * @param cad value of string numbers.
+     * @return String to get the all numbers.
+     */
+    public static String parseDigit(final String[] cad) {
+        String res = "";
+        StringBuilder value = new StringBuilder();
+        for (String data : cad) {
+            String key = getMapKey(data);
+            res = value.append(key).toString();
+        }
+
+        return res;
+    }
+
+    /**
+     * @param cad value of string numbers.
+     * @return String to get the ERR o ILL error result.
+     */
+    public static String accountStatus(final String cad) {
+        String res = "";
+        if (!digit(cad)) {
+            res = "ILL";
+        } else if (!validAccountNumbers(cad)) {
+            res = "ERR";
+        }
+        return res;
+    }
+
+    /**
+     * @param data value of string numbers.
+     * @return boolean to get if is a valid digit.
+     */
+    private static boolean digit(final String data) {
+        boolean isDigit = true;
+        for (int i = 0; i < data.length(); i++) {
+            if (!Character.isDigit(data.charAt(i))) {
+                isDigit = false;
+                break;
+            }
+        }
+        return isDigit;
+    }
+
+    /**
+     * @param input String value.
+     * @return boolean valor if is valid account number.
+     */
+    public static boolean validAccountNumbers(final String input) {
+        int suma = 0;
+        for (int i = input.length() - 1; i >= 0; i--) {
+            int multiplier = 1;
+            int x = (int) (input.charAt(i)) * multiplier;
+            suma += x;
+            multiplier++;
+        }
+        if (suma % VALIDATOR == 0) {
+            return true;
+        }
+        return false;
     }
 
 }
+

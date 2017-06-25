@@ -6,12 +6,14 @@ package org.fundacionjala.coding.Fernando.movies;
 public class NewRelease extends Movie {
 
     private static final int LIMITNEWCHILD = 3;
+
     /**
      * @param title param.
      */
     public NewRelease(final String title) {
         super(title);
     }
+
     /**
      * @param daysRented param.
      * @return double value.
@@ -20,6 +22,7 @@ public class NewRelease extends Movie {
     public double calculateAmount(final int daysRented) {
         return daysRented * LIMITNEWCHILD;
     }
+
     /**
      * @param daysRented param.
      * @return Children value.

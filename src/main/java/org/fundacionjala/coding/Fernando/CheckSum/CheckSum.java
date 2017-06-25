@@ -12,60 +12,34 @@ public class CheckSum {
     static final int DIEZ = 10;
     static final int DOS = 2;
     static final int OCHO = 8;
+    static final int ZERO = 0;
+    static final int SIZEVALUE = 13;
 
     /**
-     * constructor.
+     * @param valor data.
+     * @return boolean of cant values.
      */
-    public CheckSum() {
-
-    }
-
-    /**
-     * @param valor parametro.
-     * @return boolean retorna un booleano.
-     * @CheckReturnValue valor.
-     */
-
     public boolean canValores(final String valor) {
-
-        return canValores(valor, 1);
-    }
-
-    /**
-     * @param valor parametro.
-     * @param pos   parametro.
-     * @return boolean retorna un booleano.
-     * @CheckReturnValue valor.
-     */
-    @CheckReturnValue
-    private boolean canValores(final String valor, final int pos) {
-        int res = 0;
-        int sum = 0;
-        int res1 = 0;
-        if (pos < valor.length()) {
-            int aux1 = (int) valor.charAt(pos - 1);
-
-            if (pos % 2 == 0) {
-                res = res + aux1 * TRES;
-
-            } else {
-                res1 = res + aux1 * 1;
+        int sum = ZERO;
+        if (valor.length() != SIZEVALUE) {
+            return false;
+        } else {
+            for (int i = UNO; i < valor.length(); i++) {
+                int num = Character.getNumericValue(valor.charAt(i - 1));
+                sum += i % 2 == 0 ? num * TRES : num;
             }
-
-            canValores(valor, pos + 1);
+            return numeroValido(sum) == Character.getNumericValue(valor.charAt(valor.length() - 1));
 
         }
-        sum = res + res1;
-        boolean numValido = numeroValido(sum);
-        return numValido;
     }
-
     /**
-     * @param sum parametro.
-     * @return boolean retorna un booleano.
+     * @param sum of values.
+     * @return int of number valid.
      */
-    public boolean numeroValido(final int sum) {
-        return (DIEZ - (sum % DIEZ) == OCHO) ? true : false;
+    public int numeroValido(final int sum) {
+        int result = sum % DIEZ;
+        int data = result != 0 ? DIEZ - result : 0;
+        return data;
     }
 
 }

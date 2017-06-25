@@ -13,9 +13,10 @@ import static org.junit.Assert.assertEquals;
  * @version (a version number or a date)
  */
 public class PromTest {
-    /*
- * testPromWhenHave5Elements.
- */
+
+    /**
+     * Test to get the prom when we have 5 elements.
+     */
     @Test
     public void testPromWhenHave5Elements() {
         Prom p = new Prom();
@@ -30,13 +31,15 @@ public class PromTest {
         assertEquals(Arrays.toString(expectedResult), Arrays.toString(actualResult));
     }
 
-    /*
-     * testPromWhenHave5Elements.
+    /**
+     * Test to get the prom when we have differents elements.
      */
     @Test
-    public void testPromWhenHaveDiferentData() {
+    public void testPromWhenHaveDifferentData() {
         Prom p = new Prom();
-        // given: 
+
+        // given:
+
         final int[] num = {1, 3, 5, 1, -10};
 
         // when:
@@ -47,8 +50,8 @@ public class PromTest {
         assertEquals(Arrays.toString(expectedResult), Arrays.toString(actualResult));
     }
 
-    /*
-     * testPromWhenHave5Elements.
+    /**
+     * Test to get the prom when we have the same elements.
      */
     @Test
     public void testPromWhenHaveTheSameData() {
@@ -64,8 +67,8 @@ public class PromTest {
         assertEquals(Arrays.toString(expectedResult), Arrays.toString(actualResult));
     }
 
-    /*
-     * testPromWhenHave5Elements.
+    /**
+     * Test to get the prom when the array is null.
      */
     @Test
     public void testPromWhenTheArrayIsNull() {
@@ -81,8 +84,8 @@ public class PromTest {
         assertEquals(Arrays.toString(expectedResult), Arrays.toString(actualResult));
     }
 
-    /*
-     * testPromWhenHave5Elements.
+    /**
+     * Test to get the prom when we have the array empty.
      */
     @Test
     public void testPromWhenTheArrayIsEmpty() {
@@ -99,8 +102,8 @@ public class PromTest {
         assertEquals(Arrays.toString(expectedResult), Arrays.toString(actualResult));
     }
 
-    /*
-     * testPromWhenHave5Elements.
+    /**
+     * Test to get the prom when we have one element.
      */
     @Test
     public void testPromWhenTheArrayHasOneElement() {

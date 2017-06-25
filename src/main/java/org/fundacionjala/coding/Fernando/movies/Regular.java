@@ -8,12 +8,14 @@ public class Regular extends Movie {
     private static final double PRICE = 1.5;
 
     private static final int LIMITREGULAR = 2;
+
     /**
      * @param title param.
      */
     public Regular(final String title) {
         super(title);
     }
+
     /**
      * @param daysRented param.
      * @return double value.
@@ -26,6 +28,7 @@ public class Regular extends Movie {
         }
         return amount;
     }
+
     /**
      * @param daysRented param.
      * @return int value.

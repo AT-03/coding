@@ -2,8 +2,9 @@ package org.fundacionjala.coding.Fernando.movies;
 
 import java.util.ArrayList;
 import java.util.List;
+
 /**
- * This is the class Customer of rental movie.
+ * This is the class Customer of rental movies.
  */
 public class Customer {
     private String nameCustomer;
@@ -46,6 +47,7 @@ public class Customer {
         result.append("You earned " + calculateTotalFrequentRenterPoints() + " frequent renter points");
         return result.toString();
     }
+
     /**
      * @return double value.
      */
@@ -59,6 +61,7 @@ public class Customer {
                 .mapToDouble(Rental::calculateAmount)
                 .sum();
     }
+
     /**
      * @return int value.
      */

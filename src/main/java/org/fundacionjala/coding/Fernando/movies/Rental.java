@@ -24,7 +24,7 @@ class Rental {
     }
 
     /**
-     * @return movie object.
+     * @return movies object.
      */
     public Movie getMovie() {
         return this.movie;
