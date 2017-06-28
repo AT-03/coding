@@ -20,10 +20,13 @@ dependencies {
 
 // Checkstyle configuration
 checkstyle {
-    toolVersion = '6.1.1'
+    toolVersion = '7.8'
 }
 
 // FindBugs configuration
+findbugs {
+    toolVersion = "3.0.1"
+}
 tasks.withType(FindBugs) {
     reports {
         xml.enabled = false
@@ -33,11 +36,17 @@ tasks.withType(FindBugs) {
 
 // PMD Configuration
 pmd {
-    ruleSets = ["java-basic"]
+    toolVersion = '5.7.0'
 }
 tasks.withType(Pmd) {
     reports {
         xml.enabled = false
         html.enabled = true
+    }
+}
+
+test {
+    testLogging {
+        events "PASSED", "STARTED", "FAILED", "SKIPPED"
     }
 }
