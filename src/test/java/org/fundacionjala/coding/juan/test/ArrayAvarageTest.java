@@ -7,7 +7,7 @@ import java.util.Arrays;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Created by Administrator on 3/23/20.
+ * Created by Juan on 3/23/20.
  */
 
 public class ArrayAvarageTest {
@@ -24,9 +24,9 @@ public class ArrayAvarageTest {
        final int[] array3 = new int[]{1, 3, 5, 1, -10};
 
         //When
-        double[] actualArray1 = Arrayaarage.getArrayAverage(array1);
-        double[] actualArray2 = Arrayaarage.getArrayAverage(array2);
-        double[] actualArray3 = Arrayaarage.getArrayAverage(array3);
+        double[] actualArray1 = ArrayAverage.getArrayAverage(array1);
+        double[] actualArray2 = ArrayAverage.getArrayAverage(array2);
+        double[] actualArray3 = ArrayAverage.getArrayAverage(array3);
 
         //final
       final   double[] expectedArray1 = new double[]{2, 2, 2, 2};
@@ -48,9 +48,9 @@ public class ArrayAvarageTest {
         int[] array3 = new int[]{2};
 
         // when
-        double[] actualArray1 = Arrayaarage.getArrayAverage(array1);
-        double[] actualArray2 = Arrayaarage.getArrayAverage(array2);
-        double[] actualArray3 = Arrayaarage.getArrayAverage(array3);
+        double[] actualArray1 = ArrayAverage.getArrayAverage(array1);
+        double[] actualArray2 = ArrayAverage.getArrayAverage(array2);
+        double[] actualArray3 = ArrayAverage.getArrayAverage(array3);
 
         //final
         int zero = 0;
@@ -58,7 +58,7 @@ public class ArrayAvarageTest {
         assertEquals(zero, actualArray1.length);
         assertEquals(zero, actualArray2.length);
         assertEquals(zero, actualArray3.length);
-        //Arrayaarage average = new Arrayaarage();
+        //ArrayAverage average = new ArrayAverage();
 
     }
 }

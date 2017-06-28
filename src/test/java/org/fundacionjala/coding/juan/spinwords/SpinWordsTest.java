@@ -1,11 +1,12 @@
-package org.fundacionjala.coding.juan;
+package org.fundacionjala.coding.juan.spinwords;
 
 import org.junit.Test;
 
+import org.fundacionjala.coding.juan.spinWords.SpinWords;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Created by Administrator on 3/10/2017.
+ * Created by Juan on 3/10/2017.
  */
 
 public class SpinWordsTest {

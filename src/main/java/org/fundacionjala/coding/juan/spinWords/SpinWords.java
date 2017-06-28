@@ -1,7 +1,7 @@
-package org.fundacionjala.coding.juan;
+package org.fundacionjala.coding.juan.spinWords;
 
 /**
- * Created by Administrator on 3/10/2017.
+ * Created by Juan on 3/10/2017.
  */
 public final class SpinWords {
     /**
@@ -26,19 +26,19 @@ public final class SpinWords {
         } else {
             String[] separatedWords = sentence.split(" ");
             StringBuilder result = new StringBuilder();
-            for (int i = 0; i < separatedWords.length; i++) {
+            for (String separatedWord : separatedWords) {
 
-                if (separatedWords[i].length() > limitWord) {
-                    for (int j = separatedWords[i].length() - 1; j >= 0; j--) {
-                        result.append(separatedWords[i].charAt(j));
+                if (separatedWord.length() > limitWord) {
+                    for (int j = separatedWord.length() - 1; j >= 0; j--) {
+                        result.append(separatedWord.charAt(j));
                     }
-                        result.append(" ");
+                    result.append(" ");
 
                 } else {
-                    for (int j = 0; j < separatedWords[i].length(); j++) {
-                        result.append(separatedWords[i].charAt(j));
+                    for (int j = 0; j < separatedWord.length(); j++) {
+                        result.append(separatedWord.charAt(j));
                     }
-                        result.append(" ");
+                    result.append(" ");
 
                 }
             }

@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Created by Administrator on 3/23/2017.
+ * Created by Juan on 3/23/2017.
  */
 public class RegularTest {
     /**

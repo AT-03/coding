@@ -47,8 +47,7 @@ public class CustomerTest {
         final double actualResult = customer.calculateTotalAmount();
 
         // then:
-        final double expectedResult = MINORPRICE;
 
-        assertEquals(expectedResult, actualResult, 0);
+        assertEquals(MINORPRICE, actualResult, 0);
     }
 }

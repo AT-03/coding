@@ -1,11 +1,11 @@
-package org.fundacionjala.coding.juan;
+package org.fundacionjala.coding.juan.eanvalidator;
 
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
 
 /**
- * Created by Administrator on 3/10/2017.
+ * Created by Juan on 3/10/2017.
  */
 public class EanValidatorTest {
     /**
@@ -22,6 +22,7 @@ public class EanValidatorTest {
         // then:
         assertTrue(actualResult);
     }
+
     /**
      * Test when the EAN string number has less than 13 digits.
      */

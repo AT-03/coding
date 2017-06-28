@@ -1,4 +1,4 @@
-package org.fundacionjala.coding.juan.Bank;
+package org.fundacionjala.coding.juan.bank;
 
 import org.junit.Test;
 

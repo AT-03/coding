@@ -1,18 +1,19 @@
-package org.fundacionjala.coding.juan;
+package org.fundacionjala.coding.juan.eanvalidator;
 
 /**
  * @author Juan Pablo
  */
 public final class EanValidator {
     /**
-     * CONSTRUCTOR.
+     * constructor.
      */
     private EanValidator() {
 
     }
+
     /**
      * @param eanCode is the code provided as input.
-     *                @return  the validation.
+     * @return the validation.
      */
 
     public static boolean validating(final String eanCode) {
@@ -32,9 +33,6 @@ public final class EanValidator {
         if (sum % finalFactor != 0) {
             checksum = (finalFactor - (sum % finalFactor));
         }
-        if (eanCode.charAt(eanCode.length() - 1) - aux == checksum) {
-            return true;
-        }
-        return false;
+        return eanCode.charAt(eanCode.length() - 1) - aux == checksum;
     }
 }
