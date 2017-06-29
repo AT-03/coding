@@ -73,7 +73,7 @@ public final class AccountNumbers {
      * @param numbersRead String's array
      * @return String containing the number converted
      */
-    public static StringBuffer convert(final String [] numbersRead) {
+    public static StringBuffer convert(final String[] numbersRead) {
         StringBuffer numGenerated = new StringBuffer();
         if (validLength(numbersRead)) {
             for (String read : numbersRead) {
@@ -88,7 +88,7 @@ public final class AccountNumbers {
      * @param account The account's array string
      * @return boolean with validation
      */
-    public static boolean validLength(final String [] account) {
+    public static boolean validLength(final String[] account) {
         return account.length == ACCOUNT_LENGTH;
     }
 
