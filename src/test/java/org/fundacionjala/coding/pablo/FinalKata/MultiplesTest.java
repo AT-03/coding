@@ -17,13 +17,13 @@ public class MultiplesTest {
 
     @Test
     public void test() {
-        int expectedResultOne = 23;
-        int expectedResultTwo = 78;
-        int expectedResultThree = 9168;
+        final int expectedResultOne = 23;
+        final int expectedResultTwo = 78;
+        final int expectedResultThree = 9168;
 
-        int expectedVariableOne = 10;
-        int expectedVariableTwo = 20;
-        int expectedVariableThree = 200;
+        final int expectedVariableOne = 10;
+        final int expectedVariableTwo = 20;
+        final int expectedVariableThree = 200;
 
         assertEquals(expectedResultOne, Multiples.solution(expectedVariableOne));
         assertEquals(expectedResultTwo, Multiples.solution(expectedVariableTwo));

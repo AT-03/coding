@@ -26,7 +26,7 @@ public final class EvaporatorKata {
         double contentAux = content;
         while (contentAux >= content * (threshold / PERCENT_TOTAL)) {
             contentAux -= contentAux * evapPerDay / PERCENT_TOTAL;
-            days ++;
+            days += 1;
         }
         return days;
     }
