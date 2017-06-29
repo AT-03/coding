@@ -7,6 +7,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * Created by Administrator on 6/28/2017.
  */
+
 public class EvaporatorKataTest {
 
     /**

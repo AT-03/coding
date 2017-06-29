@@ -10,7 +10,6 @@ public final class EvaporatorKata {
     /**
      * Constructor.
      */
-
     private EvaporatorKata() {
     }
 
