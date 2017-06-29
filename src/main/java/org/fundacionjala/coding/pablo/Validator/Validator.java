@@ -38,8 +38,8 @@ public final class Validator {
             sum += i % 2 == 0 ? numericValue * DIGIT_MULTIPLIER : numericValue;
         }
 
-        int ver = sum % NUMBER_DIVISIBILITY != 0 ? NUMBER_DIVISIBILITY - (sum % NUMBER_DIVISIBILITY) : 0;
+        int checkSum = sum % NUMBER_DIVISIBILITY != 0 ? NUMBER_DIVISIBILITY - (sum % NUMBER_DIVISIBILITY) : 0;
 
-        return ver == Character.getNumericValue(numberEAN.charAt(numberEAN.length() - 1));
+        return checkSum == Character.getNumericValue(numberEAN.charAt(numberEAN.length() - 1));
     }
 }
