@@ -8,7 +8,7 @@ public final class EvaporatorKata {
     private static final int PERCENT_TOTAL = 100;
 
     /**
-     * Constructor.
+     * Constructor evaporator kata.
      */
     private EvaporatorKata() {
     }
