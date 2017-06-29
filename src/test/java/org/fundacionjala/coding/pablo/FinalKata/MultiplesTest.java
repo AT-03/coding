@@ -14,7 +14,6 @@ public class MultiplesTest {
     /**
      * Unit Test about multiples of 3 and 5.
      */
-
     @Test
     public void test() {
         final int expectedResultOne = 23;
