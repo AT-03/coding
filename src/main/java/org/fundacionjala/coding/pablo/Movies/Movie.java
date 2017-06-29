@@ -22,7 +22,7 @@ public abstract class Movie {
      * @return Children, new Release, Regular.
      */
 
-    public abstract double calculateAmount(final int daysRented);
+    public abstract double calculateAmount(int daysRented);
 
     /**
      * Abstract method.
@@ -30,7 +30,7 @@ public abstract class Movie {
      * @return 3 methods found.
      */
 
-    public abstract int calculateFrequentRenterPoints(final int daysRented);
+    public abstract int calculateFrequentRenterPoints(int daysRented);
 
     /**
      * Get the title.
