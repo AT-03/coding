@@ -3,7 +3,6 @@ jdk:
 - oraclejdk8
 sudo: required
 
-script: gradle check
 branches:
 only: develop
 
@@ -12,6 +11,11 @@ before_script:
   - unzip gradle-3.4.1-bin.zip
   - export GRADLE_HOME=$PWD/gradle-3.4.1
   - export PATH=$GRADLE_HOME/bin:$PATH
+
+script: gradle check
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
 
 notifications:
   email: true
