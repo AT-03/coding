@@ -17,7 +17,7 @@ public class NewReleaseTest {
     public void calculateRentedDaysLessThan3() {
 
         //given
-        NewRelease newRelease = new NewRelease("TestNewRelease");
+        Movie newRelease = new NewRelease("TestNewRelease");
 
         //when
         final double actualResult = newRelease.calculateAmount(2);
@@ -35,7 +35,7 @@ public class NewReleaseTest {
     public void calculateRentedDaysGreaterThan3() {
 
         //given
-        NewRelease newRelease = new NewRelease("TestNewRelease");
+        Movie newRelease = new NewRelease("TestNewRelease");
 
         //when
         final double actualResult = newRelease.calculateAmount(5);

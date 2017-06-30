@@ -17,7 +17,7 @@ public class ChildrenTest {
     public void calculateRentedDaysLessThan3() {
 
         //given
-        Children children = new Children("TestChildren");
+        Movie children = new Children("TestChildren");
 
         //when
         final double actualResult = children.calculateAmount(2);
@@ -35,7 +35,7 @@ public class ChildrenTest {
     public void calculateRentedDaysGreaterThan3() {
 
         //given
-        Children children = new Children("TestChildren");
+        Movie children = new Children("TestChildren");
 
         //when
         final double actualResult = children.calculateAmount(5);

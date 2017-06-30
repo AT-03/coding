@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * Created by Administrator on 3/23/2017.
  */
-public class BankOCRUserStory1 {
+public final class BankOCRUserStory1 {
     private static Map<Integer, String> mapNum = new HashMap<>();
 
     private static final int ZERO = 0;

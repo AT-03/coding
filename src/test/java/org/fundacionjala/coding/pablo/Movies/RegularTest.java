@@ -17,7 +17,7 @@ public class RegularTest {
     public void calculateRentedDaysLessThan3() {
 
         //given
-        Regular regular = new Regular("TestNewRelease");
+        Movie regular = new Regular("TestNewRelease");
 
         //when
         final double actualResult = regular.calculateAmount(2);
@@ -35,7 +35,7 @@ public class RegularTest {
     public void calculateRentedDaysGreaterThan3() {
 
         //given
-        Regular regular = new Regular("TestNewRelease");
+        Movie regular = new Regular("TestNewRelease");
 
         //when
         final double actualResult = regular.calculateAmount(5);
