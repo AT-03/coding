@@ -12,15 +12,6 @@ public final class Kata {
     }
 
     /**
-     * To Validate array.
-     * @param numbers The array numbers
-     * @return boolean with validation
-     */
-    public static boolean validateArray(final int[] numbers) {
-        return numbers == null || numbers.length < 2 ? false : true;
-    }
-
-    /**
      * To get the boolean[] average.
      * @param numbers The numbers to validate
      * @return double[] with the averages
@@ -28,7 +19,7 @@ public final class Kata {
     public static double[] averages(final int[] numbers) {
         double[] average = new double[] {};
 
-        if (!validateArray(numbers)) {
+        if (numbers == null || numbers.length < 2) {
             return average;
         }
 

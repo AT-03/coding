@@ -59,13 +59,8 @@ public final class AccountNumbers {
      * @return String containing the value
      */
     public static String exists(final String entry) {
-        String value = "?";
-        for (Map.Entry<String, String> num : NUMBERS.entrySet()) {
-            if (num.getKey().equals(entry)) {
-                value = num.getValue();
-            }
-        }
-        return value;
+        return NUMBERS.entrySet().stream().filter(num -> num.getKey().equals(entry))
+            .map(num -> num.getValue()).findAny().orElse("?");
     }
 
     /**
@@ -73,9 +68,9 @@ public final class AccountNumbers {
      * @param numbersRead String's array
      * @return String containing the number converted
      */
-    public static StringBuffer convert(final String[] numbersRead) {
-        StringBuffer numGenerated = new StringBuffer();
-        if (validLength(numbersRead)) {
+    public static StringBuilder convert(final String[] numbersRead) {
+        StringBuilder numGenerated = new StringBuilder();
+        if (numbersRead.length == ACCOUNT_LENGTH) {
             for (String read : numbersRead) {
                 numGenerated.append(exists(read));
             }
@@ -84,20 +79,11 @@ public final class AccountNumbers {
     }
 
     /**
-     * This method validate the account length.
-     * @param account The account's array string
-     * @return boolean with validation
-     */
-    public static boolean validLength(final String[] account) {
-        return account.length == ACCOUNT_LENGTH;
-    }
-
-    /**
      * This method validate if a account is valid according to the checksum.
      * @param account The account's to validate
      * @return boolean with the validation
      */
-    public static boolean validAccount(final StringBuffer account) {
+    public static boolean validAccount(final StringBuilder account) {
         int checksum = 0;
         int multi = MULTIPLY;
         for (char num : account.toString().toCharArray()) {
@@ -113,8 +99,7 @@ public final class AccountNumbers {
      * @param number The account's string to validate
      * @return String with validation
      */
-    public static String validate(final StringBuffer number) {
-        //String number = convert(numbersRead).toString();
+    public static String validate(final StringBuilder number) {
         String result = "";
         if (number.toString().contains("?")) {
                 result = " ILL";
@@ -123,7 +108,6 @@ public final class AccountNumbers {
                 result = " ERR";
             }
         }
-        //System.out.printf("%-10s %5s", number, result);
         return number + result;
     }
 }

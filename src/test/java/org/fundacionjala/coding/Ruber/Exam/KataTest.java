@@ -1,14 +1,14 @@
-package org.fundacionjala.coding.Ruber;
+package org.fundacionjala.coding.Ruber.Exam;
 
-import org.fundacionjala.coding.Ruber.Exam.Kata;
-import org.junit.Test;
 import java.util.Arrays;
+import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
 
 /**
- * Unit test.
+ * Created by Ruber Cuellar on 6/30/2017.
  */
-public class SolutionTest {
+public class KataTest {
     static final double[] EXPECTED_RESULT_1 = new double[] {2, 2, 2, 2};
     static final double[] EXPECTED_RESULT_2 = new double[] {0, 0, 0, 0};
     static final double[] EXPECTED_RESULT_3 = new double[] {2, 4, 3, -4.5};
@@ -35,12 +35,9 @@ public class SolutionTest {
     public void nullEmptyTests() {
 
         assertEquals("Array with only one value as input should return an empty array", 0,
-                Kata.averages(new int[] {2}).length);
+            Kata.averages(new int[] {2}).length);
         assertEquals("input 'null' should return an empty array", 0, Kata.averages(null).length);
         assertEquals("Empty array as input should return an empty array", 0, Kata.averages(new int[0]).length);
-
-
-
     }
 
 }

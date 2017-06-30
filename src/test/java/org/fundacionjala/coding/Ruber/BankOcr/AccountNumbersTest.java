@@ -209,82 +209,11 @@ public class AccountNumbersTest {
         };
 
         // When
-        StringBuffer actualResult = AccountNumbers.convert(numbersRead);
+        StringBuilder actualResult = AccountNumbers.convert(numbersRead);
         String expectedResult = "345882866";
 
         // Then
         Assert.assertEquals(actualResult.toString(), expectedResult);
-    }
-
-    /**
-     * Test.
-     */
-    @Test
-    public void validLength() {
-        // Given
-        final String[] numbersRead = {" _ "
-            + " _|"
-            + " _|", "   "
-            + "|_|"
-            + "  |", " _ "
-            + "|_ "
-            + " _|", " _ "
-            + "|_|"
-            + "|_|", " _ "
-            + "|_|"
-            + "|_|", " _ "
-            + " _| "
-            + "|_ ", " _ "
-            + "|_|"
-            + "|_|", " _ "
-            + "|_ "
-            + "|_|", " _ "
-            + "|_ "
-            + "|_|"
-        };
-
-        // When
-        boolean actualResult = AccountNumbers.validLength(numbersRead);
-
-        // Then
-        Assert.assertEquals(actualResult, true);
-    }
-
-    /**
-     * Test.
-     */
-    @Test
-    public void noValidLength() {
-        // Given
-        final String[] numbersRead = {" _ "
-            + " _|"
-            + " _|", "   "
-            + "|_|"
-            + "  |", " _ "
-            + "|_ "
-            + " _|", " _ "
-            + "|_|"
-            + "|_|", " _ "
-            + "|_|"
-            + "|_|", " _ "
-            + " _| "
-            + "|_ ", " _ "
-            + "|_|"
-            + "|_|", " _ "
-            + "|_ "
-            + "|_|", " _ "
-            + "|_ "
-            + "|_|",
-            " _ "
-                + "|_ "
-                + "|_|"
-        };
-
-        // When
-        boolean actualResult = AccountNumbers.validLength(numbersRead);
-
-        // Then
-        Assert.assertEquals(actualResult, false);
     }
 
     /**
@@ -315,7 +244,7 @@ public class AccountNumbersTest {
         };
 
         // When
-        StringBuffer result = AccountNumbers.convert(numbersRead);
+        StringBuilder result = AccountNumbers.convert(numbersRead);
         boolean actualResult = AccountNumbers.validAccount(result);
 
         // Then
@@ -350,7 +279,7 @@ public class AccountNumbersTest {
         };
 
         // When
-        StringBuffer result = AccountNumbers.convert(numbersRead);
+        StringBuilder result = AccountNumbers.convert(numbersRead);
         String actualResult = AccountNumbers.validate(result);
         String expectedResult = "345882866 ERR";
 
