@@ -1,6 +1,5 @@
-package org.fundacionjala.coding.pablo.FinalKata;
+package org.fundacionjala.coding.pablo.HighestAndLowest;
 
-import org.fundacionjala.coding.pablo.HighestAndLowest.HighestAndLowest;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

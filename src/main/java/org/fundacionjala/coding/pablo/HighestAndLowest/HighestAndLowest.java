@@ -22,14 +22,16 @@ public final class HighestAndLowest {
 
     public static String highAndLow(final String value) {
         String[] s = value.split(" ");
+        int valueInteger;
         int valueMajor = Integer.parseInt(s[0]);
         int valueMinor = valueMajor;
         for (String value1 : s) {
-            if (Integer.parseInt(value1) > valueMajor) {
-                valueMajor = Integer.parseInt(value1);
+            valueInteger = Integer.parseInt(value1);
+            if (valueInteger > valueMajor) {
+                valueMajor = valueInteger;
             }
             if (Integer.parseInt(value1) < valueMinor) {
-                valueMinor = Integer.parseInt(value1);
+                valueMinor = valueInteger;
             }
         }
 

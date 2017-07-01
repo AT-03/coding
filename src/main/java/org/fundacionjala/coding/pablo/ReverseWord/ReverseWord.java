@@ -22,17 +22,20 @@ public final class ReverseWord {
      */
 
     /**
-     *
      * @param reverseString Message String of one or more words.
      * @return String inverted words and words without inverting.
      */
 
     public static String reverseWord(final String reverseString) {
+        if (reverseString == null) {
+            return "";
+        }
+
         String[] splitWord = reverseString.split(" ");
 
         for (int i = 0; i < splitWord.length; i++) {
             splitWord[i] = (splitWord[i].length() >= MINIMAL_WORD)
-                    ? new StringBuilder(splitWord[i]).reverse().toString() : splitWord[i].toString();
+                    ? new StringBuilder(splitWord[i]).reverse().toString() : splitWord[i];
         }
 
         return String.join(" ", splitWord);

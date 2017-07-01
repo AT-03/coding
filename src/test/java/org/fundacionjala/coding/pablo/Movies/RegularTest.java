@@ -12,7 +12,6 @@ public class RegularTest {
     /**
      * Test for calculate rented days less than 3.
      */
-
     @Test
     public void calculateRentedDaysLessThan3() {
 
@@ -28,9 +27,27 @@ public class RegularTest {
     }
 
     /**
+     * Test for calculate rented days less than 3.
+     *
+     * Test two.
+     */
+    @Test
+    public void testTwoCalculateRentedDaysLessThan3() {
+
+        //given
+        Movie regular = new Regular("TestNewRelease");
+
+        //when
+        final double actualResult = regular.calculateAmount(5);
+
+        //then
+        final double expectedResult = 6;
+        assertEquals(0, expectedResult, actualResult);
+    }
+
+    /**
      * Test for calculate Rented Days Greater Than 3.
      */
-
     @Test
     public void calculateRentedDaysGreaterThan3() {
 
@@ -42,6 +59,25 @@ public class RegularTest {
 
         //then
         final double expectedResult = 6.5;
+        assertEquals(0, expectedResult, actualResult);
+    }
+
+    /**
+     * Test for calculate Rented Days Greater Than 3.
+     *
+     * Test two.
+     */
+    @Test
+    public void testTowCalculateRentedDaysGreaterThan3() {
+
+        //given
+        Movie regular = new Regular("TestNewRelease");
+
+        //when
+        final double actualResult = regular.calculateAmount(3);
+
+        //then
+        final double expectedResult = 3.5;
         assertEquals(0, expectedResult, actualResult);
     }
 }

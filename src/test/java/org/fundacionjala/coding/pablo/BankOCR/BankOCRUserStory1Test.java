@@ -60,10 +60,10 @@ public abstract class BankOCRUserStory1Test {
         };
 
         //when
-        final String actualResult = BankOCRUserStory1.numberConvertedToString(numberScanned);
+        final String expectedResult = "0123456789";
 
         //then
-        final String expectedResult = "0123456789";
+        final String actualResult = BankOCRUserStory1.numberConvertedToString(numberScanned);
         assertEquals(expectedResult, actualResult);
     }
 
