@@ -5,10 +5,9 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Created by Administrator on 3/23/2017.
+ * Created by Administrator on 7/1/2017.
  */
-public abstract class BankOCRUserStory1Test {
-
+public class BankOCRUserStory1Test {
     /**
      * Test about BankOCR User Story 1.
      */
