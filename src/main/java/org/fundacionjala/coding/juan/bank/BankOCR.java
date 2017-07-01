@@ -80,7 +80,6 @@ public final class BankOCR {
     }
 
     /**
-     *
      * @param value to get int.
      * @return characters in a range 0-9
      */
@@ -95,7 +94,6 @@ public final class BankOCR {
     }
 
     /**
-     *
      * @param numberScanned String
      * @return true or false
      */

@@ -27,6 +27,7 @@ public class SpinWordsTest {
 
 
     }
+
     /**
      * Testing when the word has more than five letters.
      */
@@ -41,6 +42,7 @@ public class SpinWordsTest {
         final String exectedResult = "odepipelelaraP";
         assertEquals(exectedResult, actualResult);
     }
+
     /**
      * Testing when the sentese has spaces.
      */
@@ -60,6 +62,34 @@ public class SpinWordsTest {
         assertEquals(exectedResultA, actualResultA);
     }
 
+    /**
+     * Testing empty string.
+     */
+    @Test
+    public void testingAnEmptyString() {
+        //given
+        final String sentence = null;
+        //When
+        final String actualResult = SpinWords.spinWords(sentence);
+        //Then
+        final String expectedResult = "";
+        assertEquals(expectedResult, actualResult);
+    }
+
+    /**
+     * Tesing a word with less than Five letters.
+     */
+
+    @Test
+    public void testAwordWithLessThanFiveLetters() {
+        //given
+        final String sentence = "hi";
+        //When
+        final String actualResult = SpinWords.spinWords(sentence);
+        //Then
+        final String expectedResult = "hi";
+        assertEquals(expectedResult, actualResult);
+    }
 
 }
 

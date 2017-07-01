@@ -15,7 +15,7 @@ public class RegularTest {
     public void testRegularMovieWhenDaysRentedAreLessThanTheLimit() {
 
         // given:
-        final Regular regular = new Regular("Logan");
+        final Movie regular = new Regular("Logan");
         final int daysRentet = 1;
         // when:
         final double actualResult = regular.calculateAmount(daysRentet);

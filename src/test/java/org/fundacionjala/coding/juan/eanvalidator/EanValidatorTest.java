@@ -2,6 +2,7 @@ package org.fundacionjala.coding.juan.eanvalidator;
 
 import org.junit.Test;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -52,5 +53,32 @@ public class EanValidatorTest {
 
         // then:
         assertTrue(!actualResult);
+    }
+
+    /**
+     * test.
+     */
+    @Test
+    public void testtingEanValidaor() {
+        // given:
+        final String eanStringNumber = "9783815820864";
+        //when:
+        final boolean actualResult = EanValidator.validating(eanStringNumber);
+        //then:
+        assertFalse(actualResult);
+    }
+
+    /**
+     * Test.
+     */
+    @Test
+    public void testingEanValidator() {
+        // given:
+        final String eanStringNumber = "9783827317100";
+        //when:
+        final boolean actualResult = EanValidator.validating(eanStringNumber);
+        //then:
+        assertTrue(actualResult);
+
     }
 }

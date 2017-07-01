@@ -15,7 +15,7 @@ public class ChildrenTest {
     public void testChildrenMovieAmountWhenDaysRentetIsLessThanTheLimit() {
 
         // given:
-        final Children children = new Children("Spy Kids");
+        final Movie children = new Children("Spy Kids");
         final int daysRentet = 2;
         // when:
         final double actualResult = children.calculateAmount(daysRentet);
