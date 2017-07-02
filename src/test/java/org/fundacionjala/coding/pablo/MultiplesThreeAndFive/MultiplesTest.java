@@ -1,14 +1,29 @@
 package org.fundacionjala.coding.pablo.MultiplesThreeAndFive;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by Administrator on 6/19/2017.
  */
 public class MultiplesTest {
 
+    /**
+     * Test constructor.
+     * @throws Exception exception.
+     */
+    @Test
+    public void testConstructorIsPrivate() throws Exception {
+        Constructor constructor = Multiples.class.getDeclaredConstructor();
+        assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        constructor.setAccessible(true);
+        constructor.newInstance();
+    }
 
     /**
      * Unit Test about multiples of 3 and 5.
