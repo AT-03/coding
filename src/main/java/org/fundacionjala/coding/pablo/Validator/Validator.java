@@ -39,7 +39,6 @@ public final class Validator {
         }
 
         int checkSum = sum % NUMBER_DIVISIBILITY != 0 ? NUMBER_DIVISIBILITY - (sum % NUMBER_DIVISIBILITY) : 0;
-
         return checkSum == Character.getNumericValue(numberEAN.charAt(numberEAN.length() - 1));
     }
 }
