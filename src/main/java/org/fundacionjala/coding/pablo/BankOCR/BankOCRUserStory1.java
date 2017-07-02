@@ -75,7 +75,7 @@ public final class BankOCRUserStory1 {
      * Constructor.
      */
 
-    protected BankOCRUserStory1() {
+    private BankOCRUserStory1() {
 
     }
 
