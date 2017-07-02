@@ -5,6 +5,7 @@ import java.lang.reflect.Modifier;
 
 import org.junit.Test;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -15,6 +16,7 @@ public class EANValidatorTest {
 
     /**
      * The method verifies that the EANValidator class has a private constructor.
+     *
      * @throws Exception if the constructor is not private.
      */
     @Test
@@ -52,7 +54,7 @@ public class EANValidatorTest {
         final boolean actualResult = EANValidator.checkCorrectLength(eanStringNumber);
 
         // then:
-        assertTrue(!actualResult);
+        assertFalse(actualResult);
     }
 
     /**
@@ -67,7 +69,7 @@ public class EANValidatorTest {
         final boolean actualResult = EANValidator.checkCorrectLength(eanStringNumber);
 
         // then:
-        assertTrue(!actualResult);
+        assertFalse(actualResult);
     }
 
     /**
@@ -97,6 +99,6 @@ public class EANValidatorTest {
         final boolean actualResult = EANValidator.validate(eanStringNumber);
 
         // then:
-        assertTrue(!actualResult);
+        assertFalse(actualResult);
     }
 }
