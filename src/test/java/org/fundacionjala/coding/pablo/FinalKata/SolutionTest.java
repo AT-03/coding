@@ -12,95 +12,49 @@ import static org.junit.Assert.assertEquals;
 public class SolutionTest {
 
     /**
-     * Test about Basic Test one.
+     * Test about Basic Test.
      */
-    @Test
-    public void basicTestsOne() {
 
-        final int[] arrayIntegers = new int[]{2, 2, 2, 2, 2};
+    @Test
+    public void basicTests() {
+
+        final int[] arrayIntegers1 = new int[]{2, 2, 2, 2, 2};
+        final int[] arrayIntegers2 = new int[]{2, -2, 2, -2, 2};
+        final int[] arrayIntegers3 = new int[]{1, 3, 5, 1, -10};
 
         //When
-        double[] actualArray = Solution.averages(arrayIntegers);
+        double[] actualArray1 = Solution.averages(arrayIntegers1);
+        double[] actualArray2 = Solution.averages(arrayIntegers2);
+        double[] actualArray3 = Solution.averages(arrayIntegers3);
 
         //final
-        final   double[] expectedArray = new double[]{2, 2, 2, 2};
-        assertEquals(Arrays.toString(actualArray), Arrays.toString(expectedArray));
+        final   double[] expectedArray1 = new double[]{2, 2, 2, 2};
+        final   double[] expectedArray2 = new double[]{0, 0, 0, 0};
+        final  double[] expectedArray3 = new double[]{2, 4, 3, -4.5};
+        assertEquals(Arrays.toString(actualArray1), Arrays.toString(expectedArray1));
+        assertEquals(Arrays.toString(actualArray2), Arrays.toString(expectedArray2));
+        assertEquals(Arrays.toString(actualArray3), Arrays.toString(expectedArray3));
     }
 
     /**
-     * Test about Basic Test two.
+     * Test about null empty tests.
      */
+
     @Test
-    public void basicTestsTwo() {
-
-        final int[] arrayIntegers = new int[]{2, -2, 2, -2, 2};
-
-        //When
-        double[] actualArray = Solution.averages(arrayIntegers);
-
-        //final
-        final   double[] expectedArray = new double[]{0, 0, 0, 0};
-        assertEquals(Arrays.toString(actualArray), Arrays.toString(expectedArray));
-    }
-
-    /**
-     * Test about Basic Test three.
-     */
-    @Test
-    public void basicTestsThree() {
-
-        final int[] arrayIntegers = new int[]{1, 3, 5, 1, -10};
-
-        //When
-        double[] actualArray = Solution.averages(arrayIntegers);
-
-        //final
-        final  double[] expectedArray = new double[]{2, 4, 3, -4.5};
-        assertEquals(Arrays.toString(actualArray), Arrays.toString(expectedArray));
-    }
-
-    /**
-     * Test if is empty.
-     */
-    @Test
-    public void whenIsEmpty() {
-        int[] empty = new int[]{2};
+    public void nullEmptyTests() {
+        int[] nullEmpty1 = null;
+        int[] nullEmpty2 = new int[0];
+        int[] nullEmpty3 = new int[]{2};
 
         // when
-        double[] actualArray = Solution.averages(empty);
+        double[] actualArray1 = Solution.averages(nullEmpty1);
+        double[] actualArray2 = Solution.averages(nullEmpty2);
+        double[] actualArray3 = Solution.averages(nullEmpty3);
 
         //final
         int zero = 0;
-        assertEquals(zero, actualArray.length);
-    }
-
-    /**
-     * Test if is null.
-     */
-    @Test
-    public void ifIsNull() {
-        int[] nullValue = null;
-
-        // when
-        double[] actualArray = Solution.averages(nullValue);
-
-        //final
-        int zero = 0;
-        assertEquals(zero, actualArray.length);
-    }
-
-    /**
-     * Test return an empty array.
-     */
-    @Test
-    public void whenReturnAnEmptyArray() {
-        int[] emptyArray = new int[]{2};
-
-        // when
-        double[] actualArray = Solution.averages(emptyArray);
-
-        //final
-        int zero = 0;
-        assertEquals(zero, actualArray.length);
+        assertEquals(zero, actualArray1.length);
+        assertEquals(zero, actualArray2.length);
+        assertEquals(zero, actualArray3.length);
     }
 }

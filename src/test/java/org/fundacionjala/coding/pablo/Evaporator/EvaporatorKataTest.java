@@ -153,4 +153,22 @@ public class EvaporatorKataTest {
 
         assertEquals(expectedResult, actualResult);
     }
+
+    /**
+     * Test evaporator is 0.
+     */
+    @Test
+    public void testEvaporator0s0() {
+        final double content = 0;
+
+        final double everPerDay = 0;
+
+        final double threshold = 0;
+
+        final int expectedResult = 0;
+
+        final int actualResult = EvaporatorKata.evaporator(content, everPerDay, threshold);
+
+        assertEquals(expectedResult, actualResult);
+    }
 }
