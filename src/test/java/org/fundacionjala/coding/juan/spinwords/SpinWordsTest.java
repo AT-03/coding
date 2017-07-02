@@ -1,9 +1,14 @@
 package org.fundacionjala.coding.juan.spinwords;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
+
 import org.junit.Test;
+
 
 import org.fundacionjala.coding.juan.spinWords.SpinWords;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by Juan on 3/10/2017.
@@ -89,6 +94,19 @@ public class SpinWordsTest {
         //Then
         final String expectedResult = "hi";
         assertEquals(expectedResult, actualResult);
+    }
+
+    /**
+     * Test constructor.
+     *
+     * @throws Exception exception.
+     */
+    @Test
+    public void testConstructorIsPrivate() throws Exception {
+        Constructor constructor = SpinWords.class.getDeclaredConstructor();
+        assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        constructor.setAccessible(true);
+        constructor.newInstance();
     }
 
 }

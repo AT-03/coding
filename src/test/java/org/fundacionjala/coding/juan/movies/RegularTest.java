@@ -58,4 +58,45 @@ public class RegularTest {
         final double expectedResult = 6;
         assertEquals(expectedResult, actualResult, 0);
     }
+
+    /**
+     * Test title.
+     */
+    @Test
+    public void testRegularMovieTitle() {
+
+        // given:
+        final Regular regular = new Regular("Logan");
+        final int daysRentet = 5;
+        // when:
+        final String actualResult = regular.getTitle();
+
+        // then:
+        final String expectedResult = "Logan";
+        assertEquals(expectedResult, actualResult);
+    }
+
+    /**
+     * Test points.
+     */
+    @Test
+    public void testCalculeFrequentRentedPoints() {
+
+        // given:
+        final Regular regular = new Regular("Logan");
+        final int daysRentet = 2;
+        // when:
+        final double actualResult = regular.calculateAmount(daysRentet);
+
+        // then:
+        final double expectedResult = 1.5;
+        assertEquals(expectedResult, actualResult, 0);
+    }
 }
+
+
+
+
+
+
+

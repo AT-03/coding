@@ -1,8 +1,13 @@
 package org.fundacionjala.coding.juan.bank;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
+
 import org.junit.Test;
 
+
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by Juan Pablo on 26/03/2017.
@@ -64,6 +69,19 @@ public class BankOCRTest {
         //then
         final String expectedResult = "0123456789";
         assertEquals(expectedResult, actualResult);
+    }
+
+    /**
+     * Test constructor.
+     *
+     * @throws Exception exception.
+     */
+    @Test
+    public void testConstructorIsPrivate() throws Exception {
+        Constructor constructor = BankOCR.class.getDeclaredConstructor();
+        assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        constructor.setAccessible(true);
+        constructor.newInstance();
     }
 
 }

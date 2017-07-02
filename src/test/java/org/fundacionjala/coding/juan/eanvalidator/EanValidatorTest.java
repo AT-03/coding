@@ -1,5 +1,8 @@
 package org.fundacionjala.coding.juan.eanvalidator;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;
@@ -77,8 +80,21 @@ public class EanValidatorTest {
         final String eanStringNumber = "9783827317100";
         //when:
         final boolean actualResult = EanValidator.validating(eanStringNumber);
-        //then:
+        //then
         assertTrue(actualResult);
 
+    }
+
+    /**
+     * Test constructor.
+     *
+     * @throws Exception exception.
+     */
+    @Test
+    public void testConstructorIsPrivate() throws Exception {
+        Constructor constructor = EanValidator.class.getDeclaredConstructor();
+        assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        constructor.setAccessible(true);
+        constructor.newInstance();
     }
 }
