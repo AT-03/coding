@@ -21,9 +21,9 @@ public class EvaporatorKataTest {
 
         final double threshold = 10;
 
-        final int expectedResult = 22;
-
         final int actualResult = EvaporatorKata.evaporator(content, everPerDay, threshold);
+
+        final int expectedResult = 22;
 
         assertEquals(expectedResult, actualResult);
     }
@@ -39,9 +39,9 @@ public class EvaporatorKataTest {
 
         final double threshold = 5;
 
-        final int expectedResult = 29;
-
         final int actualResult = EvaporatorKata.evaporator(content, everPerDay, threshold);
+
+        final int expectedResult = 29;
 
         assertEquals(expectedResult, actualResult);
     }
@@ -57,9 +57,9 @@ public class EvaporatorKataTest {
 
         final double threshold = 5;
 
-        final int expectedResult = 59;
-
         final int actualResult = EvaporatorKata.evaporator(content, everPerDay, threshold);
+
+        final int expectedResult = 59;
 
         assertEquals(expectedResult, actualResult);
     }
@@ -75,9 +75,9 @@ public class EvaporatorKataTest {
 
         final double threshold = 1;
 
-        final int expectedResult = 37;
-
         final int actualResult = EvaporatorKata.evaporator(content, everPerDay, threshold);
+
+        final int expectedResult = 37;
 
         assertEquals(expectedResult, actualResult);
     }
@@ -93,9 +93,9 @@ public class EvaporatorKataTest {
 
         final double threshold = 8;
 
-        final int expectedResult = 31;
-
         final int actualResult = EvaporatorKata.evaporator(content, everPerDay, threshold);
+
+        final int expectedResult = 31;
 
         assertEquals(expectedResult, actualResult);
     }
@@ -111,9 +111,9 @@ public class EvaporatorKataTest {
 
         final double threshold = 1;
 
-        final int expectedResult = 459;
-
         final int actualResult = EvaporatorKata.evaporator(content, everPerDay, threshold);
+
+        final int expectedResult = 459;
 
         assertEquals(expectedResult, actualResult);
     }
@@ -129,9 +129,9 @@ public class EvaporatorKataTest {
 
         final double threshold = 1;
 
-        final int expectedResult = 459;
-
         final int actualResult = EvaporatorKata.evaporator(content, everPerDay, threshold);
+
+        final int expectedResult = 459;
 
         assertEquals(expectedResult, actualResult);
     }
@@ -147,27 +147,9 @@ public class EvaporatorKataTest {
 
         final double threshold = 5;
 
+        final int actualResult = EvaporatorKata.evaporator(content, everPerDay, threshold);
+
         final int expectedResult = 299;
-
-        final int actualResult = EvaporatorKata.evaporator(content, everPerDay, threshold);
-
-        assertEquals(expectedResult, actualResult);
-    }
-
-    /**
-     * Test evaporator is 0.
-     */
-    @Test
-    public void testEvaporator0s0() {
-        final double content = 0;
-
-        final double everPerDay = 0;
-
-        final double threshold = 0;
-
-        final int expectedResult = 0;
-
-        final int actualResult = EvaporatorKata.evaporator(content, everPerDay, threshold);
 
         assertEquals(expectedResult, actualResult);
     }
