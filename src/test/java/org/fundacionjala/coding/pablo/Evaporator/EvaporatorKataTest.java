@@ -11,146 +11,66 @@ import static org.junit.Assert.assertEquals;
 public class EvaporatorKataTest {
 
     /**
-     * Test evaporator one.
+     * Test one.
      */
     @Test
     public void testEvaporatorOne() {
-        final double content = 10;
-
-        final double everPerDay = 10;
-
-        final double threshold = 10;
-
-        final int actualResult = EvaporatorKata.evaporator(content, everPerDay, threshold);
-
-        final int expectedResult = 22;
-
-        assertEquals(expectedResult, actualResult);
+        assertEquals(22, EvaporatorKata.evaporator(10, 10, 10));
     }
 
     /**
-     * Test evaporator two.
+     * Test two.
      */
     @Test
     public void testEvaporatorTwo() {
-        final double content = 10;
-
-        final double everPerDay = 10;
-
-        final double threshold = 5;
-
-        final int actualResult = EvaporatorKata.evaporator(content, everPerDay, threshold);
-
-        final int expectedResult = 29;
-
-        assertEquals(expectedResult, actualResult);
+        assertEquals(29, EvaporatorKata.evaporator(10, 10, 5));
     }
 
     /**
-     * Test evaporator three.
+     * Test three.
      */
     @Test
     public void testEvaporatorThree() {
-        final double content = 100;
-
-        final double everPerDay = 5;
-
-        final double threshold = 5;
-
-        final int actualResult = EvaporatorKata.evaporator(content, everPerDay, threshold);
-
-        final int expectedResult = 59;
-
-        assertEquals(expectedResult, actualResult);
+        assertEquals(59, EvaporatorKata.evaporator(100, 5, 5));
     }
 
     /**
-     * Test evaporator four.
+     * Test four.
      */
     @Test
     public void testEvaporatorFour() {
-        final double content = 50;
-
-        final double everPerDay = 12;
-
-        final double threshold = 1;
-
-        final int actualResult = EvaporatorKata.evaporator(content, everPerDay, threshold);
-
-        final int expectedResult = 37;
-
-        assertEquals(expectedResult, actualResult);
+        assertEquals(37, EvaporatorKata.evaporator(50, 12, 1));
     }
 
     /**
-     * Test evaporator five.
+     * Test five.
      */
     @Test
     public void testEvaporatorFive() {
-        final double content = 47.5;
-
-        final double everPerDay = 8;
-
-        final double threshold = 8;
-
-        final int actualResult = EvaporatorKata.evaporator(content, everPerDay, threshold);
-
-        final int expectedResult = 31;
-
-        assertEquals(expectedResult, actualResult);
+        assertEquals(31, EvaporatorKata.evaporator(47.5, 8, 8));
     }
 
     /**
-     * Test evaporator six.
+     * Test six.
      */
     @Test
     public void testEvaporatorSix() {
-        final double content = 100;
-
-        final double everPerDay = 1;
-
-        final double threshold = 1;
-
-        final int actualResult = EvaporatorKata.evaporator(content, everPerDay, threshold);
-
-        final int expectedResult = 459;
-
-        assertEquals(expectedResult, actualResult);
+        assertEquals(459, EvaporatorKata.evaporator(100, 1, 1));
     }
 
     /**
-     * Test evaporator seven.
+     * Test seven.
      */
     @Test
     public void testEvaporatorSeven() {
-        final double content = 100;
-
-        final double everPerDay = 1;
-
-        final double threshold = 1;
-
-        final int actualResult = EvaporatorKata.evaporator(content, everPerDay, threshold);
-
-        final int expectedResult = 459;
-
-        assertEquals(expectedResult, actualResult);
+        assertEquals(459, EvaporatorKata.evaporator(10, 1, 1));
     }
 
     /**
-     * Test evaporator eight.
+     * Test eight.
      */
     @Test
     public void testEvaporatorEight() {
-        final double content = 100;
-
-        final double everPerDay = 1;
-
-        final double threshold = 5;
-
-        final int actualResult = EvaporatorKata.evaporator(content, everPerDay, threshold);
-
-        final int expectedResult = 299;
-
-        assertEquals(expectedResult, actualResult);
+        assertEquals(299, EvaporatorKata.evaporator(100, 1, 5));
     }
 }
