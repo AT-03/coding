@@ -51,4 +51,16 @@ public class MultiplesTest {
 
         assertEquals(expectedResult, Multiples.solution(expectedVariable));
     }
+
+    /**
+     * Unit test if is zero.
+     */
+    @Test
+    public void testFour() {
+        final int expectedResult = 0;
+
+        final int expectedVariable = 0;
+
+        assertEquals(expectedResult, Multiples.solution(expectedVariable));
+    }
 }

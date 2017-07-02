@@ -1,13 +1,30 @@
 package org.fundacionjala.coding.pablo.BankOCR;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by Administrator on 7/1/2017.
  */
 public class BankOCRUserStory1Test {
+
+    /**
+     * Test constructor.
+     * @throws Exception exception.
+     */
+    @Test
+    public void testConstructorIsPrivate() throws Exception {
+        Constructor constructor = BankOCRUserStory1.class.getDeclaredConstructor();
+        assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        constructor.setAccessible(true);
+        constructor.newInstance();
+    }
+
     /**
      * Test about BankOCR User Story 1.
      */

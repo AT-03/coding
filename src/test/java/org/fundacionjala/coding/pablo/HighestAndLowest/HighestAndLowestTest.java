@@ -1,8 +1,12 @@
 package org.fundacionjala.coding.pablo.HighestAndLowest;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by Administrator on 6/19/2017.
@@ -119,5 +123,17 @@ public class HighestAndLowestTest {
         final String expectedResult = "42 42";
 
         assertEquals(expectedResult, actualResult);
+    }
+
+    /**
+     * Test constructor.
+     * @throws Exception exception.
+     */
+    @Test
+    public void testConstructorIsPrivate() throws Exception {
+        Constructor constructor = HighestAndLowest.class.getDeclaredConstructor();
+        assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        constructor.setAccessible(true);
+        constructor.newInstance();
     }
 }

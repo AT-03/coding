@@ -1,5 +1,8 @@
 package org.fundacionjala.coding.pablo.Validator;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;
@@ -11,9 +14,21 @@ import static org.junit.Assert.assertTrue;
 public class ValidatorTest {
 
     /**
+     * Test constructor.
+     * @throws Exception exception.
+     */
+    @Test
+    public void testConstructorIsPrivate() throws Exception {
+        Constructor constructor = Validator.class.getDeclaredConstructor();
+        assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        constructor.setAccessible(true);
+        constructor.newInstance();
+    }
+
+
+    /**
      * Test when has 13 digits.
      */
-
     @Test
     public void validatorEANIfStringNumberHasEqualsTO13() {
 
@@ -32,7 +47,6 @@ public class ValidatorTest {
      *
      * Test two.
      */
-
     @Test
     public void validatorEANTestTwoIfStringNumberHasEqualsTO13() {
 

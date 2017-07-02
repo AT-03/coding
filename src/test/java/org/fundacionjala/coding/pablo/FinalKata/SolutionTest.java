@@ -2,9 +2,12 @@ package org.fundacionjala.coding.pablo.FinalKata;
 
 import org.junit.Test;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
 import java.util.Arrays;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by Pablo on 26/03/2017.
@@ -56,5 +59,17 @@ public class SolutionTest {
         assertEquals(zero, actualArray1.length);
         assertEquals(zero, actualArray2.length);
         assertEquals(zero, actualArray3.length);
+    }
+
+    /**
+     * Test constructor.
+     * @throws Exception exception.
+     */
+    @Test
+    public void testConstructorIsPrivate() throws Exception {
+        Constructor constructor = Solution.class.getDeclaredConstructor();
+        assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        constructor.setAccessible(true);
+        constructor.newInstance();
     }
 }

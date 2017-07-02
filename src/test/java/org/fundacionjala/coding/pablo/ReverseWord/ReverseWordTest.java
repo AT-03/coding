@@ -1,13 +1,29 @@
 package org.fundacionjala.coding.pablo.ReverseWord;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by Administrator on 3/21/2017.
  */
 public class ReverseWordTest {
+
+    /**
+     * Test constructor.
+     * @throws Exception exception.
+     */
+    @Test
+    public void testConstructorIsPrivate() throws Exception {
+        Constructor constructor = ReverseWord.class.getDeclaredConstructor();
+        assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        constructor.setAccessible(true);
+        constructor.newInstance();
+    }
 
     /**
      * Test verify if a word have five letters.
@@ -17,13 +33,13 @@ public class ReverseWordTest {
 
 
         //given
-        final String input = "Hello";
+        final String input = "hello";
 
         //when
         final String actualResult = ReverseWord.reverseWord(input);
 
         //then
-        final String expectedResult = "olleH";
+        final String expectedResult = "olleh";
         assertEquals(expectedResult, actualResult);
 
     }

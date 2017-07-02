@@ -23,7 +23,6 @@ public final class EvaporatorKata {
      */
 
     public static int evaporator(final double content, final double evapPerDay, final double threshold) {
-
         int days = 0;
         double contentAux = content;
         while (contentAux >= content * (threshold / PERCENT_TOTAL)) {

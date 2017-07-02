@@ -1,8 +1,12 @@
 package org.fundacionjala.coding.pablo.Evaporator;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by Administrator on 6/28/2017.
@@ -72,5 +76,17 @@ public class EvaporatorKataTest {
     @Test
     public void testEvaporatorEight() {
         assertEquals(299, EvaporatorKata.evaporator(100, 1, 5));
+    }
+
+    /**
+     * Test constructor.
+     * @throws Exception exception.
+     */
+    @Test
+    public void testConstructorIsPrivate() throws Exception {
+        Constructor constructor = EvaporatorKata.class.getDeclaredConstructor();
+        assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        constructor.setAccessible(true);
+        constructor.newInstance();
     }
 }
