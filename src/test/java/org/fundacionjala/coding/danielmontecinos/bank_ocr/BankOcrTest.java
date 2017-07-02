@@ -3,7 +3,6 @@ package org.fundacionjala.coding.danielmontecinos.bank_ocr;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Modifier;
 
-import org.fundacionjala.coding.danielmontecinos.averageofnumbers.AverageOfNumbers;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -16,6 +15,7 @@ public class BankOcrTest {
 
     /**
      * The method verifies that the BankOcr class has a private constructor.
+     *
      * @throws Exception if the constructor is not private.
      */
     @Test
@@ -33,43 +33,43 @@ public class BankOcrTest {
     public void testGetKeyWhenScannedNumbersAreBetween0And9() {
         // given:
         String[] scannedImage = {
-                          " _ "
+                " _ "
                         + "| |"
                         + "|_|",
 
-                          "   "
+                "   "
                         + "  |"
                         + "  |",
 
-                          " _ "
+                " _ "
                         + " _|"
                         + "|_ ",
 
-                          "__ "
+                "__ "
                         + " _|"
                         + "__|",
 
-                          "   "
+                "   "
                         + "|_|"
                         + "  |",
 
-                          " _ "
+                " _ "
                         + "|_ "
                         + " _|",
 
-                          " _ "
+                " _ "
                         + "|_ "
                         + "|_|",
 
-                          "__ "
+                "__ "
                         + "  |"
                         + "  |",
 
-                          " _ "
+                " _ "
                         + "|_|"
                         + "|_|",
 
-                          " _ "
+                " _ "
                         + "|_|"
                         + " _|"
         };
@@ -89,17 +89,17 @@ public class BankOcrTest {
     public void testGetKeyWhenScannedImageHasDifferentValues() {
         // given:
         String[] scannedImage = {
-                          " _ "
+                " _ "
                         + "| |"
                         + "|_|",
 
-                          " _ "
+                " _ "
                         + "|_|"
                         + " _|",
 
                 "Wrong number",
                 "",
-                          " _ "
+                " _ "
                         + "|_ "
                         + " _|"
         };
@@ -119,39 +119,39 @@ public class BankOcrTest {
     public void testValidateAccountWhenTheGivenAccountIsCorrect() {
         // given:
         String[] scannedImage = {
-                          "__ "
+                "__ "
                         + " _|"
                         + "__|",
 
-                          "   "
+                "   "
                         + "|_|"
                         + "  |",
 
-                          " _ "
+                " _ "
                         + "|_ "
                         + " _|",
 
-                          " _ "
+                " _ "
                         + "|_|"
                         + "|_|",
 
-                          " _ "
+                " _ "
                         + "|_|"
                         + "|_|",
 
-                          " _ "
+                " _ "
                         + " _|"
                         + "|_ ",
 
-                          " _ "
+                " _ "
                         + "|_|"
                         + "|_|",
 
-                          " _ "
+                " _ "
                         + "|_ "
                         + "|_|",
 
-                          " _ "
+                " _ "
                         + "|_ "
                         + " _|",
         };
@@ -176,15 +176,15 @@ public class BankOcrTest {
                         + "|_|"
                         + "  |",
 
-                          " _ "
+                " _ "
                         + "|_ "
                         + " _|",
 
-                          " _ "
+                " _ "
                         + "|_ "
                         + "|_|",
 
-                          "__ "
+                "__ "
                         + "  |"
                         + "  |",
 
@@ -253,9 +253,9 @@ public class BankOcrTest {
     public void testParseScannedNumbersWithNineDigits() {
         // given:
         String scannedString =
-          "__     _  _  _  _  _  _  _ "
-        + " _||_||_ |_||_| _||_||_ |_ "
-        + "__|  | _||_||_||_ |_||_| _|";
+                "__     _  _  _  _  _  _  _ "
+                        + " _||_||_ |_||_| _||_||_ |_ "
+                        + "__|  | _||_||_||_ |_||_| _|";
 
         String[] accountArray = BankOcr.parseScannedNumbers(scannedString);
 

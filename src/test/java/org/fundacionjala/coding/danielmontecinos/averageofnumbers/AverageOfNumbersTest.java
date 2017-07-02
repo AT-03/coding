@@ -16,6 +16,7 @@ public class AverageOfNumbersTest {
 
     /**
      * The method verifies that the AverageOfNumber class has a private constructor.
+     *
      * @throws Exception if the constructor is not private.
      */
     @Test
