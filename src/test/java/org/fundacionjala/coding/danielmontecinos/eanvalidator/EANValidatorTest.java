@@ -28,51 +28,6 @@ public class EANValidatorTest {
     }
 
     /**
-     * Test when the EAN string number has exactly 13 digits.
-     */
-    @Test
-    public void testCheckLengthWhenTheEANStringNumberHasExactly13Digits() {
-        // given:
-        final String eanStringNumber = "4003301018398";
-
-        // when:
-        final boolean actualResult = EANValidator.checkCorrectLength(eanStringNumber);
-
-        // then:
-        assertTrue(actualResult);
-    }
-
-    /**
-     * Test when the EAN string number has less than 13 digits.
-     */
-    @Test
-    public void testCheckLengthWhenTheEANStringNumberHasLessThan13Digits() {
-        // given:
-        final String eanStringNumber = "400330101839";
-
-        // when:
-        final boolean actualResult = EANValidator.checkCorrectLength(eanStringNumber);
-
-        // then:
-        assertFalse(actualResult);
-    }
-
-    /**
-     * Test when the EAN string number has more than 13 digits.
-     */
-    @Test
-    public void testCheckLengthTheEANStringNumberHasMoreThan13Digits() {
-        // given:
-        final String eanStringNumber = "40033010183980";
-
-        // when:
-        final boolean actualResult = EANValidator.checkCorrectLength(eanStringNumber);
-
-        // then:
-        assertFalse(actualResult);
-    }
-
-    /**
      * Test when the EAN string number checksum is different from 0.
      */
     @Test
