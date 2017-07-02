@@ -58,4 +58,20 @@ public class ChildrenTest {
         final double actualResult = children.calculateAmount(5);
         assertEquals(0, expectedResult, actualResult);
     }
+
+    /**
+     * Test to calculated calculate frequent renter points.
+     */
+    @Test
+    public void calculateFrequentRenterPoints() {
+        //given
+        Movie children = new Children("TestChildren");
+
+        //when
+        final double expectedResult = 1;
+
+        //then
+        final double actualResult = children.calculateFrequentRenterPoints(1);
+        assertEquals(1, expectedResult, actualResult);
+    }
 }
