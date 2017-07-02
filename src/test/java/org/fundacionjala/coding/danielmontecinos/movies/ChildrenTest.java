@@ -15,7 +15,7 @@ public class ChildrenTest {
     @Test
     public void testCalculateAmountWhenTheRentedDaysIsLessThanThree() {
         // given:
-        Children childrenInstance = new Children("Test");
+        Movie childrenInstance = new Children("Test");
 
         // when:
         final double actualResult = childrenInstance.calculateAmount(1);
@@ -32,7 +32,7 @@ public class ChildrenTest {
     @Test
     public void testCalculateAmountWhenTheRentedDaysIsGreaterThanThree() {
         // given:
-        Children childrenInstance = new Children("Test");
+        Movie childrenInstance = new Children("Test");
 
         // when:
         final double actualResult = childrenInstance.calculateAmount(10);
@@ -49,7 +49,7 @@ public class ChildrenTest {
     @Test
     public void testCalculateFrequentRenterPointsVerifyTheResultIsOne() {
         // given:
-        Children childrenInstance = new Children("Test");
+        Movie childrenInstance = new Children("Test");
 
         // when:
         final int actualResultOne = childrenInstance.calculateFrequentRenterPoints(1);

@@ -49,4 +49,18 @@ public class SortInnerContentTest {
 
         assertEquals(expectedResult, actualResult);
     }
+
+    /**
+     *
+     */
+    @Test
+    public void test4() {
+        String phrase = "I am an engineer";
+
+        String actualResult = SortInnerContent.sortTheInnerContent(phrase);
+
+        String expectedResult = "I am an ennigeer";
+
+        assertEquals(expectedResult, actualResult);
+    }
 }
