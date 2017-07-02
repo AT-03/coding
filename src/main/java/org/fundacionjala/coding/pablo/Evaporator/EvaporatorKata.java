@@ -15,17 +15,18 @@ public final class EvaporatorKata {
 
     /**
      * This method tests the life of an evaporator containing a gas.
-     * @param content content containing.
+     *
+     * @param content    content containing.
      * @param evapPerDay evaporation day.
-     * @param threshold limit.
+     * @param threshold  limit.
      * @return life of an evaporator containing gas.
      */
 
     public static int evaporator(final double content, final double evapPerDay, final double threshold) {
+        double percent = 100;
         int days = 0;
-        double contentAux = content;
-        while (contentAux >= content * (threshold / PERCENT_TOTAL)) {
-            contentAux -= contentAux * evapPerDay / PERCENT_TOTAL;
+        while (percent > threshold) {
+            percent -= percent * evapPerDay / 100;
             days += 1;
         }
         return days;
