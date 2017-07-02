@@ -1,13 +1,30 @@
 package org.fundacionjala.coding.danielmontecinos.spinwords;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by Daniel Montecinos on 3/10/2017.
  */
 public class SpinWordsTest {
+
+    /**
+     * The method verifies that the Evaporator class has a private constructor.
+     * @throws Exception if the constructor is not private.
+     */
+    @Test
+    public void testSpinWordsConstructorIsPrivate() throws Exception {
+        Constructor constructor = SpinWords.class.getDeclaredConstructor();
+        assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        constructor.setAccessible(true);
+        constructor.newInstance();
+    }
+
     /**
      * Test when sentence has words with more than 5 characters.
      */

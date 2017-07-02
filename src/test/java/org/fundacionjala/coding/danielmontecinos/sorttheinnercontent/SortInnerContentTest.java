@@ -1,13 +1,30 @@
 package org.fundacionjala.coding.danielmontecinos.sorttheinnercontent;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by Administrator on 6/20/2017.
  */
 public class SortInnerContentTest {
+
+    /**
+     * The method verifies that the Evaporator class has a private constructor.
+     * @throws Exception if the constructor is not private.
+     */
+    @Test
+    public void testSortInnerContentConstructorIsPrivate() throws Exception {
+        Constructor constructor = SortInnerContent.class.getDeclaredConstructor();
+        assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        constructor.setAccessible(true);
+        constructor.newInstance();
+    }
+
     /**
      * The method verifies test1.
      */

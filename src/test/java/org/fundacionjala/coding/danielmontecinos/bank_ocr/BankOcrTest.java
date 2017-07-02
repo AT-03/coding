@@ -1,5 +1,9 @@
 package org.fundacionjala.coding.danielmontecinos.bank_ocr;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
+
+import org.fundacionjala.coding.danielmontecinos.averageofnumbers.AverageOfNumbers;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -9,6 +13,19 @@ import static org.junit.Assert.assertTrue;
  * Created by Daniel Montecinos on 3/10/2017.
  */
 public class BankOcrTest {
+
+    /**
+     * The method verifies that the BankOcr class has a private constructor.
+     * @throws Exception if the constructor is not private.
+     */
+    @Test
+    public void testBankOcrConstructorIsPrivate() throws Exception {
+        Constructor constructor = BankOcr.class.getDeclaredConstructor();
+        assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        constructor.setAccessible(true);
+        constructor.newInstance();
+    }
+
     /**
      * Test if scanned image recognized numbers between 0 and 9.
      */

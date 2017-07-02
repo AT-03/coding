@@ -1,15 +1,31 @@
 package org.fundacionjala.coding.danielmontecinos.averageofnumbers;
 
-import org.junit.Test;
-
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
 import java.util.Arrays;
 
+import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by Administrator on 6/20/2017.
  */
 public class AverageOfNumbersTest {
+
+    /**
+     * The method verifies that the AverageOfNumber class has a private constructor.
+     * @throws Exception if the constructor is not private.
+     */
+    @Test
+    public void testAverageOfNumbersConstructorIsPrivate() throws Exception {
+        Constructor constructor = AverageOfNumbers.class.getDeclaredConstructor();
+        assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        constructor.setAccessible(true);
+        constructor.newInstance();
+    }
+
     /**
      * The method verifies test1.
      */

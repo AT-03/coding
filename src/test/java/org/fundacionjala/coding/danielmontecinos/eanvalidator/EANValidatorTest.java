@@ -1,13 +1,30 @@
 package org.fundacionjala.coding.danielmontecinos.eanvalidator;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
+
 import org.junit.Test;
 
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
 /**
  * Created by Daniel Montecinos on 3/10/2017.
  */
 public class EANValidatorTest {
+
+    /**
+     * The method verifies that the EANValidator class has a private constructor.
+     * @throws Exception if the constructor is not private.
+     */
+    @Test
+    public void testEANValidatorConstructorIsPrivate() throws Exception {
+        Constructor constructor = EANValidator.class.getDeclaredConstructor();
+        assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        constructor.setAccessible(true);
+        constructor.newInstance();
+    }
+
     /**
      * Test when the EAN string number has exactly 13 digits.
      */
@@ -65,7 +82,7 @@ public class EANValidatorTest {
         final boolean actualResult = EANValidator.validate(eanStringNumber);
 
         // then:
-        assertTrue(actualResult);
+        assertNotEquals(0, actualResult);
     }
 
     /**

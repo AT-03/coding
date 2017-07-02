@@ -9,6 +9,9 @@ import java.util.Map;
 
 final class BankOcr {
 
+    public static final String ILLEGIBLE = "ILL";
+    public static final String ERROR = "ERR";
+    private static final String EMPTY_STRING = "";
     private static final int MODULUS_FACTOR = 11;
     private static final int CORRECT_ACCOUNT_LENGTH = 9;
     private static final int CORRECT_SCANNED_ACCOUNT_LENGTH = 72;
@@ -17,46 +20,47 @@ final class BankOcr {
     private static final int SUB_STRING_START = 0;
     private static final int SUB_STRING_END = 3;
     private static final Map<Integer, String> STRING_MAP = new HashMap<>();
+    private static final String UNKNOWN_NUMBER = "?";
 
     static {
         STRING_MAP.put(KEY.ZERO.ordinal(),
-                          " _ "
+                " _ "
                         + "| |"
                         + "|_|");
         STRING_MAP.put(KEY.ONE.ordinal(),
-                          "   "
+                "   "
                         + "  |"
                         + "  |");
         STRING_MAP.put(KEY.TWO.ordinal(),
-                          " _ "
+                " _ "
                         + " _|"
                         + "|_ ");
         STRING_MAP.put(KEY.THREE.ordinal(),
-                          "__ "
+                "__ "
                         + " _|"
                         + "__|");
         STRING_MAP.put(KEY.FOUR.ordinal(),
-                          "   "
+                "   "
                         + "|_|"
                         + "  |");
         STRING_MAP.put(KEY.FIVE.ordinal(),
-                          " _ "
+                " _ "
                         + "|_ "
                         + " _|");
         STRING_MAP.put(KEY.SIX.ordinal(),
-                          " _ "
+                " _ "
                         + "|_ "
                         + "|_|");
         STRING_MAP.put(KEY.SEVEN.ordinal(),
-                          "__ "
+                "__ "
                         + "  |"
                         + "  |");
         STRING_MAP.put(KEY.EIGHT.ordinal(),
-                          " _ "
+                " _ "
                         + "|_|"
                         + "|_|");
         STRING_MAP.put(KEY.NINE.ordinal(),
-                          " _ "
+                " _ "
                         + "|_|"
                         + " _|");
     }
@@ -74,7 +78,7 @@ final class BankOcr {
      * return a number between 0 and 9.
      */
     private static String getKey(final String value) {
-        String key = "?";
+        String key = UNKNOWN_NUMBER;
         for (Map.Entry<Integer, String> entry : STRING_MAP.entrySet()) {
             if (entry.getValue().equals(value)) {
                 key = entry.getKey().toString();
@@ -134,12 +138,12 @@ final class BankOcr {
      * @return an String result with the values mentioned earlier.
      */
     static String getAccountStatus(final String account) {
-        String status = "";
+        String status = EMPTY_STRING;
 
         if (!isLegible(account)) {
-            status = "ILL";
+            status = ILLEGIBLE;
         } else if (!validateAccount(account)) {
-            status = "ERR";
+            status = ERROR;
         }
         return status;
     }

@@ -1,5 +1,7 @@
 package org.fundacionjala.coding.danielmontecinos.eanvalidator;
 
+import java.util.stream.IntStream;
+
 /**
  * Created by Daniel Montecinos on 3/10/2017.
  */
@@ -24,21 +26,23 @@ final class EANValidator {
      */
 
     static boolean validate(final String eAN) {
-        int sum = 0;
+        int sum;
 
-        if (!checkCorrectLength(eAN)) {
-            return false;
-        } else {
-            for (int i = 1; i < eAN.length(); i++) {
-                int numericValue = Character.getNumericValue(eAN.charAt(i - 1));
-                sum += i % 2 == 0 ? numericValue * ODD_DIGIT_MULTIPLIER : numericValue;
-            }
+        if (checkCorrectLength(eAN)) {
+
+            int[] digits = eAN.chars().map(Character::getNumericValue).toArray();
+
+            sum = IntStream.rangeClosed(1, digits.length)
+                    .map(i -> i % 2 == 0 ? digits[i - 1] * ODD_DIGIT_MULTIPLIER : digits[i - 1])
+                    .sum();
 
             int module = sum % DIVISIBILITY_FACTOR;
             int check = module != 0 ? DIVISIBILITY_FACTOR - module : 0;
 
             return check == Character.getNumericValue(eAN.charAt(eAN.length() - 1));
+
         }
+        return false;
     }
 
     /**
