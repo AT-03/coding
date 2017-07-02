@@ -77,6 +77,24 @@ public class ValidatorTest {
         final boolean actualResult = Validator.validator(input);
 
         //then
+        assertTrue(!actualResult);
+    }
+
+    /**
+     * Test EAN validator.
+     *
+     * Test three.
+     */
+    @Test
+    public void validatorEANTestThree() {
+
+        //given
+        final String input = "73513536";
+
+        //when
+        final boolean actualResult = Validator.validator(input);
+
+        //then
         assertFalse(actualResult);
     }
 }
