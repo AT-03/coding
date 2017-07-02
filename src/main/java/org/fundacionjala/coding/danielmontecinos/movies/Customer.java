@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Daniel Montecinos on 3/10/2017.
+ * Class Customer.
  */
 
 class Customer {

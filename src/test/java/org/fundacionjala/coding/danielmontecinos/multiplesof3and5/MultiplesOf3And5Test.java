@@ -9,12 +9,13 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Created by Administrator on 6/19/2017.
+ * Class to test MultiplesOf3And5 class.
  */
 public class MultiplesOf3And5Test {
 
     /**
      * The method verifies that the Evaporator class has a private constructor.
+     *
      * @throws Exception if the constructor is not private.
      */
     @Test

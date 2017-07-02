@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.stream.Collectors;
 
 /**
- * Created by Daniel Montecinos on 6/20/2017.
+ * Class SortInnerContent.
  */
 
 final class SortInnerContent {

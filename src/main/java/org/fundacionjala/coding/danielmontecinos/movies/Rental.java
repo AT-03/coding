@@ -1,7 +1,7 @@
 package org.fundacionjala.coding.danielmontecinos.movies;
 
 /**
- * Created by Daniel Montecinos on 3/10/2017.
+ * Class Rental.
  */
 
 class Rental {

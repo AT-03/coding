@@ -9,13 +9,14 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 /**
- * The class verifies the method implementation.
+ * Class to test Evaporator class.
  */
 
 public class EvaporatorTest {
 
     /**
      * The method verifies that the Evaporator class has a private constructor.
+     *
      * @throws Exception if the constructor is not private.
      */
     @Test

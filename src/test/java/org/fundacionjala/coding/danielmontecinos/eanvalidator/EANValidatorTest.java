@@ -10,7 +10,7 @@ import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Created by Daniel Montecinos on 3/10/2017.
+ * Class to test EANValidator class.
  */
 public class EANValidatorTest {
 

@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Created by Daniel Montecinos on 3/10/2017.
+ * Class to test BankOcr class.
  */
 public class BankOcrTest {
 

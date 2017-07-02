@@ -9,12 +9,13 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Created by Daniel Montecinos on 3/10/2017.
+ * Class to test SpinWords class.
  */
 public class SpinWordsTest {
 
     /**
      * The method verifies that the Evaporator class has a private constructor.
+     *
      * @throws Exception if the constructor is not private.
      */
     @Test

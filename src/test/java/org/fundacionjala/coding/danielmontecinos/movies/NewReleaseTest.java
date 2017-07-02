@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Created by Daniel Montecinos on 3/10/2017.
+ * Class to test NewRelease class.
  */
 public class NewReleaseTest {
 

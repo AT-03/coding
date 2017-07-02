@@ -1,7 +1,7 @@
 package org.fundacionjala.coding.danielmontecinos.movies;
 
 /**
- * Created by Daniel Montecinos on 3/10/2017.
+ * Class Movie.
  */
 public abstract class Movie {
     private String title;

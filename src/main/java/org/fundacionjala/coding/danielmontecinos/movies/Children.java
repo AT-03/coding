@@ -1,7 +1,7 @@
 package org.fundacionjala.coding.danielmontecinos.movies;
 
 /**
- * Created by Daniel Montecinos on 3/10/2017.
+ * Class Children.
  */
 public class Children extends Movie {
     private static final int LIMIT_DAYS_TO_RENT_CHILDREN_MOVIE = 3;

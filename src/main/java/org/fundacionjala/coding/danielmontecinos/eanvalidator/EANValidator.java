@@ -3,7 +3,7 @@ package org.fundacionjala.coding.danielmontecinos.eanvalidator;
 import java.util.stream.IntStream;
 
 /**
- * Created by Daniel Montecinos on 3/10/2017.
+ * Class EANValidator.
  */
 
 final class EANValidator {
@@ -26,7 +26,8 @@ final class EANValidator {
      */
 
     static boolean validate(final String eAN) {
-        int sum;
+        int sum, module;
+        int check = 0;
 
         if (checkCorrectLength(eAN)) {
 
@@ -36,13 +37,11 @@ final class EANValidator {
                     .map(i -> i % 2 == 0 ? digits[i - 1] * ODD_DIGIT_MULTIPLIER : digits[i - 1])
                     .sum();
 
-            int module = sum % DIVISIBILITY_FACTOR;
-            int check = module != 0 ? DIVISIBILITY_FACTOR - module : 0;
-
-            return check == Character.getNumericValue(eAN.charAt(eAN.length() - 1));
+            module = sum % DIVISIBILITY_FACTOR;
+            check = module != 0 ? DIVISIBILITY_FACTOR - module : 0;
 
         }
-        return false;
+        return check == Character.getNumericValue(eAN.charAt(eAN.length() - 1));
     }
 
     /**

@@ -4,13 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by Daniel Montecinos on 3/10/2017.
+ * Class BankOcr.
  */
 
 final class BankOcr {
 
-    public static final String ILLEGIBLE = "ILL";
-    public static final String ERROR = "ERR";
+    private static final String ILLEGIBLE = "ILL";
+    private static final String ERROR = "ERR";
     private static final String EMPTY_STRING = "";
     private static final int MODULUS_FACTOR = 11;
     private static final int CORRECT_ACCOUNT_LENGTH = 9;

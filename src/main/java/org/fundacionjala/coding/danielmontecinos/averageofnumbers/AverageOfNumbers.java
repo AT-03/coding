@@ -3,10 +3,10 @@ package org.fundacionjala.coding.danielmontecinos.averageofnumbers;
 import java.util.stream.IntStream;
 
 /**
- * Created by Daniel Montecinos on 6/20/2017.
+ * Class Average of Numbers.
  */
 
-public final class AverageOfNumbers {
+final class AverageOfNumbers {
 
     /**
      * Private constructor.
@@ -20,7 +20,7 @@ public final class AverageOfNumbers {
      * @param numbers is an array of int numbers.
      * @return the average of the numbers as an array.
      */
-    public static double[] averages(final int[] numbers) {
+    static double[] averages(final int[] numbers) {
         return (numbers == null || numbers.length <= 1)
                 ? new double[]{}
                 : IntStream.range(0, numbers.length - 1)
