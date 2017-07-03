@@ -1,20 +1,24 @@
 package org.fundacionjala.coding.juan.gas;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
+
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by Administrator on 6/28/2017.
  */
 public class EvaporatorTest {
-    private Evaporator evaporator = new Evaporator();
+
 
     /**
      * test.
      */
     @Test
     public void testEvaporatorOne() {
-        assertEquals(22, evaporator.evaporator(10, 10, 10));
+        assertEquals(22, Evaporator.evaporator(10, 10, 10));
     }
 
     /**
@@ -22,7 +26,7 @@ public class EvaporatorTest {
      */
     @Test
     public void testEvaporatorTwo() {
-        assertEquals(29, evaporator.evaporator(10, 10, 5));
+        assertEquals(29, Evaporator.evaporator(10, 10, 5));
     }
 
     /**
@@ -30,7 +34,7 @@ public class EvaporatorTest {
      */
     @Test
     public void testEvaporatorThree() {
-        assertEquals(59, evaporator.evaporator(100, 5, 5));
+        assertEquals(59, Evaporator.evaporator(100, 5, 5));
     }
 
     /**
@@ -38,7 +42,7 @@ public class EvaporatorTest {
      */
     @Test
     public void testEvaporatorFour() {
-        assertEquals(37, evaporator.evaporator(50, 12, 1));
+        assertEquals(37, Evaporator.evaporator(50, 12, 1));
     }
 
     /**
@@ -46,7 +50,7 @@ public class EvaporatorTest {
      */
     @Test
     public void testEvaporatorFive() {
-        assertEquals(31, evaporator.evaporator(47.5, 8, 8));
+        assertEquals(31, Evaporator.evaporator(47.5, 8, 8));
     }
 
     /**
@@ -54,7 +58,7 @@ public class EvaporatorTest {
      */
     @Test
     public void testEvaporatorSix() {
-        assertEquals(459, evaporator.evaporator(100, 1, 1));
+        assertEquals(459, Evaporator.evaporator(100, 1, 1));
     }
 
     /**
@@ -62,7 +66,7 @@ public class EvaporatorTest {
      */
     @Test
     public void testEvaporatorSeven() {
-        assertEquals(459, evaporator.evaporator(10, 1, 1));
+        assertEquals(459, Evaporator.evaporator(10, 1, 1));
     }
 
     /**
@@ -70,7 +74,20 @@ public class EvaporatorTest {
      */
     @Test
     public void testEvaporatorEight() {
-        assertEquals(299, evaporator.evaporator(100, 1, 5));
+        assertEquals(299, Evaporator.evaporator(100, 1, 5));
+    }
+
+    /**
+     * Test constructor.
+     *
+     * @throws Exception exception.
+     */
+    @Test
+    public void testConstructorIsPrivate() throws Exception {
+        Constructor constructor = Evaporator.class.getDeclaredConstructor();
+        assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        constructor.setAccessible(true);
+        constructor.newInstance();
     }
 
 }
