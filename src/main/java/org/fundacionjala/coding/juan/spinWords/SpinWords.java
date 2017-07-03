@@ -25,25 +25,15 @@ public final class SpinWords {
         if (sentence.length() <= limitWord) {
             return sentence;
         } else {
-            String[] separatedWords = sentence.split(" ");
-            StringBuilder result = new StringBuilder();
-            for (String separatedWord : separatedWords) {
-
-                if (separatedWord.length() > limitWord) {
-                    for (int j = separatedWord.length() - 1; j >= 0; j--) {
-                        result.append(separatedWord.charAt(j));
-                    }
-                    result.append(" ");
-
-                } else {
-                    for (int j = 0; j < separatedWord.length(); j++) {
-                        result.append(separatedWord.charAt(j));
-                    }
-                    result.append(" ");
-
+            String[] words = sentence.split(" ");
+            for (int i = 0; i < words.length; i++) {
+                if (words[i].length() > limitWord) {
+                    words[i] = new StringBuilder(words[i]).reverse().toString();
                 }
             }
-            return result.deleteCharAt(result.length() - 1).toString();
+
+            return String.join(" ", words);
+
         }
     }
 }
