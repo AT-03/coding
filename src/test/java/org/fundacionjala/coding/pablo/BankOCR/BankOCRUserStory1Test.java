@@ -130,10 +130,10 @@ public class BankOCRUserStory1Test {
         };
 
         //when
-        final String actualResult = BankOCRUserStory1.numberConvertedToString(numberScanned);
+        final String expectedResult = "?70414989";
 
         //then
-        final String expectedResult = "?70414989";
+        final String actualResult = BankOCRUserStory1.numberConvertedToString(numberScanned);
         assertEquals(expectedResult, actualResult);
     }
 }

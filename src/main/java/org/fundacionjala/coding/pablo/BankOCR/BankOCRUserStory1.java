@@ -85,7 +85,7 @@ public final class BankOCRUserStory1 {
      * @return characters in a range 0-9
      */
 
-    private static String getKey(final String value) {
+    protected static String getKey(final String value) {
         String valueString = "?";
         for (Map.Entry<Integer, String> inputData : mapNum.entrySet()) {
             valueString = inputData.getValue().equalsIgnoreCase(value)
