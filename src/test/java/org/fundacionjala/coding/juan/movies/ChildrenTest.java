@@ -1,7 +1,6 @@
 package org.fundacionjala.coding.juan.movies;
 
 import org.junit.Test;
-
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -56,6 +55,23 @@ public class ChildrenTest {
 
         // then:
         final double expectedResult = 4.5;
+        assertEquals(expectedResult, actualResult, 0);
+    }
+
+    /**
+     * Test calculate points.
+     */
+    @Test
+    public void testChildrenMovieCalculatePoints() {
+
+        // given:
+        final Children children = new Children("Spy Kids");
+        final int daysRentet = 5;
+        // when:
+        final double actualResult = children.calculateFrequentRenterPoints(daysRentet);
+
+        // then:
+        final double expectedResult = 1;
         assertEquals(expectedResult, actualResult, 0);
     }
 
