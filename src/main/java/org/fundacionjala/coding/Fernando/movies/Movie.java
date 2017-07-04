@@ -17,13 +17,13 @@ public abstract class Movie {
      * @param daysRented param.
      * @return double value.
      */
-    public abstract double calculateAmount(final int daysRented);
+    public abstract double calculateAmount(int daysRented);
 
     /**
      * @param daysRented param.
      * @return int value.
      */
-    public abstract int calculateFrequentRenterPoints(final int daysRented);
+    public abstract int calculateFrequentRenterPoints(int daysRented);
 
     /**
      * @return String value.
