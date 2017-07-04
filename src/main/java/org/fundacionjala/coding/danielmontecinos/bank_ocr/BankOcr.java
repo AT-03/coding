@@ -96,7 +96,6 @@ final class BankOcr {
      * @return true or false
      */
     private static boolean isLegible(final String account) {
-
         boolean isCorrect = true;
 
         for (int i = 0; i < account.length(); i++) {
