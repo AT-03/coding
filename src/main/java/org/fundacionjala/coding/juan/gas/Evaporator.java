@@ -16,7 +16,7 @@ public final class Evaporator {
      *
      * @param content   how much gas have.
      * @param evap      how much waste.
-     * @param threshold the limit.
+     * @param threshold the  limit.
      * @return how many days.
      */
     public static int evaporator(final double content, final int evap, final int threshold) {
