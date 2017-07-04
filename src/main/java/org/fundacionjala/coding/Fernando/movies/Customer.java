@@ -52,11 +52,6 @@ public class Customer {
      * @return double value.
      */
     public double calculateTotalAmount() {
-//        double totalAmount = 0;
-//        for (Rental rental : rentalsCustomer) {
-//            totalAmount += rental.calculateAmount();
-//        }
-//        return totalAmount;
         return rentalsCustomer.stream()
                 .mapToDouble(Rental::calculateAmount)
                 .sum();
@@ -66,11 +61,6 @@ public class Customer {
      * @return int value.
      */
     public int calculateTotalFrequentRenterPoints() {
-//        int totalFrequentRenterPoints = 0;
-//        for (Rental rental : rentalsCustomer) {
-//            totalFrequentRenterPoints += rental.calculateFrequentRenterPoint();
-//        }
-//        return totalFrequentRenterPoints;
         return rentalsCustomer.stream()
                 .mapToInt(rental -> rental.calculateFrequentRenterPoint())
                 .sum();
