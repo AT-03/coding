@@ -30,7 +30,7 @@ public class SortInnerContentTest {
      * The method verifies test1.
      */
     @Test
-    public void test1() {
+    public void test() {
         String phrase = "sort the inner content in descending order";
 
         String actualResult = SortInnerContent.sortTheInnerContent(phrase);
