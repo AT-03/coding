@@ -19,11 +19,12 @@ public final class Evaporator {
      * @param threshold the limit.
      * @return how many days.
      */
-    public static int evaporator(double content, final int evap, final int threshold) {
+    public static int evaporator(final double content, final int evap, final int threshold) {
         int days = 0;
+        double cont = content;
         double limit1 = content * threshold / 100.00;
-        while (content >= limit1) {
-            content = content - content * evap / 100.00;
+        while (cont >= limit1) {
+            cont = cont - cont * evap / 100.00;
             days++;
         }
         return days;
