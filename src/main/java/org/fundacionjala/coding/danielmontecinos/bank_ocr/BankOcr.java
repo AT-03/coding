@@ -2,6 +2,7 @@ package org.fundacionjala.coding.danielmontecinos.bank_ocr;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Stream;
 
 /**
  * Class BankOcr.
@@ -21,6 +22,7 @@ final class BankOcr {
     private static final int SUB_STRING_END = 3;
     private static final Map<Integer, String> STRING_MAP = new HashMap<>();
     private static final String UNKNOWN_NUMBER = "?";
+    private static final String BY_EACH_CHARACTER = "";
 
     static {
         STRING_MAP.put(KEY.ZERO.ordinal(),
@@ -94,6 +96,7 @@ final class BankOcr {
      * @return true or false
      */
     private static boolean isLegible(final String account) {
+
         boolean isCorrect = true;
 
         for (int i = 0; i < account.length(); i++) {
@@ -112,22 +115,20 @@ final class BankOcr {
      * @return true if the passed account is true, false otherwise.
      */
     static boolean validateAccount(final String account) {
-        if (account.length() == CORRECT_ACCOUNT_LENGTH && isLegible(account)) {
-
-            String[] acct = account.split("");
-
-            int checksum = 0;
-            int factor = MULTIPLY_FACTOR;
-
-            for (String value : acct) {
-                checksum += Integer.parseInt(value) * factor;
-                factor--;
-            }
-
-            return checksum % MODULUS_FACTOR == 0;
-        } else {
+        if (!(account.length() == CORRECT_ACCOUNT_LENGTH) || !isLegible(account)) {
             return false;
         }
+
+        int checksum = 0;
+        int factor = MULTIPLY_FACTOR;
+
+        for (String value : account.split(BY_EACH_CHARACTER)) {
+            checksum += Integer.parseInt(value) * factor;
+            factor--;
+        }
+
+        return checksum % MODULUS_FACTOR == 0;
+
     }
 
     /**
@@ -155,13 +156,8 @@ final class BankOcr {
      * @return String representation of scanned image.
      */
     static String accountRepresentation(final String[] scannedImage) {
-        StringBuilder acctRepresentation = new StringBuilder();
-
-        for (String number : scannedImage) {
-            acctRepresentation.append(getKey(number));
-        }
-
-        return acctRepresentation.toString();
+        return Stream.of(scannedImage)
+                .reduce(BY_EACH_CHARACTER, (a, b) -> a + getKey(b));
     }
 
     /**
@@ -172,7 +168,6 @@ final class BankOcr {
      * @return an array of nine string digits.
      */
     static String[] parseScannedNumbers(final String scannedAccount) {
-
         String[] scannedDigits = {"", "", "", "", "", "", "", "", ""};
 
         if (!lengthScannedImageIsValid(scannedAccount)) {
