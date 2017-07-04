@@ -11,13 +11,27 @@ import static org.junit.Assert.assertEquals;
  */
 
 public class EvaporatorTest {
-
+    private static final int INT_22 = 22;
+    private static final int INT_29 = 29;
+    private static final int INT_59 = 59;
+    private static final int INT_37 = 37;
+    private static final int INT_31 = 31;
+    private static final int INT_459 = 459;
+    private static final int INT_299 = 299;
+    private static final double DOUBLE_10 = 10;
+    private static final double DOUBLE_5 = 5;
+    private static final double DOUBLE_50 = 50;
+    private static final double DOUBLE_12 = 12;
+    private static final double DOUBLE_1 = 1;
+    private static final double DOUBLE_47_5 = 47.5;
+    private static final double DOUBLE_8 = 8;
+    private static final double DOUBLE_100 = 100;
     /**
      * Test.
      */
     @Test
     public void testEvaporatorOne() {
-        assertEquals(22, Evaporator.evaporator(10, 10, 10));
+        assertEquals(INT_22, Evaporator.evaporator(DOUBLE_10, DOUBLE_10, DOUBLE_10));
     }
 
     /**
@@ -25,7 +39,7 @@ public class EvaporatorTest {
      */
     @Test
     public void testEvaporatorTwo() {
-        assertEquals(29, Evaporator.evaporator(10, 10, 5));
+        assertEquals(INT_29, Evaporator.evaporator(DOUBLE_10, DOUBLE_10, DOUBLE_5));
     }
 
     /**
@@ -33,7 +47,7 @@ public class EvaporatorTest {
      */
     @Test
     public void testEvaporatorThree() {
-        assertEquals(59, Evaporator.evaporator(100, 5, 5));
+        assertEquals(INT_59, Evaporator.evaporator(DOUBLE_100, DOUBLE_5, DOUBLE_5));
     }
 
     /**
@@ -41,7 +55,7 @@ public class EvaporatorTest {
      */
     @Test
     public void testEvaporatorFour() {
-        assertEquals(37, Evaporator.evaporator(50, 12, 1));
+        assertEquals(INT_37, Evaporator.evaporator(DOUBLE_50, DOUBLE_12, DOUBLE_1));
     }
 
     /**
@@ -49,7 +63,7 @@ public class EvaporatorTest {
      */
     @Test
     public void testEvaporatorFive() {
-        assertEquals(31, Evaporator.evaporator(47.5, 8, 8));
+        assertEquals(INT_31, Evaporator.evaporator(DOUBLE_47_5, DOUBLE_8, DOUBLE_8));
     }
 
     /**
@@ -57,7 +71,7 @@ public class EvaporatorTest {
      */
     @Test
     public void testEvaporatorSix() {
-        assertEquals(459, Evaporator.evaporator(100, 1, 1));
+        assertEquals(INT_459, Evaporator.evaporator(DOUBLE_100, DOUBLE_1, DOUBLE_1));
     }
 
     /**
@@ -65,7 +79,7 @@ public class EvaporatorTest {
      */
     @Test
     public void testEvaporatorSeven() {
-        assertEquals(459, Evaporator.evaporator(10, 1, 1));
+        assertEquals(INT_459, Evaporator.evaporator(DOUBLE_10, DOUBLE_1, DOUBLE_1));
     }
 
     /**
@@ -73,7 +87,7 @@ public class EvaporatorTest {
      */
     @Test
     public void testEvaporatorEight() {
-        assertEquals(299, Evaporator.evaporator(100, 1, 5));
+        assertEquals(INT_299, Evaporator.evaporator(DOUBLE_100, DOUBLE_1, DOUBLE_5));
     }
 
     /**

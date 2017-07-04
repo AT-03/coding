@@ -20,7 +20,7 @@ public final class Evaporator {
      * @param limit The limit to not lose
      * @return int
      */
-    public static int evaporator(final double content, final int percentage, final int limit) {
+    public static int evaporator(final double content, final double percentage, final double limit) {
 
         int days = 0;
         double actualContent = content;
