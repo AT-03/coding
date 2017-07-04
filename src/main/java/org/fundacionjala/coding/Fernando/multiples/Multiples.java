@@ -3,7 +3,7 @@ package org.fundacionjala.coding.Fernando.multiples;
 /**
  * Created by PC on 24/06/2017.
  */
-public final class Multiples {
+public abstract class Multiples {
 
     public static final int FIVE = 5;
     private static final int THREE = 3;
@@ -11,7 +11,7 @@ public final class Multiples {
     /**
      * Method Constructor.
      */
-    private Multiples() {
+    Multiples() {
     }
 
     /**
@@ -30,4 +30,3 @@ public final class Multiples {
         return res;
     }
 }
-
