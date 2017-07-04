@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Tests for {@link SpinWords}.
+ * Tests for  {@link SpinWords}.
  */
 public class SpinWordsTest {
 
