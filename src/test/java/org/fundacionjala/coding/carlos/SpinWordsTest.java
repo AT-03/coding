@@ -1,8 +1,12 @@
 package org.fundacionjala.coding.carlos;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Tests for {@link SpinWords}.
@@ -71,6 +75,19 @@ public class SpinWordsTest {
         // then:
         final String expectedResult = "emocleW";
         assertEquals(expectedResult, actualResult);
+    }
+
+    /**
+     * Test constructor.
+     *
+     * @throws Exception construct
+     */
+    @Test
+    public void testConstructorIsPrivate() throws Exception {
+        Constructor constructor = SpinWords.class.getDeclaredConstructor();
+        assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        constructor.setAccessible(true);
+        constructor.newInstance();
     }
 
 }
