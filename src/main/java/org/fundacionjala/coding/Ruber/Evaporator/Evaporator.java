@@ -11,7 +11,6 @@ public final class Evaporator {
      * Constructor.
      */
     private Evaporator() {
-
     }
 
     /**

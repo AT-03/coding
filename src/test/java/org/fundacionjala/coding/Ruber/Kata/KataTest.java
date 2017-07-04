@@ -1,5 +1,7 @@
 package org.fundacionjala.coding.Ruber.Kata;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -70,5 +72,17 @@ public class KataTest {
     @Test
     public void singleTest() {
         Assert.assertEquals(Kata.highAndLow("42"), "42 42");
+    }
+
+    /**
+     * Constructor test.
+     * @throws Exception Exception
+     */
+    @Test
+    public void testConstructor() throws Exception {
+        Constructor constructor = Kata.class.getDeclaredConstructor();
+        Assert.assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        constructor.setAccessible(true);
+        constructor.newInstance();
     }
 }

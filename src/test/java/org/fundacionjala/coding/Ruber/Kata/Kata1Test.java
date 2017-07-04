@@ -1,5 +1,8 @@
 package org.fundacionjala.coding.Ruber.Kata;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -24,5 +27,17 @@ public class Kata1Test {
         assertEquals(TEST1, Kata1.solution(RESULT1));
         assertEquals(TEST2, Kata1.solution(RESULT2));
         assertEquals(TEST3, Kata1.solution(RESULT3));
+    }
+
+    /**
+     * Constructor test.
+     * @throws Exception Exception
+     */
+    @Test
+    public void testConstructor() throws Exception {
+        Constructor constructor = Kata1.class.getDeclaredConstructor();
+        Assert.assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        constructor.setAccessible(true);
+        constructor.newInstance();
     }
 }

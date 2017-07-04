@@ -1,5 +1,8 @@
 package org.fundacionjala.coding.Ruber;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
+import org.junit.Assert;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 /**
@@ -69,5 +72,17 @@ public class Kata1Test {
         // then
         final String expectedResult = "emocleW";
         assertEquals(expectedResult, actualResult);
+    }
+
+    /**
+     * Constructor test.
+     * @throws Exception Exception
+     */
+    @Test
+    public void testConstructor() throws Exception {
+        Constructor constructor = Kata1.class.getDeclaredConstructor();
+        Assert.assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        constructor.setAccessible(true);
+        constructor.newInstance();
     }
 }

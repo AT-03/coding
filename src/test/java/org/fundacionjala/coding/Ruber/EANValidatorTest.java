@@ -1,5 +1,8 @@
 package org.fundacionjala.coding.Ruber;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
+import org.junit.Assert;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 /**
@@ -37,5 +40,17 @@ public class EANValidatorTest {
         // then
         final boolean expectedResult = false;
         assertEquals(expectedResult, actualResult);
+    }
+
+    /**
+     * Constructor test.
+     * @throws Exception Exception
+     */
+    @Test
+    public void testConstructor() throws Exception {
+        Constructor constructor = EANValidator.class.getDeclaredConstructor();
+        Assert.assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        constructor.setAccessible(true);
+        constructor.newInstance();
     }
 }

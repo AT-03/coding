@@ -1,5 +1,7 @@
 package org.fundacionjala.coding.Ruber.BankOcr;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -285,5 +287,17 @@ public class AccountNumbersTest {
 
         // Then
         Assert.assertEquals(actualResult, expectedResult);
+    }
+
+    /**
+     * Constructor test.
+     * @throws Exception Exception
+     */
+    @Test
+    public void testConstructor() throws Exception {
+        Constructor accountNumbersConstructor = AccountNumbers.class.getDeclaredConstructor();
+        Assert.assertTrue(Modifier.isPrivate(accountNumbersConstructor.getModifiers()));
+        accountNumbersConstructor.setAccessible(true);
+        accountNumbersConstructor.newInstance();
     }
 }

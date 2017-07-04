@@ -1,6 +1,9 @@
 package org.fundacionjala.coding.Ruber.Exam;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
 import java.util.Arrays;
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -38,6 +41,18 @@ public class KataTest {
             Kata.averages(new int[] {2}).length);
         assertEquals("input 'null' should return an empty array", 0, Kata.averages(null).length);
         assertEquals("Empty array as input should return an empty array", 0, Kata.averages(new int[0]).length);
+    }
+
+    /**
+     * Constructor test.
+     * @throws Exception Exception
+     */
+    @Test
+    public void testConstructor() throws Exception {
+        Constructor kataConstructor = Kata.class.getDeclaredConstructor();
+        Assert.assertTrue(Modifier.isPrivate(kataConstructor.getModifiers()));
+        kataConstructor.setAccessible(true);
+        kataConstructor.newInstance();
     }
 
 }

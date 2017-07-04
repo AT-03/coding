@@ -55,13 +55,14 @@ public class Customer {
      */
     public StringBuilder getResult() {
         StringBuilder result = new StringBuilder();
-        result.append("Rental Record for " + getName() + "\n");
+        result.append(String.format("Rental Record for %s%n", getName()));
         for (Rental ren : rentals) {
-            result.append(String.format("%s\t%s%s", ren.getMovie().getTitle(),
-                ren.getMovie().getAmount(ren.getDaysRented()), "\n"));
+            result.append(String.format("%s\t%s%n", ren.getMovie().getTitle(),
+                ren.getMovie().getAmount(ren.getDaysRented())));
         }
-        return result.append("Amount owed is " + String.valueOf(calculateAmount(rentals)) + "\n"
-                + "You earned " + String.valueOf(calculateFrequentRenterPoints(rentals)));
+        return result.append(String.format("Amount owed is %s%nYou earned %s",
+            String.valueOf(calculateAmount(rentals)),
+            String.valueOf(calculateFrequentRenterPoints(rentals))));
 
     }
 
