@@ -4,7 +4,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Modifier;
 import org.junit.Assert;
 import org.junit.Test;
-import static org.junit.Assert.assertEquals;
+
 /**
  * Created by Ruber Cuellar on 3/6/2017.
  */
@@ -22,8 +22,7 @@ public class EANValidatorTest {
         final boolean actualResult = EANValidator.validate(num);
 
         // then
-        final boolean expectedResult = true;
-        assertEquals(expectedResult, actualResult);
+        Assert.assertTrue(actualResult);
     }
 
     /**
@@ -38,8 +37,7 @@ public class EANValidatorTest {
         final boolean actualResult = EANValidator.validate(num);
 
         // then
-        final boolean expectedResult = false;
-        assertEquals(expectedResult, actualResult);
+        Assert.assertFalse(actualResult);
     }
 
     /**

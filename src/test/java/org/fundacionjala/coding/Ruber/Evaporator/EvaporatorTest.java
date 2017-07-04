@@ -11,27 +11,18 @@ import static org.junit.Assert.assertEquals;
  */
 
 public class EvaporatorTest {
-    private static final int INT_22 = 22;
-    private static final int INT_29 = 29;
-    private static final int INT_59 = 59;
-    private static final int INT_37 = 37;
-    private static final int INT_31 = 31;
-    private static final int INT_459 = 459;
-    private static final int INT_299 = 299;
-    private static final double DOUBLE_10 = 10;
-    private static final double DOUBLE_5 = 5;
-    private static final double DOUBLE_50 = 50;
-    private static final double DOUBLE_12 = 12;
-    private static final double DOUBLE_1 = 1;
-    private static final double DOUBLE_47_5 = 47.5;
-    private static final double DOUBLE_8 = 8;
-    private static final double DOUBLE_100 = 100;
+
     /**
      * Test.
      */
     @Test
     public void testEvaporatorOne() {
-        assertEquals(INT_22, Evaporator.evaporator(DOUBLE_10, DOUBLE_10, DOUBLE_10));
+        final int expectedResult = 22;
+        final double content = 10;
+        final double percentage = 10;
+        final double limit = 10;
+
+        assertEquals(expectedResult, Evaporator.evaporator(content, percentage, limit));
     }
 
     /**
@@ -39,7 +30,12 @@ public class EvaporatorTest {
      */
     @Test
     public void testEvaporatorTwo() {
-        assertEquals(INT_29, Evaporator.evaporator(DOUBLE_10, DOUBLE_10, DOUBLE_5));
+        final int expectedResult = 29;
+        final double content = 10;
+        final double percentage = 10;
+        final double limit = 5;
+
+        assertEquals(expectedResult, Evaporator.evaporator(content, percentage, limit));
     }
 
     /**
@@ -47,7 +43,12 @@ public class EvaporatorTest {
      */
     @Test
     public void testEvaporatorThree() {
-        assertEquals(INT_59, Evaporator.evaporator(DOUBLE_100, DOUBLE_5, DOUBLE_5));
+        final int expectedResult = 59;
+        final double content = 100;
+        final double percentage = 5;
+        final double limit = 5;
+
+        assertEquals(expectedResult, Evaporator.evaporator(content, percentage, limit));
     }
 
     /**
@@ -55,7 +56,12 @@ public class EvaporatorTest {
      */
     @Test
     public void testEvaporatorFour() {
-        assertEquals(INT_37, Evaporator.evaporator(DOUBLE_50, DOUBLE_12, DOUBLE_1));
+        final int expectedResult = 37;
+        final double content = 50;
+        final double percentage = 12;
+        final double limit = 1;
+
+        assertEquals(expectedResult, Evaporator.evaporator(content, percentage, limit));
     }
 
     /**
@@ -63,7 +69,12 @@ public class EvaporatorTest {
      */
     @Test
     public void testEvaporatorFive() {
-        assertEquals(INT_31, Evaporator.evaporator(DOUBLE_47_5, DOUBLE_8, DOUBLE_8));
+        final int expectedResult = 31;
+        final double content = 47.5;
+        final double percentage = 8;
+        final double limit = 8;
+
+        assertEquals(expectedResult, Evaporator.evaporator(content, percentage, limit));
     }
 
     /**
@@ -71,7 +82,12 @@ public class EvaporatorTest {
      */
     @Test
     public void testEvaporatorSix() {
-        assertEquals(INT_459, Evaporator.evaporator(DOUBLE_100, DOUBLE_1, DOUBLE_1));
+        final int expectedResult = 459;
+        final double content = 100;
+        final double percentage = 1;
+        final double limit = 1;
+
+        assertEquals(expectedResult, Evaporator.evaporator(content, percentage, limit));
     }
 
     /**
@@ -79,7 +95,12 @@ public class EvaporatorTest {
      */
     @Test
     public void testEvaporatorSeven() {
-        assertEquals(INT_459, Evaporator.evaporator(DOUBLE_10, DOUBLE_1, DOUBLE_1));
+        final int expectedResult = 459;
+        final double content = 10;
+        final double percentage = 1;
+        final double limit = 1;
+
+        assertEquals(expectedResult, Evaporator.evaporator(content, percentage, limit));
     }
 
     /**
@@ -87,7 +108,12 @@ public class EvaporatorTest {
      */
     @Test
     public void testEvaporatorEight() {
-        assertEquals(INT_299, Evaporator.evaporator(DOUBLE_100, DOUBLE_1, DOUBLE_5));
+        final int expectedResult = 299;
+        final double content = 100;
+        final double percentage = 1;
+        final double limit = 5;
+
+        assertEquals(expectedResult, Evaporator.evaporator(content, percentage, limit));
     }
 
     /**

@@ -100,14 +100,11 @@ public final class AccountNumbers {
      * @return String with validation
      */
     public static String validate(final StringBuilder number) {
-        String result = "";
         if (number.toString().contains("?")) {
-                result = " ILL";
-            } else {
-            if (!validAccount(number)) {
-                result = " ERR";
+                return String.format("%s ILL", number);
+            } else if (!validAccount(number)) {
+                return String.format("%s ERR", number);
             }
-        }
-        return number + result;
+            return String.valueOf(number);
     }
 }

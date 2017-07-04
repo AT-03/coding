@@ -250,7 +250,7 @@ public class AccountNumbersTest {
         boolean actualResult = AccountNumbers.validAccount(result);
 
         // Then
-        Assert.assertEquals(actualResult, true);
+        Assert.assertTrue(actualResult);
     }
 
     /**

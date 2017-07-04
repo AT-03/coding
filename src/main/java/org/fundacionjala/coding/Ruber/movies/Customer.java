@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
  */
 public class Customer {
     private final String name;
-    private final List<Rental> rentals = new ArrayList<Rental>();
+    private final List<Rental> rentals;
     private static final int REGULAR_AMOUNT = 2;
     private static final double CHILDRENS_AMOUNT = 1.5;
     private static final double NORMAL_FINE = 1.5;
@@ -23,6 +23,7 @@ public class Customer {
      */
     public Customer(final String name) {
         this.name = name;
+        this.rentals = new ArrayList<Rental>();
     }
 
     /**
