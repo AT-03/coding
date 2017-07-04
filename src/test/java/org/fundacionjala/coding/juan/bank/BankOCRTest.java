@@ -4,8 +4,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Modifier;
 
 import org.junit.Test;
-
-
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -137,6 +136,39 @@ public class BankOCRTest {
         assertEquals(expectedResult, actualResult);
     }
 
+    /**
+     * Testing an invalid account.
+     */
+    @Test
+    public void verifyValidateAccountNumbersFalse() {
+        // given:
+        String figureScanned =
+                "       _  _  _  _  _  _  _ "
+                        + "  ||_||_||_||_| _";
+        // when:
+        Boolean actualResult = BankOCR.validateAccountNumbers(figureScanned);
+
+        // then:
+        Boolean expectedResult = false;
+        assertEquals(expectedResult, actualResult);
+
+    }
+
+    /**
+     * Testing a empty string as value.
+     */
+    @Test
+    public void parceIntScannedFiguredReturnEmpty() {
+        // given:
+        String figureScanned = "";
+        // when:
+        String[] actualResult = BankOCR.parseScannedFigures(figureScanned);
+
+        // then:
+        String[] expectedResult = new String[]{"", "", "", "", "", "", "", "", ""};
+        assertArrayEquals(expectedResult, actualResult);
+
+    }
 
 
 }
