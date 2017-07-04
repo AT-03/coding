@@ -141,10 +141,7 @@ public final class BankOCR {
             suma += x;
             multiplier++;
         }
-        if (suma % VALIDATOR == 0) {
-            return true;
-        }
-        return false;
+        return suma % VALIDATOR == 0;
     }
 
 }

@@ -23,14 +23,12 @@ public class CheckSum {
         int sum = ZERO;
         if (valor.length() != SIZEVALUE) {
             return false;
-        } else {
+        }
             for (int i = UNO; i < valor.length(); i++) {
                 int num = Character.getNumericValue(valor.charAt(i - 1));
                 sum += i % 2 == 0 ? num * TRES : num;
             }
             return numeroValido(sum) == Character.getNumericValue(valor.charAt(valor.length() - 1));
-
-        }
     }
     /**
      * @param sum of values.
@@ -38,8 +36,8 @@ public class CheckSum {
      */
     public int numeroValido(final int sum) {
         int result = sum % DIEZ;
-        int data = result != 0 ? DIEZ - result : 0;
-        return data;
+        return result != 0 ? DIEZ - result : 0;
+
     }
 
 }

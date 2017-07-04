@@ -21,10 +21,8 @@ public class Prom {
         double[] res = {};
         if (num != null && num.length != 0) {
             return promedio(num, 0);
-        } else {
-            return res;
         }
-
+            return res;
     }
 
     /**

@@ -10,36 +10,19 @@ public final class CadInv {
     static final int CANTMAYOR = 5;
 
     /**
-     * Constructor.
-     */
-    public CadInv() {
-
-    }
-
-    /**
-     * @param string param.
+     * @param text param.
      * @return String param.
      */
-    public String cadenaInv(final String string) {
-        String[] parts = string.split(" ");
-        return cadenaInv(parts, 0);
-    }
-
-    /**
-     * @param parts param.
-     * @param pos   param.
-     * @return String param.
-     */
-    private String cadenaInv(final String[] parts, final int pos) {
-
-        if (pos < parts.length) {
+    public String cadenaInv(final String text) {
+        int pos = 0;
+        String[] parts = text.split(" ");
+        while (pos < parts.length) {
             String palabra = parts[pos];
             if (palabra.length() > CANTMAYOR) {
                 StringBuilder sb = new StringBuilder(parts[pos]);
                 parts[pos] = sb.reverse().toString();
             }
-            return cadenaInv(parts, pos + 1);
-
+            pos++;
         }
         return String.join(" ", parts);
 
