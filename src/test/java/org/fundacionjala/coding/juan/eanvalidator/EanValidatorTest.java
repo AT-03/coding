@@ -55,7 +55,7 @@ public class EanValidatorTest {
         final boolean actualResult = EanValidator.validating(eanStringNumber);
 
         // then:
-        assertTrue(!actualResult);
+        assertFalse(actualResult);
     }
 
     /**

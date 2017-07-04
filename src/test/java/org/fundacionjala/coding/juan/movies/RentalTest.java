@@ -1,5 +1,6 @@
 package org.fundacionjala.coding.juan.movies;
 
+import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
@@ -7,13 +8,22 @@ import static org.junit.Assert.assertEquals;
  * Created by Administrator on 7/2/2017.
  */
 public class RentalTest {
+    private Regular regular;
+
+    /**
+     * Initialize variables.
+     */
+    @Before
+    public void initialize() {
+        regular = new Regular("Logan");
+    }
+
     /**
      * Test get title.
      */
     @Test
     public void testGetTitle() {
         // given:
-        final Regular regular = new Regular("Logan");
         final int daysRentet = 2;
         final Rental rental = new Rental(regular, daysRentet);
 
@@ -32,7 +42,6 @@ public class RentalTest {
     @Test
     public void testDaysRented() {
         // given:
-        final Regular regular = new Regular("Logan");
         final int daysRentet = 2;
         final Rental rental = new Rental(regular, daysRentet);
 

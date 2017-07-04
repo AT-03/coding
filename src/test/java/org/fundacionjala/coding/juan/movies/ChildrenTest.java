@@ -1,5 +1,6 @@
 package org.fundacionjala.coding.juan.movies;
 
+import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
@@ -7,6 +8,16 @@ import static org.junit.Assert.assertEquals;
  * Created by Juan on 3/23/2017.
  */
 public class ChildrenTest {
+    private Movie children;
+
+    /**
+     * Initialize variables.
+     */
+    @Before
+    public void initialize() {
+        children = new Children("Spy Kids");
+    }
+
     /**
      * Test children amount when days rented is less than the limit.
      */
@@ -14,7 +25,6 @@ public class ChildrenTest {
     public void testChildrenMovieAmountWhenDaysRentetIsLessThanTheLimit() {
 
         // given:
-        final Movie children = new Children("Spy Kids");
         final int daysRentet = 2;
         // when:
         final double actualResult = children.calculateAmount(daysRentet);
@@ -31,7 +41,6 @@ public class ChildrenTest {
     public void testChildrenMovieAmountWhenDaysRentetIsequalsThanTheLimit() {
 
         // given:
-        final Children children = new Children("Spy Kids");
         final int daysRentet = 3;
         // when:
         final double actualResult = children.calculateAmount(daysRentet);
@@ -48,7 +57,6 @@ public class ChildrenTest {
     public void testChildrenMovieAmountWhenDaysRentetaremoreThanTheLimit() {
 
         // given:
-        final Children children = new Children("Spy Kids");
         final int daysRentet = 5;
         // when:
         final double actualResult = children.calculateAmount(daysRentet);
@@ -65,7 +73,6 @@ public class ChildrenTest {
     public void testChildrenMovieCalculatePoints() {
 
         // given:
-        final Children children = new Children("Spy Kids");
         final int daysRentet = 5;
         // when:
         final double actualResult = children.calculateFrequentRenterPoints(daysRentet);

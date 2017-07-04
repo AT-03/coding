@@ -6,6 +6,7 @@ import java.lang.reflect.Modifier;
 import org.junit.Test;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -148,9 +149,8 @@ public class BankOCRTest {
         // when:
         Boolean actualResult = BankOCR.validateAccountNumbers(figureScanned);
 
-        // then:
-        Boolean expectedResult = false;
-        assertEquals(expectedResult, actualResult);
+        //then:
+        assertFalse(actualResult);
 
     }
 
@@ -167,6 +167,7 @@ public class BankOCRTest {
         // then:
         String[] expectedResult = new String[]{"", "", "", "", "", "", "", "", ""};
         assertArrayEquals(expectedResult, actualResult);
+
 
     }
 

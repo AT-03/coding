@@ -1,13 +1,23 @@
 package org.fundacionjala.coding.juan.movies;
 
+import org.junit.Before;
 import org.junit.Test;
-
 import static org.junit.Assert.assertEquals;
 
 /**
  * Created by Juan on 3/23/2017.
  */
 public class RegularTest {
+    private Movie regular;
+
+    /**
+     * Initialize variables.
+     */
+    @Before
+    public void initialize() {
+        regular = new Regular("Logan");
+    }
+
     /**
      * Test New Release amount when days rented is less than the limit.
      */
@@ -15,7 +25,6 @@ public class RegularTest {
     public void testRegularMovieWhenDaysRentedAreLessThanTheLimit() {
 
         // given:
-        final Movie regular = new Regular("Logan");
         final int daysRentet = 1;
         // when:
         final double actualResult = regular.calculateAmount(daysRentet);
@@ -32,7 +41,6 @@ public class RegularTest {
     public void testRegularMovieWhenDaysRentedAreigualThanTheLimit() {
 
         // given:
-        final Regular regular = new Regular("Logan");
         final int daysRentet = 2;
         // when:
         final double actualResult = regular.calculateAmount(daysRentet);
@@ -49,7 +57,6 @@ public class RegularTest {
     public void testRegularMovieWhenDaysRentedAreMoreThanTheLimit() {
 
         // given:
-        final Regular regular = new Regular("Logan");
         final int daysRentet = 5;
         // when:
         final double actualResult = regular.calculateAmount(daysRentet);
@@ -66,7 +73,6 @@ public class RegularTest {
     public void testRegularMovieTitle() {
 
         // given:
-        final Regular regular = new Regular("Logan");
         final int daysRentet = 5;
         // when:
         final String actualResult = regular.getTitle();
@@ -83,7 +89,6 @@ public class RegularTest {
     public void testCalculeFrequentRentedPoints() {
 
         // given:
-        final Regular regular = new Regular("Logan");
         final int daysRentet = 2;
         // when:
         final double actualResult = regular.calculateAmount(daysRentet);

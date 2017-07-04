@@ -8,7 +8,7 @@ import java.util.Map;
  */
 public final class BankOCR {
 
-    private static Map<Integer, String> mapNum = new HashMap<>();
+    private static final Map<Integer, String> MAP_NUMBERS = new HashMap<>();
 
     private static final int MODULE_ELEVEN = 11;
     private static final int SCANNED_LENGTH = 72;
@@ -26,50 +26,50 @@ public final class BankOCR {
     private static final int NINE = 9;
 
     static {
-        mapNum.put(ZERO,
+        MAP_NUMBERS.put(ZERO,
                 " _ "
                         + "| |"
                         + "|_|");
-        mapNum.put(ONE,
+        MAP_NUMBERS.put(ONE,
                 "   "
                         + "  |"
                         + "  |");
 
-        mapNum.put(TWO,
+        MAP_NUMBERS.put(TWO,
                 " _ "
                         + " _|"
                         + "|_ ");
 
-        mapNum.put(THREE,
+        MAP_NUMBERS.put(THREE,
                 "__ "
                         + " _|"
                         + "__|");
 
-        mapNum.put(FOUR,
+        MAP_NUMBERS.put(FOUR,
                 "   "
                         + "|_|"
                         + "  |");
 
-        mapNum.put(FIVE,
+        MAP_NUMBERS.put(FIVE,
                 " _"
                         + "|_ "
                         + " _|");
 
-        mapNum.put(SIX,
+        MAP_NUMBERS.put(SIX,
                 " _ "
                         + "|_ "
                         + "|_|");
 
-        mapNum.put(SEVEN,
+        MAP_NUMBERS.put(SEVEN,
                 " _ "
                         + "  |"
                         + "  |");
-        mapNum.put(EIGHT,
+        MAP_NUMBERS.put(EIGHT,
                 " _ "
                         + "|_|"
                         + "|_|");
 
-        mapNum.put(NINE,
+        MAP_NUMBERS.put(NINE,
                 " _ "
                         + "|_|"
                         + " _|");
@@ -90,7 +90,7 @@ public final class BankOCR {
 
     private static String getKey(final String value) {
         String valueString = "?";
-        for (Map.Entry<Integer, String> inputData : mapNum.entrySet()) {
+        for (Map.Entry<Integer, String> inputData : MAP_NUMBERS.entrySet()) {
             valueString = inputData.getValue().equalsIgnoreCase(value)
                     ? inputData.getKey().toString() : valueString;
         }
@@ -112,7 +112,7 @@ public final class BankOCR {
     }
 
     /**
-     * This method validate account numbers.
+     * This method validate account MAP_NUMBERS.
      *
      * @param account quantity.
      * @return true or false.
@@ -169,12 +169,10 @@ public final class BankOCR {
      * Get status account.
      *
      * @param account account.
-     * @return ILL if isn't legible and ERR if not validate accounts numbers.
+     * @return ILL if isn't legible and ERR if not validate accounts MAP_NUMBERS.
      */
     static String getStatusAccount(final String account) {
-        String s = !isLegible(account) ? "ILL" : !validateAccountNumbers(account) ? "ERR" : " ";
-//
-        return s;
+        return !isLegible(account) ? "ILL" : !validateAccountNumbers(account) ? "ERR" : " ";
     }
 
     /**
@@ -206,7 +204,7 @@ public final class BankOCR {
 
             return scannedDigits;
         }
-        return new String[]{"", "", "", "", "", "", "", "", ""};
+        return scannedDigits;
     }
 }
 
