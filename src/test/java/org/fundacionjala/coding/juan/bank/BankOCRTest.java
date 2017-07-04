@@ -84,4 +84,59 @@ public class BankOCRTest {
         constructor.newInstance();
     }
 
+    /**
+     * Test verify if the status account is illegible.
+     */
+    @Test
+    public void verifyIfTheStatusAccountIsIllegible() {
+        // given:
+        String account = "  560  |";
+
+        // when:
+        String expectedResult = "ILL";
+
+        // then:
+        String actualResult = BankOCR.getStatusAccount(account);
+        assertEquals(expectedResult, actualResult);
+    }
+
+    /**
+     * Test verify if the status account is incorrect.
+     */
+    @Test
+    public void verifyIfTheStatusAccountIsIncorrect() {
+        // given:
+        String account = "021453789";
+
+        // when:
+        String expectedResult = "ERR";
+
+        // then:
+        String actualResult = BankOCR.getStatusAccount(account);
+        assertEquals(expectedResult, actualResult);
+    }
+
+    /**
+     * Test verify if an image contains nine digits and is parsed correctly.
+     */
+    @Test
+    public void verifyIfAnImageContainsNineDigitsAndIsParsedCorrectly() {
+        // given:
+        String figureScanned =
+                "       _  _  _  _  _  _  _ "
+                        + "  ||_||_||_||_| _||_||_ |_|"
+                        + "  |  | _||_||_||_ |_||_| _|";
+
+        String[] accountArray = BankOCR.parseScannedFigures(figureScanned);
+
+        // when:
+        String actualResult = BankOCR.accountRepresentation(accountArray);
+
+        // then:
+        String expectedResult = "149882869";
+        assertEquals(expectedResult, actualResult);
+    }
+
+
+
 }
