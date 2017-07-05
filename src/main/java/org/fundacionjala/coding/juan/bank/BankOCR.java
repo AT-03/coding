@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by Juan Pablo on 26/03/2017.
+ * Created by Juan  on 26/03/2017.
  */
 public final class BankOCR {
 

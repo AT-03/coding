@@ -15,7 +15,7 @@ public final class SpinWords {
      * Get the words spined if it have 5 or more letters.
      *
      * @param sentence is the word or words
-     * @return the word spined.
+     * @return the word reversed.
      */
     public static String spinWords(final String sentence) {
         final int limitWord = 4;
