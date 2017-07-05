@@ -11,7 +11,7 @@ public class NewRelease extends Movie {
      * This is the constructor of NewRelease class.
      * @param title String with title for NewRelease.
      */
-    public NewRelease(final String title) {
+    NewRelease(final String title) {
 
         super(title);
     }

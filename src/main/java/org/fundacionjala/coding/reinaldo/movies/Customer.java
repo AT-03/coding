@@ -22,14 +22,14 @@ public class Customer {
      * Takes a rental, and add to list rental same rental object passed as parameter.
      * @param rental String with rental of movie.
      */
-    public void addRental(final Rental rental) {
+    void addRental(final Rental rental) {
         rentalsCustomer.add(rental);
     }
 
     /**
      * @return the nameCustomer string.
      */
-    public String getName() {
+    String getName() {
         return this.nameCustomer;
     }
 
@@ -38,8 +38,8 @@ public class Customer {
      *
      * @return the generateDetail string, but with Rental Record for,Amount owed is,You earned.
      */
-    public String generateDetail() {
-        StringBuffer result = new StringBuffer();
+    String generateDetail() {
+        StringBuilder result = new StringBuilder();
         result.append("Rental Record for " + getName() + "\n");
         for (Rental rental : rentalsCustomer) {
             result.append("\t" + rental.getMovie().getTitle() + "\t");
@@ -55,7 +55,7 @@ public class Customer {
      *
      * @return the calculateTotalAmount double.
      */
-    public double calculateTotalAmount() {
+    double calculateTotalAmount() {
 
         return rentalsCustomer.stream()
                 .mapToDouble(Rental::calculateAmount)
@@ -67,7 +67,7 @@ public class Customer {
      *
      * @return the calculateTotalFrequentRenterPoints int.
      */
-    public int calculateTotalFrequentRenterPoints() {
+    private int calculateTotalFrequentRenterPoints() {
         return rentalsCustomer.stream()
                 .mapToInt(rental -> rental.calculateFrequentRenterPoint())
                 .sum();

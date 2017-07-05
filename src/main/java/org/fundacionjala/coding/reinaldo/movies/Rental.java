@@ -26,21 +26,21 @@ class Rental {
     /**
      * @return movie object.
      */
-    public Movie getMovie() {
+    Movie getMovie() {
         return this.movie;
     }
 
     /**
      * @return price object.
      */
-    public double calculateAmount() {
+    double calculateAmount() {
         return movie.calculateAmount(daysRented);
     }
 
     /**
      * @return calculateFrequentRenterPoint int.
      */
-    public int calculateFrequentRenterPoint() {
+    int calculateFrequentRenterPoint() {
         return movie.calculateFrequentRenterPoints(daysRented);
     }
 }

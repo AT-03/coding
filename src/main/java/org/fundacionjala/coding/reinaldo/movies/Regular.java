@@ -13,7 +13,7 @@ public class Regular extends Movie {
      * This is the constructor of Regular class.
      * @param title String with title for Regular.
      */
-    public Regular(final String title) {
+    Regular(final String title) {
 
         super(title);
     }

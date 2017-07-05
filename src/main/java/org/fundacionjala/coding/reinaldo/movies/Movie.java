@@ -11,7 +11,7 @@ public abstract class Movie {
      *
      * @param title String with title for Movie movie.
      */
-    public Movie(final String title) {
+    Movie(final String title) {
         this.title = title;
     }
 
@@ -36,7 +36,7 @@ public abstract class Movie {
      *
      * @return getTitle movie.
      */
-    public String getTitle() {
+    String getTitle() {
         return title;
     }
 }

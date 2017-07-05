@@ -1,6 +1,8 @@
 package org.fundacionjala.coding.reinaldo.movies;
 
+import org.junit.Before;
 import org.junit.Test;
+
 
 import static org.junit.Assert.assertEquals;
 
@@ -8,22 +10,21 @@ import static org.junit.Assert.assertEquals;
  * Created by reinaldo on 11/03/2017.
  */
 public class CustomerTest {
-    private static final double PRICEMAYOR = 3.5;
-    private static final double PRICEMAYORT = 3.0;
-    private static final double PRICERRGULER = 2;
-    private static final double PRICEMENOR = 1.5;
-    private static final int DAYONE = 1;
-    private static final int DAYTHREE = 3;
-    private static final int DAYFOUR = 4;
+    private Customer customer;
+
+    /**
+     * This this inicialice.
+     */
+    @Before
+    public void setup() {
+        customer = new Customer("Test");
+    }
 
     /**
      * Test Movie When NameCustomer Is Word.
      */
     @Test
     public void testMovieWhenNameCustomerIsWord() {
-
-        // given:
-        final Customer customer = new Customer("Test");
 
         // when:
         final String actualResult = customer.getName();
@@ -41,14 +42,14 @@ public class CustomerTest {
     public void testMovieWhenDayRentedISLessForChildren() {
 
         // given:
-        final Customer customer = new Customer("Test");
-        customer.addRental(new Rental(new Children("The Revenant"), DAYONE));
+
+        customer.addRental(new Rental(new Children("The Revenant"), 1));
 
         // when:
         final double actualResult = customer.calculateTotalAmount();
 
         // then:
-        final double expectedResult = PRICEMENOR;
+        final double expectedResult = 1.5;
 
         assertEquals(expectedResult, actualResult, 0);
     }
@@ -59,15 +60,13 @@ public class CustomerTest {
     @Test
     public void testMovieWhenDayRentedISGreaterForChildren() {
 
-        // given:
-        final Customer customer = new Customer("Test");
-        customer.addRental(new Rental(new Children("The Revenant"), DAYFOUR));
+        customer.addRental(new Rental(new Children("The Revenant"), 4));
 
         // when:
         final double actualResult = customer.calculateTotalAmount();
 
         // then:
-        final double expectedResult = PRICEMAYORT;
+        final double expectedResult = 3.0;
 
         assertEquals(expectedResult, actualResult, 0);
     }
@@ -78,15 +77,13 @@ public class CustomerTest {
     @Test
     public void testMovieWhenDayRentedIsOneDayRentedForNewRelease() {
 
-        // given:
-        final Customer customer = new Customer("Test");
-        customer.addRental(new Rental(new NewRelease("The Revenant"), DAYONE));
+        customer.addRental(new Rental(new NewRelease("The Revenant"), 1));
 
         // when:
         final double actualResult = customer.calculateTotalAmount();
 
         // then:
-        final double expectedResult = PRICEMAYORT;
+        final double expectedResult = 3.0;
 
         assertEquals(expectedResult, actualResult, 0);
     }
@@ -99,14 +96,13 @@ public class CustomerTest {
     public void testMovieWhenDayRentedIsLessForRegular() {
 
         // given:
-        final Customer customer = new Customer("Test");
-        customer.addRental(new Rental(new Regular("The Revenant"), DAYONE));
+        customer.addRental(new Rental(new Regular("The Revenant"), 1));
 
         // when:
         final double actualResult = customer.calculateTotalAmount();
 
         // then:
-        final double expectedResult = PRICERRGULER;
+        final double expectedResult = 2;
 
         assertEquals(expectedResult, actualResult, 0);
     }
@@ -119,14 +115,13 @@ public class CustomerTest {
     public void testMovieWhenDayRentedIsGreaterForRegular() {
 
         // given:
-        final Customer customer = new Customer("Test");
-        customer.addRental(new Rental(new Regular("The Revenant"), DAYTHREE));
+        customer.addRental(new Rental(new Regular("The Revenant"), 3));
 
         // when:
         final double actualResult = customer.calculateTotalAmount();
 
         // then:
-        final double expectedResult = PRICEMAYOR;
+        final double expectedResult = 3.5;
 
         assertEquals(expectedResult, actualResult, 0);
     }
@@ -139,8 +134,7 @@ public class CustomerTest {
     public void testMovieWhenResultReportDetail() {
 
         // given:
-        final Customer customer = new Customer("Test");
-        customer.addRental(new Rental(new Regular("The Revenant"), DAYTHREE));
+        customer.addRental(new Rental(new Regular("The Revenant"), 3));
 
         // when:
         final String actualResult = customer.generateDetail();

@@ -11,7 +11,7 @@ public class Children extends Movie {
      * This is the constructor of Children class.
      * @param title String with title for Children movie.
      */
-    public Children(final String title) {
+    Children(final String title) {
 
         super(title);
     }
