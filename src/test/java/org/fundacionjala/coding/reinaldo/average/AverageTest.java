@@ -6,8 +6,6 @@ import java.util.Arrays;
 
 import org.junit.Test;
 
-import org.fundacionjala.coding.reinaldo.ean.Ean;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -109,7 +107,7 @@ public class AverageTest {
      */
     @Test
     public void testConstructorIsPrivate() throws Exception {
-        Constructor constructor = Ean.class.getDeclaredConstructor();
+        Constructor constructor = Average.class.getDeclaredConstructor();
         assertTrue(Modifier.isPrivate(constructor.getModifiers()));
         constructor.setAccessible(true);
         constructor.newInstance();

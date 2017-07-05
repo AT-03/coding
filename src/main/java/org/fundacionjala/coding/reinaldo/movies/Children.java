@@ -6,10 +6,12 @@ package org.fundacionjala.coding.reinaldo.movies;
 public class Children extends Movie {
     private static final int LIMIT_NEW_CHILD = 3;
     private static final double PRICE = 1.5;
+    private static final int NAMBER_RENTAL_DAYS = 1;
 
     /**
      * This is the constructor of Children class.
      * {@inherentDoc}
+     *
      * @param title String with title for Children movie.
      */
     Children(final String title) {
@@ -20,6 +22,7 @@ public class Children extends Movie {
     /**
      * This is the calculateAmount of Children movie.
      * {@inherentDoc}
+     *
      * @param daysRented Int with daysRented for Children movie.
      */
     @Override
@@ -34,10 +37,11 @@ public class Children extends Movie {
     /**
      * This is the calculateFrequentRenterPoints of Children movie.
      * {@inherentDoc}
+     *
      * @param daysRented String with daysRented for Children movie.
      */
     @Override
     public int calculateFrequentRenterPoints(final int daysRented) {
-        return 1;
+        return NAMBER_RENTAL_DAYS;
     }
 }

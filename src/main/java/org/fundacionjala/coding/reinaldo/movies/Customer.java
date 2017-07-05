@@ -7,6 +7,7 @@ import java.util.List;
  * Created by Administrator on 3/21/2017.
  */
 public class Customer {
+
     private String nameCustomer;
     private List<Rental> rentalsCustomer;
 
