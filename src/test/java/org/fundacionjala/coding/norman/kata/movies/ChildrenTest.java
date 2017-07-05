@@ -1,5 +1,6 @@
 package org.fundacionjala.coding.norman.kata.movies;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -12,10 +13,22 @@ public class ChildrenTest {
      * Test to verify the amount if the rented days
      * for a Children movie is less than 3 e.g. 1
      */
+    private Movie childrenInstance;
+
+    /**
+     * create children movie.
+     */
+    @Before
+    public void before() {
+        childrenInstance = new Children("Test");
+    }
+
+    /**
+     * test days is less 13.
+     */
     @Test
     public void testCalculateAmountWhenTheRentedDaysIsLessThanThree() {
         // given:
-        Children childrenInstance = new Children("Test");
 
         // when:
         final double actualResult = childrenInstance.calculateAmount(1);
@@ -32,7 +45,6 @@ public class ChildrenTest {
     @Test
     public void testCalculateAmountWhenTheRentedDaysIsGreaterThanThree() {
         // given:
-        Children childrenInstance = new Children("Test");
 
         // when:
         final double actualResult = childrenInstance.calculateAmount(10);
@@ -49,7 +61,6 @@ public class ChildrenTest {
     @Test
     public void testCalculateFrequentRenterPointsVerifyTheResultIsOne() {
         // given:
-        Children childrenInstance = new Children("Test");
 
         // when:
         final int actualResultOne = childrenInstance.calculateFrequentRenterPoints(1);

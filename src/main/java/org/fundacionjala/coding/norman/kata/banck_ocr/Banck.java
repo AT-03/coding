@@ -2,6 +2,7 @@ package org.fundacionjala.coding.norman.kata.banck_ocr;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Stream;
 
 /**
  * Created by NORMAN on 2/7/2017.
@@ -88,15 +89,9 @@ public final class Banck {
      * @return true or false
      */
     private static boolean isLegible(final String account) {
-        boolean isCorrect = true;
 
-        for (int i = 0; i < account.length(); i++) {
-            if (!Character.isDigit(account.charAt(i))) {
-                isCorrect = false;
-                break;
-            }
-        }
-        return isCorrect;
+        return Stream.of(account.split("")).filter(a -> Character.isDigit(a.charAt(0))).count() > 0;
+
     }
 
     /**
@@ -106,22 +101,22 @@ public final class Banck {
      * @return true if the passed account is true, false otherwise.
      */
     static boolean validateAccount(final String account) {
-        if (account.length() == CORRECT_ACCOUNT_LENGTH && isLegible(account)) {
 
-            String[] acct = account.split("");
-
-            int checksum = 0;
-            int factor = MULTIPLY_FACTOR;
-
-            for (String value : acct) {
-                checksum += Integer.parseInt(value) * factor;
-                factor--;
-            }
-
-            return checksum % MODULUS_FACTOR == 0;
-        } else {
+        if (account.length() != CORRECT_ACCOUNT_LENGTH && isLegible(account)) {
             return false;
         }
+        String[] acct = account.split("");
+
+        int checksum = 0;
+        int factor = MULTIPLY_FACTOR;
+
+        for (String value : acct) {
+            checksum += Integer.parseInt(value) * factor;
+            factor--;
+        }
+
+        return checksum % MODULUS_FACTOR == 0;
+
     }
 
     /**

@@ -214,22 +214,6 @@ public class BanckTest {
     }
 
     /**
-     * Test if the status of an illegible account is: "ILL".
-     */
-    @Test
-    public void testGetAccountStatusWithAnIllegibleAccount() {
-        // given:
-        String illegibleAccount = "  560  |";
-
-        // when:
-        String actualResult = Banck.getAccountStatus(illegibleAccount);
-
-        // then:
-        String expectedResult = "ILL";
-        assertEquals(expectedResult, actualResult);
-    }
-
-    /**
      * Test if a scanned account with nine digits is parsed correctly.
      */
     @Test
