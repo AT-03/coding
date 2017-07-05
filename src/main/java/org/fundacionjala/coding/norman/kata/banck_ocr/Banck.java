@@ -85,7 +85,7 @@ public final class Banck {
     /**
      * This method determines if an scanned account is legible.
      *
-     * @param account image of type String.
+     * @param account image of  type String.
      * @return true or false
      */
     private static boolean isLegible(final String account) {
