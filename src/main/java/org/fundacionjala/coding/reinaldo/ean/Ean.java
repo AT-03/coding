@@ -2,6 +2,8 @@ package org.fundacionjala.coding.reinaldo.ean;
 
 import java.util.stream.IntStream;
 
+import org.jetbrains.annotations.Contract;
+
 /**
  * Created by Administrator on 6/30/2017.
  */
@@ -36,6 +38,7 @@ public final class Ean {
      * @param sumToCheck sumtocheck.
      * @return int getSum
      */
+    @Contract(pure = true)
     private static int getAnInt(int sumToCheck) {
         return sumToCheck % DIVISOR == 0 ? 0 : DIVISOR - (sumToCheck % DIVISOR);
     }

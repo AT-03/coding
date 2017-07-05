@@ -33,16 +33,17 @@ public final class WordDescent {
     /**
      * This is a method for to invert each word of the list.
      *
-     * @param word only the Word
+     * @param words only the Word
      * @return String word invert
      */
-    private static String invertString(final String word) {
+    private static String invertString(final String words) {
+
         String wordInvert = new StringBuilder(
-                word.substring(1, word.length() - 1)).reverse().toString();
+                words.substring(1, words.length() - 1)).reverse().toString();
 
 
         return String.format("%s%s%s", Character.toString(
-                word.charAt(0)), wordInvert, Character.toString(word.charAt(word.length() - 1)));
+                words.charAt(0)), wordInvert, Character.toString(words.charAt(words.length() - 1)));
     }
 
 }

@@ -69,7 +69,7 @@ public class Customer {
      */
     private int calculateTotalFrequentRenterPoints() {
         return rentalsCustomer.stream()
-                .mapToInt(rental -> rental.calculateFrequentRenterPoint())
+                .mapToInt(Rental::calculateFrequentRenterPoint)
                 .sum();
     }
 }

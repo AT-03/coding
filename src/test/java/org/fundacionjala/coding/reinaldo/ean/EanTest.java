@@ -5,8 +5,6 @@ import java.lang.reflect.Modifier;
 
 import org.junit.Test;
 
-import org.fundacionjala.coding.reinaldo.average.Average;
-
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -50,7 +48,7 @@ public class EanTest {
      */
     @Test
     public void testConstructorIsPrivate() throws Exception {
-        Constructor constructor = Average.class.getDeclaredConstructor();
+        Constructor constructor = Ean.class.getDeclaredConstructor();
         assertTrue(Modifier.isPrivate(constructor.getModifiers()));
         constructor.setAccessible(true);
         constructor.newInstance();
