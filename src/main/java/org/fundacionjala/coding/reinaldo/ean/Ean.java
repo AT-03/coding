@@ -25,9 +25,18 @@ public final class Ean {
                 .range(0, eanCode.length() - 1)
                 .reduce(0, (acc, index)
                         -> acc + Character.getNumericValue(eanCode.charAt(index)) * (1 + 2 * (index % 2)));
-        final int checksum = sumToCheck % DIVISOR == 0 ? 0 : DIVISOR - (sumToCheck % DIVISOR);
 
-        return Character.getNumericValue(eanCode.charAt(eanCode.length() - 1)) == checksum;
+        return Character.getNumericValue(eanCode.charAt(eanCode.length() - 1)) == getAnInt(sumToCheck);
 
+    }
+
+    /**
+     * This method return getAnInt.
+     *
+     * @param sumToCheck sumtocheck.
+     * @return int getSum
+     */
+    private static int getAnInt(int sumToCheck) {
+        return sumToCheck % DIVISOR == 0 ? 0 : DIVISOR - (sumToCheck % DIVISOR);
     }
 }
