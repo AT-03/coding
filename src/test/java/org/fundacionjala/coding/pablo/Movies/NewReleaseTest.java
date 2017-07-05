@@ -24,7 +24,7 @@ public class NewReleaseTest {
 
         //then
         final double expectedResult = 6.0;
-        assertEquals(0, expectedResult, actualResult);
+        assertEquals(expectedResult, actualResult, 0);
     }
 
     /**
@@ -42,7 +42,7 @@ public class NewReleaseTest {
 
         //then
         final double expectedResult = 15;
-        assertEquals(0, expectedResult, actualResult);
+        assertEquals(expectedResult, actualResult,0);
     }
 
     /**
@@ -58,6 +58,6 @@ public class NewReleaseTest {
 
         //then
         final double actualResult = children.calculateFrequentRenterPoints(2);
-        assertEquals(1, expectedResult, actualResult);
+        assertEquals(expectedResult, actualResult,1);
     }
 }
