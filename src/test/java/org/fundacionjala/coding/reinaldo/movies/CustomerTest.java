@@ -151,11 +151,34 @@ public class CustomerTest {
     /**
      * test Movie When Result Report children.
      */
-
     @Test
     public void testMovieWhenCalculateFrequentRenterPoints() {
         //given
         Movie movie = new Children("fantacy");
+        int resul = movie.calculateFrequentRenterPoints(1);
+        assertEquals(1, resul);
+
+    }
+
+    /**
+     * this method CalculatecFrequentRenterPoints.
+     */
+    @Test
+    public void testMovieWhenIsMajorCalculatecFrequentRenterPoints() {
+        //given
+        Movie movie = new NewRelease("fantacy");
+        int resul = movie.calculateFrequentRenterPoints(5);
+        assertEquals(2, resul);
+
+    }
+
+    /**
+     * this method CalculatecFrequentRenterPoints.
+     */
+    @Test
+    public void testMovieWhenIsOneCalculatecFrequentRenterPoints() {
+        //given
+        Movie movie = new NewRelease("fantacy");
         int resul = movie.calculateFrequentRenterPoints(1);
         assertEquals(1, resul);
 

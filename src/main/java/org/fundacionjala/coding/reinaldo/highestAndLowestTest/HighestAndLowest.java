@@ -32,16 +32,4 @@ final class HighestAndLowest {
         return String.format("%d %d", high, low);
     }
 
-    /**
-     * This method retorn a convertDigits.
-     *
-     * @param numbers digit array int.
-     * @return int[] digits
-     */
-    private static int[] convertDigits(final String numbers) {
-        return Stream.of(numbers.split(" "))
-                .mapToInt(Integer::parseInt).toArray();
-
-    }
-
 }

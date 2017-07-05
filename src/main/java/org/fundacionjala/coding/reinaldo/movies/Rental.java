@@ -17,13 +17,6 @@ class Rental {
     }
 
     /**
-     * @return the daysRented.
-     */
-    public int getDaysRented() {
-        return daysRented;
-    }
-
-    /**
      * @return movie object.
      */
     Movie getMovie() {
