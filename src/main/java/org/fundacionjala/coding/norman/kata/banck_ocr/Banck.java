@@ -95,7 +95,7 @@ public final class Banck {
     }
 
     /**
-     * This method validate if an account is correct or not.
+     * This method validate if an account is correct  or not.
      *
      * @param account String variable is the account to validate
      * @return true if the passed account is true, false otherwise.
