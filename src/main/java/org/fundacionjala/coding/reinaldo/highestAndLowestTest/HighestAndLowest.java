@@ -1,12 +1,11 @@
 package org.fundacionjala.coding.reinaldo.highestAndLowestTest;
 
-import java.util.Arrays;
 import java.util.stream.Stream;
 
 /**
  * Created by Administrator on 6/30/2017.
  */
-public final class HighestAndLowest {
+final class HighestAndLowest {
     /**
      * Private constructor.
      */
@@ -18,13 +17,17 @@ public final class HighestAndLowest {
      *
      * @param numbers highAndLowest test
      * @return String highAndLowest string
-     *
      */
-    public static String highAndLowest(final String numbers) {
+    static String highAndLowest(final String numbers) {
 
-        int high = Arrays.stream(convertDigits(numbers)).max().getAsInt();
 
-        int low = Arrays.stream(convertDigits(numbers)).min().getAsInt();
+        int high = Stream.of(numbers.split(" "))
+                .mapToInt(Integer::parseInt)
+                .max().getAsInt();
+
+        int low = Stream.of(numbers.split(" "))
+                .mapToInt(Integer::parseInt)
+                .min().getAsInt();
 
         return String.format("%d %d", high, low);
     }

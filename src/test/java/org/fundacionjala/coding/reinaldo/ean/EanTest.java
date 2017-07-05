@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import org.fundacionjala.coding.reinaldo.average.Average;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -26,9 +26,7 @@ public class EanTest {
         // when:
         final boolean actualResult = Ean.validate(sentence);
 
-        // then:
-        final boolean expectedResult = true;
-        assertEquals(expectedResult, actualResult);
+        assertTrue(actualResult);
     }
 
     /**
@@ -42,9 +40,7 @@ public class EanTest {
         // when:
         final boolean actualResult = Ean.validate(eanStringNumber);
 
-        // then:
-        final boolean expectedResult = false;
-        assertEquals(expectedResult, actualResult);
+        assertFalse(actualResult);
     }
 
     /**

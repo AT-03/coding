@@ -4,9 +4,7 @@ package org.fundacionjala.coding.reinaldo.evaporator;
  * Created by Administrator on 6/30/2017.
  *
  */
-public final class Evaporator {
-
-    public static final int PORCENTCIEN = 100;
+final class Evaporator {
 
     /**
      * This is the constructor of  Evaporator.
@@ -23,11 +21,11 @@ public final class Evaporator {
      * @param limit is the limit
      * @return int at day
      */
-    public static int evaporator(final double cant, final double lost, final double limit) {
+    static int evaporator(final double cant, final double lost, final double limit) {
         int result = 0;
         do {
             ++result;
-        } while (Math.pow(1 - (lost / PORCENTCIEN), result) > limit / PORCENTCIEN);
+        } while (Math.pow(1 - (lost / 100), result) > limit / 100);
 
         return result;
     }

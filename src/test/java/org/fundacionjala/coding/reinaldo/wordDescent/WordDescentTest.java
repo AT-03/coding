@@ -37,13 +37,13 @@ public class WordDescentTest {
     public void testchangeWordTwo() {
 
         // given:
-        final String sentence = "sort the inner content in descending order";
+        final String sentence = "sort the iennr cennott in dcdeeinnsg order";
 
         // when:
         final String actualResult = WordDescent.getWordDescent(sentence);
 
         // then:
-        final String expectedResult = "srot the inner ctonnet in dsnnieedcg oredr";
+        final String expectedResult = "srot the inner ctonnet in dsnnieedcg oedrr";
         assertEquals(expectedResult, actualResult);
     }
 

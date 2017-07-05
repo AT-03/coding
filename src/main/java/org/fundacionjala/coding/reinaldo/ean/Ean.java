@@ -7,7 +7,7 @@ import java.util.stream.IntStream;
  */
 public final class Ean {
 
-    public static final int DIVISOR = 10;
+    private static final int DIVISOR = 10;
 
     /**
      * This is the constructor of Ean.
@@ -20,7 +20,7 @@ public final class Ean {
      * @param eanCode validate checksum.
      * @return boolean is checksum.
      */
-    public static boolean validate(final String eanCode) {
+    static boolean validate(final String eanCode) {
         final int sumToCheck = IntStream
                 .range(0, eanCode.length() - 1)
                 .reduce(0, (acc, index)

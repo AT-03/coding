@@ -15,7 +15,6 @@ public class CustomerTest {
     private static final int DAYONE = 1;
     private static final int DAYTHREE = 3;
     private static final int DAYFOUR = 4;
-    private static final int DAYTWO = 2;
 
     /**
      * Test Movie When NameCustomer Is Word.
@@ -153,6 +152,19 @@ public class CustomerTest {
                 + "You earned 1 frequent renter points";
 
         assertEquals(expectedResult, actualResult);
+    }
+
+    /**
+     * test Movie When Result Report children.
+     */
+
+    @Test
+    public void testMovieWhenCalculateFrequentRenterPoints() {
+        //given
+        Movie movie = new Children("fantacy");
+        int resul = movie.calculateFrequentRenterPoints(1);
+        assertEquals(1, resul);
+
     }
 
 }
