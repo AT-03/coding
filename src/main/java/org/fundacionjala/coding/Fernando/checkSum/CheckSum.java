@@ -6,7 +6,7 @@ package org.fundacionjala.coding.Fernando.checkSum;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class CheckSum {
+public final class CheckSum {
     static final int THREE = 3;
     static final int ONE = 1;
     static final int TEN = 10;
@@ -16,25 +16,33 @@ public class CheckSum {
     static final int SIZEVALUE = 13;
 
     /**
+     * Constructor checksum.
+     */
+    private CheckSum() {
+
+    }
+
+    /**
      * @param value data.
      * @return boolean of cant values.
      */
-    public boolean canValues(final String value) {
+    public static boolean canValues(final String value) {
         int sum = ZERO;
         if (value.length() != SIZEVALUE) {
             return false;
         }
-            for (int i = ONE; i < value.length(); i++) {
-                int num = Character.getNumericValue(value.charAt(i - 1));
-                sum += i % 2 == 0 ? num * THREE : num;
-            }
-            return validNum(sum) == Character.getNumericValue(value.charAt(value.length() - 1));
+        for (int i = ONE; i < value.length(); i++) {
+            int num = Character.getNumericValue(value.charAt(i - 1));
+            sum += i % 2 == 0 ? num * THREE : num;
+        }
+        return validNum(sum) == Character.getNumericValue(value.charAt(value.length() - 1));
     }
+
     /**
      * @param sum of values.
      * @return int of number valid.
      */
-    public int validNum(final int sum) {
+    public static int validNum(final int sum) {
         int result = sum % TEN;
         return result != 0 ? TEN - result : 0;
 

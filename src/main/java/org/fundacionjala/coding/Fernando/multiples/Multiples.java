@@ -11,7 +11,7 @@ public abstract class Multiples {
     /**
      * Method Constructor.
      */
-    Multiples() {
+    private Multiples() {
     }
 
     /**

@@ -57,4 +57,25 @@ public class CustomerTest {
         assertEquals(PRICE_MINOR, actualResult, 0);
     }
 
+    /**
+     * Test customer class.
+     */
+    @Test
+    public void testCustomer() {
+        // given
+        customer.addRental(new Rental(new NewRelease("Moana"), 2));
+        customer.addRental(new Rental(new Regular("Titanic"), 1));
+
+        // when
+        final String actualResult = customer.generateDetail();
+
+        // then
+        final String expectedResult = "Rental Record for Fernando\n"
+                + "\tMoana\t6.0\n"
+                + "\tTitanic\t2.0\n"
+                + "Amount owed is 8.0\n"
+                + "You earned 3 frequent renter points";
+        assertEquals(actualResult, expectedResult);
+    }
+
 }

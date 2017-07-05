@@ -1,7 +1,11 @@
 package org.fundacionjala.coding.Fernando.haghestandlowest;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
+
 import org.junit.Test;
 
+import static junit.framework.TestCase.assertTrue;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -9,6 +13,18 @@ import static org.junit.Assert.assertThat;
  * Created by PC on 25/06/2017.
  */
 public class HighAndLowTest {
+
+    /**
+     * Test Constructor.
+     * @throws Exception if the constructor is not private.
+     */
+    @Test
+    public void testHighAndLowConstructorIsPrivate() throws Exception {
+        Constructor constructor = HighAndLow.class.getDeclaredConstructor();
+        assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        constructor.setAccessible(true);
+        constructor.newInstance();
+    }
 
     /**
      * Some Test.

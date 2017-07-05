@@ -8,12 +8,12 @@ import java.util.Arrays;
 import static org.junit.Assert.assertEquals;
 
 /**
- * The test class PromTest.
+ * The test class AverageTest.
  *
  * @author (your name)
  * @version (a version number or a date)
  */
-public class PromTest {
+public class AverageTest {
 
     private Average p;
 

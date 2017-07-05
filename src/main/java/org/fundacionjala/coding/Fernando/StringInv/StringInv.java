@@ -7,6 +7,7 @@ package org.fundacionjala.coding.Fernando.StringInv;
  * @version (a version number or a date)
  */
 public final class StringInv {
+
     static final int CANT_MAJOR = 5;
 
     /**

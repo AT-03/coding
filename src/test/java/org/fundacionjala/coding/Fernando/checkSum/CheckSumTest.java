@@ -1,8 +1,11 @@
 package org.fundacionjala.coding.Fernando.checkSum;
 
-import org.junit.Before;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
+
 import org.junit.Test;
 
+import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -13,14 +16,16 @@ import static org.junit.Assert.assertEquals;
  */
 public class CheckSumTest {
 
-    private CheckSum cs;
-
     /**
-     * Create check sum.
+     * Test Constructor.
+     * @throws Exception if the constructor is not private.
      */
-    @Before
-    public void checkSum() {
-        cs = new CheckSum();
+    @Test
+    public void testCheckSumConstructorIsPrivate() throws Exception {
+        Constructor constructor = CheckSum.class.getDeclaredConstructor();
+        assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        constructor.setAccessible(true);
+        constructor.newInstance();
     }
 
     /**
@@ -33,7 +38,7 @@ public class CheckSumTest {
         final String sentence = "4003301018398";
 
         // when:
-        final boolean actualResult = cs.canValues(sentence);
+        final boolean actualResult = CheckSum.canValues(sentence);
 
         // then
         final boolean expectedResult = true;
@@ -50,7 +55,7 @@ public class CheckSumTest {
         final String sentence = "1234567890200";
 
         // when:
-        final boolean actualResult = cs.canValues(sentence);
+        final boolean actualResult = CheckSum.canValues(sentence);
 
         // then
         final boolean expectedResult = false;

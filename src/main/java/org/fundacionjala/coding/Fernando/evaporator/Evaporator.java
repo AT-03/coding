@@ -5,7 +5,6 @@ package org.fundacionjala.coding.Fernando.evaporator;
  */
 public abstract class Evaporator {
 
-
     private static final double PORCENTAGE = 100;
 
     /**
