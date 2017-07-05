@@ -1,5 +1,9 @@
 package org.fundacionjala.coding.reinaldo.kataBankOcr;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
+import java.util.HashMap;
+import java.util.Map;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -222,5 +226,18 @@ public class BankOcrTest {
         final int actualResult = historyTwo.checkSumAcount(sentence);
 
         assertTrue(expectedResult != actualResult);
+    }
+
+    /**
+     * This verified the map.
+     */
+    @Test
+    public void whenCompareToString() {
+        String line =  " _ "
+                + "| |"
+                + "|_|";
+        FileNumberBankOcr fileNumberBankOcr = new FileNumberBankOcr();
+        String resulActual = fileNumberBankOcr.comparation(line);
+        assertEquals("0",resulActual);
     }
 }

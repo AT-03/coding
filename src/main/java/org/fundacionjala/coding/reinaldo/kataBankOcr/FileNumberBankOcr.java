@@ -13,7 +13,7 @@ public class FileNumberBankOcr {
     /**
      * constructor.
      */
-    public FileNumberBankOcr() {
+    FileNumberBankOcr() {
         numberMap = new HashMap<Integer, String>();
         fillNumber();
 
@@ -63,13 +63,6 @@ public class FileNumberBankOcr {
                 " _ "
                         + "|_|"
                         + " _|");
-    }
-
-    /**
-     * @return Map<Integer,String> This method retorno getnumberMap.
-     */
-    public Map<Integer, String> getnumberMap() {
-        return numberMap;
     }
 
     /**
