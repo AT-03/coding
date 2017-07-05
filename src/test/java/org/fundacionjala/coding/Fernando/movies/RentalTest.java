@@ -1,5 +1,6 @@
 package org.fundacionjala.coding.Fernando.movies;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -10,14 +11,24 @@ import static org.junit.Assert.assertEquals;
 public class RentalTest {
 
     private static final int DAYS_RENTED = 2;
+
+    private Movie movie;
+    private Rental rental;
+
+    /**
+     * Creating Regular and Rental instance.
+     */
+    @Before
+    public void createRegularAndRental() {
+        movie = new Regular("Star Wars");
+        rental = new Rental(movie, DAYS_RENTED);
+    }
+
     /**
      * Test get title.
      */
     @Test
     public void testGetTitle() {
-        // given:
-        final Regular regular = new Regular("Star Wars");
-        final Rental rental = new Rental(regular, DAYS_RENTED);
 
         // when:
         final String actualResult = rental.getMovie().getTitle();
@@ -33,10 +44,6 @@ public class RentalTest {
 
     @Test
     public void testDaysRented() {
-        // given:
-        final Regular regular = new Regular("The Lord of the Ring");
-        final int daysRentet = DAYS_RENTED;
-        final Rental rental = new Rental(regular, daysRentet);
 
         // when:
         final int actualResult = rental.getDaysRented();

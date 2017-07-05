@@ -1,9 +1,9 @@
-package org.fundacionjala.coding.Fernando.BankOCR;
+package org.fundacionjala.coding.Fernando.bankOCR;
 
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 
 /**
  * Created by PC on 24/06/2017.
@@ -126,7 +126,7 @@ public class BankOCRTest {
         boolean actualResult = BankOCR.validAccountNumbers(value);
 
         // then:
-        assertTrue(!actualResult);
+        assertFalse(actualResult);
     }
 
     /**

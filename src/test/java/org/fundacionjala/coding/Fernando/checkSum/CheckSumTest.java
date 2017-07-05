@@ -1,5 +1,6 @@
-package org.fundacionjala.coding.Fernando.CheckSum;
+package org.fundacionjala.coding.Fernando.checkSum;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -11,17 +12,28 @@ import static org.junit.Assert.assertEquals;
  * @version (a version number or a date)
  */
 public class CheckSumTest {
+
+    private CheckSum cs;
+
+    /**
+     * Create check sum.
+     */
+    @Before
+    public void checkSum() {
+        cs = new CheckSum();
+    }
+
     /**
      * Test when sentence is empty.
      */
     @Test
     public void testWhenSentenceISEmpty() {
-        CheckSum cs = new CheckSum();
+
         // given:
         final String sentence = "4003301018398";
 
         // when:
-        final boolean actualResult = cs.canValores(sentence);
+        final boolean actualResult = cs.canValues(sentence);
 
         // then
         final boolean expectedResult = true;
@@ -33,12 +45,12 @@ public class CheckSumTest {
      */
     @Test
     public void testWhenSentenceHasMoreThanOneWordMajorThatFive() {
-        CheckSum cs = new CheckSum();
+
         // given:
         final String sentence = "1234567890200";
 
         // when:
-        final boolean actualResult = cs.canValores(sentence);
+        final boolean actualResult = cs.canValues(sentence);
 
         // then
         final boolean expectedResult = false;

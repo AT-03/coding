@@ -1,5 +1,6 @@
 package org.fundacionjala.coding.Fernando.movies;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -9,16 +10,24 @@ import static org.junit.Assert.assertEquals;
  */
 public class ChildrenTest {
 
+    private Movie movie;
+
+    /**
+     * Creating Children instance.
+     */
+    @Before
+    public void createCustomer() {
+        movie = new Children("Toy Story");
+    }
+
     /**
      * Test to verify the amount rent less than three days.
      */
     @Test
     public void testCalculateAmountWhenTheRentedDaysIsLessThanThree() {
-        // given:
-        Children childrenInstance = new Children("Toy Story");
 
         // when:
-        final double actualResult = childrenInstance.calculateAmount(2);
+        final double actualResult = movie.calculateAmount(2);
 
         // then
         final double expectedResult = 1.5;
@@ -30,11 +39,9 @@ public class ChildrenTest {
      */
     @Test
     public void testToCalculateRentMovieMoreThanThreeDays() {
-        // given:
-        Children children = new Children("Moana");
 
         // when:
-        final double actualResult = children.calculateAmount(10);
+        final double actualResult = movie.calculateAmount(10);
 
         // then:
         final double expectedResult = 10.5;
@@ -46,11 +53,9 @@ public class ChildrenTest {
      */
     @Test
     public void testToCalculateTheFrequentRentDifferentDays() {
-        // given:
-        Children children = new Children("Moana");
 
         // when:
-        final int actualResult = children.calculateFrequentRenterPoints(1);
+        final int actualResult = movie.calculateFrequentRenterPoints(1);
 
         // then:
         final int expectedResult = 1;
@@ -59,7 +64,7 @@ public class ChildrenTest {
         // given:
 
         // when:
-        final int actualResultTwo = children.calculateFrequentRenterPoints(3);
+        final int actualResultTwo = movie.calculateFrequentRenterPoints(3);
 
         // then:
         final int expectedResultTwo = 1;

@@ -1,5 +1,6 @@
-package org.fundacionjala.coding.Fernando.CadenaInv;
+package org.fundacionjala.coding.Fernando.StringInv;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -11,17 +12,28 @@ import static org.junit.Assert.assertEquals;
  * @version (a version number or a date)
  */
 public class CadInvTest {
+
+    private StringInv cadI;
+
+    /**
+     * SpinWord.
+     */
+    @Before
+    public void spinWord() {
+        cadI = new StringInv();
+    }
+
     /**
      * Test when sentence is empty.
      */
     @Test
     public void testWhenSentenceIsEmpty() {
-        CadInv cadI = new CadInv();
+
         // given:
         final String sentence = "";
 
         // when:
-        final String actualResult = cadI.cadenaInv(sentence);
+        final String actualResult = cadI.stringInv(sentence);
 
         // then:
         final String expectedResult = "";
@@ -33,13 +45,12 @@ public class CadInvTest {
      */
     @Test
     public void testWhenSentenceHasNoWordsMajorToFive() {
-        CadInv cadI = new CadInv();
-        //Hey fellow warriors
+
         // give:
         final String sentence = "Hi guys how are you";
 
         // when:
-        final String actualResult = cadI.cadenaInv(sentence);
+        final String actualResult = cadI.stringInv(sentence);
 
         // then:
         final String expectedResult = "Hi guys how are you";
@@ -51,12 +62,12 @@ public class CadInvTest {
      */
     @Test
     public void testWhenSentenceHasMoreThanOneWordMajorThatFive() {
-        CadInv cadI = new CadInv();
+
         // give:
         final String sentence = "Hey fellow warriors";
 
         // when:
-        final String actualResult = cadI.cadenaInv(sentence);
+        final String actualResult = cadI.stringInv(sentence);
 
         // then:
         final String expectedResult = "Hey wollef sroirraw";

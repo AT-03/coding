@@ -1,7 +1,8 @@
-package org.fundacionjala.coding.Fernando.BankOCR;
+package org.fundacionjala.coding.Fernando.bankOCR;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Stream;
 
 /**
  * Created by PC on 24/06/2017.
@@ -65,7 +66,7 @@ public final class BankOCR {
     }
 
     /**
-     * Constructor BankOCR.
+     * Constructor bankOCR.
      */
     private BankOCR() {
 
@@ -119,14 +120,8 @@ public final class BankOCR {
      * @return boolean to get if is a valid digit.
      */
     private static boolean digit(final String data) {
-        boolean isDigit = true;
-        for (int i = 0; i < data.length(); i++) {
-            if (!Character.isDigit(data.charAt(i))) {
-                isDigit = false;
-                break;
-            }
-        }
-        return isDigit;
+        return Stream.of(data.split("")).
+                filter(a -> Character.isDigit(a.charAt(0))).count() > 0;
     }
 
     /**

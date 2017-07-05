@@ -1,5 +1,6 @@
-package org.fundacionjala.coding.Fernando.Exam;
+package org.fundacionjala.coding.Fernando.average;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -14,17 +15,26 @@ import static org.junit.Assert.assertEquals;
  */
 public class PromTest {
 
+    private Average p;
+
+    /**
+     * Create average.
+     */
+    @Before
+    public void average() {
+        p = new Average();
+    }
     /**
      * Test to get the prom when we have 5 elements.
      */
     @Test
     public void testPromWhenHave5Elements() {
-        Prom p = new Prom();
+
         // given:
         final int[] num = {2, 2, 2, 2, 2};
 
         // when:
-        final double[] actualResult = p.promedio(num);
+        final double[] actualResult = p.average(num);
 
         // then:
         final double[] expectedResult = {2.0, 2.0, 2.0, 2.0};
@@ -36,14 +46,13 @@ public class PromTest {
      */
     @Test
     public void testPromWhenHaveDifferentData() {
-        Prom p = new Prom();
 
         // given:
 
         final int[] num = {1, 3, 5, 1, -10};
 
         // when:
-        final double[] actualResult = p.promedio(num);
+        final double[] actualResult = p.average(num);
 
         // then:
         final double[] expectedResult = {2.0, 4.0, 3.0, -4.5};
@@ -55,12 +64,12 @@ public class PromTest {
      */
     @Test
     public void testPromWhenHaveTheSameData() {
-        Prom p = new Prom();
+
         // given:
         final int[] num = {2, -2, 2, -2, 2};
 
         // when:
-        final double[] actualResult = p.promedio(num);
+        final double[] actualResult = p.average(num);
 
         // then:
         final double[] expectedResult = {0.0, 0.0, 0.0, 0.0};
@@ -72,12 +81,12 @@ public class PromTest {
      */
     @Test
     public void testPromWhenTheArrayIsNull() {
-        Prom p = new Prom();
+
         // given:
         final int[] num = null;
 
         // when:
-        final double[] actualResult = p.promedio(num);
+        final double[] actualResult = p.average(num);
 
         // then:
         final double[] expectedResult = {};
@@ -89,12 +98,12 @@ public class PromTest {
      */
     @Test
     public void testPromWhenTheArrayIsEmpty() {
-        Prom p = new Prom();
+
         // give:
         final int[] num = {};
 
         // when:
-        final double[] actualResult = p.promedio(num);
+        final double[] actualResult = p.average(num);
 
         // then:
         final double[] expectedResult = {};
@@ -107,12 +116,12 @@ public class PromTest {
      */
     @Test
     public void testPromWhenTheArrayHasOneElement() {
-        Prom p = new Prom();
+
         // given:
         final int[] num = {2};
 
         // when:
-        final double[] actualResult = p.promedio(num);
+        final double[] actualResult = p.average(num);
 
         // then:
         final double[] expectedResult = {};

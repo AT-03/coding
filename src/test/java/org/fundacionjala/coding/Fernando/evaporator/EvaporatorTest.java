@@ -9,29 +9,17 @@ import static org.junit.Assert.assertEquals;
  */
 public class EvaporatorTest {
 
-    private static final int EXPECTED_RESULT_ONE = 22;
-    private static final int EXPECTED_RESULT_TWO = 29;
-    private static final int EXPECTED_RESULT_THREE = 59;
-    private static final int EXPECTED_RESULT_FOUR = 37;
-    private static final int EXPECTED_RESULT_FIVE = 31;
-    private static final int EXPECTED_RESULT_SIX = 459;
-    private static final int EXPECTED_RESULT_SEVEN = 299;
-    private static final double ACTUAL_RESULT_TEN = 10;
-    private static final double ACTUAL_RESULT_FIVE = 5;
-    private static final double ACTUAL_RESULT_FIFTY = 50;
-    private static final double ACTUAL_RESULT_TWELVE = 12;
-    private static final double ACTUAL_RESULT_ONE = 1;
-    private static final double ACTUAL_RESULT_FOUR = 47.5;
-    private static final double ACTUAL_RESULT_EIGHT = 8;
-    private static final double ACTUAL_RESULT_ONEHUNDRED = 100;
-
     /**
      * Test evaporator one.
      */
     @Test
     public void testEvaporatorOne() {
-        assertEquals(EXPECTED_RESULT_ONE,
-                Evaporator.evaporator(ACTUAL_RESULT_TEN, ACTUAL_RESULT_TEN, ACTUAL_RESULT_TEN));
+
+        final int expectedResult = 22;
+        final double actualResult = 10;
+
+        assertEquals(expectedResult,
+                Evaporator.evaporator(actualResult, actualResult, actualResult));
     }
 
     /**
@@ -39,8 +27,12 @@ public class EvaporatorTest {
      */
     @Test
     public void testEvaporatorTwo() {
-        assertEquals(EXPECTED_RESULT_TWO,
-                Evaporator.evaporator(ACTUAL_RESULT_TEN, ACTUAL_RESULT_TEN, ACTUAL_RESULT_FIVE));
+        final int expectedResult = 29;
+        final double actualResultOne = 10;
+        final double actualResultTwo = 5;
+
+        assertEquals(expectedResult,
+                Evaporator.evaporator(actualResultOne, actualResultOne, actualResultTwo));
     }
 
     /**
@@ -48,8 +40,13 @@ public class EvaporatorTest {
      */
     @Test
     public void testEvaporatorThree() {
-        assertEquals(EXPECTED_RESULT_THREE,
-                Evaporator.evaporator(ACTUAL_RESULT_ONEHUNDRED, ACTUAL_RESULT_FIVE, ACTUAL_RESULT_FIVE));
+
+        final int expectedResult = 59;
+        final double actualResultOne = 100;
+        final double actualResultTwo = 5;
+
+        assertEquals(expectedResult,
+                Evaporator.evaporator(actualResultOne, actualResultTwo, actualResultTwo));
     }
 
     /**
@@ -57,8 +54,14 @@ public class EvaporatorTest {
      */
     @Test
     public void testEvaporatorFour() {
-        assertEquals(EXPECTED_RESULT_FOUR,
-                Evaporator.evaporator(ACTUAL_RESULT_FIFTY, ACTUAL_RESULT_TWELVE, ACTUAL_RESULT_ONE));
+
+        final int expectedResult = 37;
+        final double actualResultOne = 50;
+        final double actualResultTwo = 12;
+        final double actualResultThre = 1;
+
+        assertEquals(expectedResult,
+                Evaporator.evaporator(actualResultOne, actualResultTwo, actualResultThre));
     }
 
     /**
@@ -66,8 +69,14 @@ public class EvaporatorTest {
      */
     @Test
     public void testEvaporatorFive() {
-        assertEquals(EXPECTED_RESULT_FIVE,
-                Evaporator.evaporator(ACTUAL_RESULT_FOUR, ACTUAL_RESULT_EIGHT, ACTUAL_RESULT_EIGHT));
+
+        final int expectedResult = 31;
+        final double actualResultOne = 4;
+        final double actualResultTwo = 8;
+        final double actualResultThre = 8;
+
+        assertEquals(expectedResult,
+                Evaporator.evaporator(actualResultOne, actualResultTwo, actualResultThre));
     }
 
     /**
@@ -75,8 +84,14 @@ public class EvaporatorTest {
      */
     @Test
     public void testEvaporatorSix() {
-        assertEquals(EXPECTED_RESULT_SIX,
-                Evaporator.evaporator(ACTUAL_RESULT_ONEHUNDRED, ACTUAL_RESULT_ONE, ACTUAL_RESULT_ONE));
+
+        final int expectedResult = 459;
+        final double actualResultOne = 100;
+        final double actualResultTwo = 1;
+        final double actualResultThre = 1;
+
+        assertEquals(expectedResult,
+                Evaporator.evaporator(actualResultOne, actualResultTwo, actualResultThre));
     }
 
     /**
@@ -84,8 +99,14 @@ public class EvaporatorTest {
      */
     @Test
     public void testEvaporatorSeven() {
-        assertEquals(EXPECTED_RESULT_SIX,
-                Evaporator.evaporator(ACTUAL_RESULT_TEN, ACTUAL_RESULT_ONE, ACTUAL_RESULT_ONE));
+
+        final int expectedResult = 459;
+        final double actualResultOne = 10;
+        final double actualResultTwo = 1;
+        final double actualResultThre = 1;
+
+        assertEquals(expectedResult,
+                Evaporator.evaporator(actualResultOne, actualResultTwo, actualResultThre));
     }
 
     /**
@@ -93,8 +114,14 @@ public class EvaporatorTest {
      */
     @Test
     public void testEvaporatorEight() {
-        assertEquals(EXPECTED_RESULT_SEVEN,
-                Evaporator.evaporator(ACTUAL_RESULT_ONEHUNDRED, ACTUAL_RESULT_ONE, ACTUAL_RESULT_FIVE));
+
+        final int expectedResult = 299;
+        final double actualResultOne = 100;
+        final double actualResultTwo = 1;
+        final double actualResultThre = 5;
+
+        assertEquals(expectedResult,
+                Evaporator.evaporator(actualResultOne, actualResultTwo, actualResultThre));
     }
 
 }

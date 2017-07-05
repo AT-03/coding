@@ -1,5 +1,6 @@
 package org.fundacionjala.coding.Fernando.movies;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -9,16 +10,24 @@ import static org.junit.Assert.assertEquals;
  */
 public class NewReleaseTest {
 
+    private Movie movie;
+
+    /**
+     * Creating new release instance.
+     */
+    @Before
+    public void createNewRelease() {
+        movie = new NewRelease("Toy Story");
+    }
+
     /**
      * Test to verify the amount rent less than three days.
      */
     @Test
     public void testCalculateAmountWhenTheRentedDaysIsLessThanThree() {
-        // given:
-        NewRelease release = new NewRelease("Toy Story");
 
         // when:
-        final double actualResult = release.calculateAmount(2);
+        final double actualResult = movie.calculateAmount(2);
 
         // then
         final double expectedResult = 1.5;
@@ -30,11 +39,9 @@ public class NewReleaseTest {
      */
     @Test
     public void testToCalculateRentMovieMoreThanThreeDays() {
-        // given:
-        NewRelease release = new NewRelease("Moana");
 
         // when:
-        final double actualResult = release.calculateAmount(10);
+        final double actualResult = movie.calculateAmount(10);
 
         // then:
         final double expectedResult = 10.5;
@@ -46,11 +53,9 @@ public class NewReleaseTest {
      */
     @Test
     public void testToCalculateTheFrequentRentDifferentDays() {
-        // given:
-        NewRelease release = new NewRelease("Toy Story");
 
         // when:
-        final int actualResult = release.calculateFrequentRenterPoints(1);
+        final int actualResult = movie.calculateFrequentRenterPoints(1);
 
         // then:
         final int expectedResult = 1;
@@ -59,7 +64,7 @@ public class NewReleaseTest {
         // given:
 
         // when:
-        final int actualResultTwo = release.calculateFrequentRenterPoints(3);
+        final int actualResultTwo = movie.calculateFrequentRenterPoints(3);
 
         // then:
         final int expectedResultTwo = 2;
