@@ -2,12 +2,29 @@ package org.fundacionjala.coding.norman.kata.spinwords;
 
 import org.junit.Test;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
+
+import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 
 /**
  * Created by NORMAN on 2/7/2017.
  */
 public class SpinWordsTest {
+
+    /**
+     * Constructor test.
+     * @throws Exception exception.
+     */
+
+    @Test
+    public void testConstructorIsPrivate() throws Exception {
+        Constructor constructor = SpinWords.class.getDeclaredConstructor();
+        assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        constructor.setAccessible(true);
+        constructor.newInstance();
+    }
     /**
      * Test when sentence has words with more than 5 characters.
      */

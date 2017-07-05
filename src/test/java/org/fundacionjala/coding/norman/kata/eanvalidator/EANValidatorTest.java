@@ -2,6 +2,9 @@ package org.fundacionjala.coding.norman.kata.eanvalidator;
 
 import org.junit.Test;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
+
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 
@@ -9,6 +12,17 @@ import static org.junit.Assert.assertFalse;
  * Created by NORMAN on 2/7/2017.
  */
 public class EANValidatorTest {
+    /**
+     * Constructor test.
+     * @throws Exception exception.
+     */
+    @Test
+    public void testConstructorIsPrivate() throws Exception {
+        Constructor constructor = EANValidator.class.getDeclaredConstructor();
+        assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        constructor.setAccessible(true);
+        constructor.newInstance();
+    }
     /**
      * Test when the EAN string number has exactly 13 digits.
      */
