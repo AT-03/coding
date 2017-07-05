@@ -1,9 +1,6 @@
 package org.fundacionjala.coding.reinaldo.kataBankOcr;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Modifier;
-import java.util.HashMap;
-import java.util.Map;
+
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -233,11 +230,11 @@ public class BankOcrTest {
      */
     @Test
     public void whenCompareToString() {
-        String line =  " _ "
+        String line = " _ "
                 + "| |"
                 + "|_|";
         FileNumberBankOcr fileNumberBankOcr = new FileNumberBankOcr();
         String resulActual = fileNumberBankOcr.comparation(line);
-        assertEquals("0",resulActual);
+        assertEquals("0", resulActual);
     }
 }
