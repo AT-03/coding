@@ -1,6 +1,10 @@
 package org.fundacionjala.coding.norman.banck_ocr;
 
+import junit.framework.TestCase;
 import org.junit.Test;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -9,6 +13,17 @@ import static org.junit.Assert.assertTrue;
  * Created by NORMAN on 2/7/2017.
  */
 public class BanckTest {
+    /**
+     * Constructor test.
+     * @throws Exception exception.
+     */
+    @Test
+    public void testConstructorIsPrivate() throws Exception {
+        Constructor constructor = Banck.class.getDeclaredConstructor();
+        TestCase.assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        constructor.setAccessible(true);
+        constructor.newInstance();
+    }
     /**
      * Test if scanned image recognized numbers between 0 and 9.
      */
