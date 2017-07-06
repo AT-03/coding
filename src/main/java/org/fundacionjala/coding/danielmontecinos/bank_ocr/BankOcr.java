@@ -138,14 +138,7 @@ final class BankOcr {
      * @return an String result with the values mentioned earlier.
      */
     static String getAccountStatus(final String account) {
-        String status = EMPTY_STRING;
-
-        if (!isLegible(account)) {
-            status = ILLEGIBLE;
-        } else if (!validateAccount(account)) {
-            status = ERROR;
-        }
-        return status;
+        return !isLegible(account) ? ILLEGIBLE : (!validateAccount(account)) ? ERROR : EMPTY_STRING;
     }
 
     /**
