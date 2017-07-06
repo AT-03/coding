@@ -37,7 +37,7 @@ public final class Ean {
      * @param sumToCheck sumtocheck.
      * @return int getSum
      */
-    private static int getAnInt(int sumToCheck) {
+     private static int getAnInt(int sumToCheck) {
         return sumToCheck % DIVISOR == 0 ? 0 : DIVISOR - (sumToCheck % DIVISOR);
     }
 }
