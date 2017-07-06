@@ -17,10 +17,7 @@ public class NewRelease extends Movie {
     }
 
     /**
-     * This method calculates the amount of a new release rented movie.
-     *
-     * @param daysRented of int type.
-     * @return the amount of a new release rented movie.
+     * {@inheritDoc}
      */
     @Override
     public double calculateAmount(final int daysRented) {
@@ -28,11 +25,7 @@ public class NewRelease extends Movie {
     }
 
     /**
-     * This method calculates the frequent renter points
-     * of a new release rented movie.
-     *
-     * @param daysRented of int type.
-     * @return 1 or 2.
+     * {@inheritDoc}
      */
     @Override
     public int calculateFrequentRenterPoints(final int daysRented) {

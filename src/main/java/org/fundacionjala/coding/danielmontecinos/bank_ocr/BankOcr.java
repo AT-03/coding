@@ -96,6 +96,7 @@ final class BankOcr {
      * @return true or false
      */
     private static boolean isLegible(final String account) {
+//        return account.chars().map(Character::getNumericValue).allMatch(Character::isDigit);
         boolean isCorrect = true;
 
         for (int i = 0; i < account.length(); i++) {

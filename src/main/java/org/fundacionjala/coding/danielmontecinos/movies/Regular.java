@@ -18,6 +18,9 @@ public class Regular extends Movie {
         super(title);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public double calculateAmount(final int daysRented) {
         double amount = LIMIT_DAYS_TO_RENT_REGULAR_MOVIE;
@@ -27,6 +30,9 @@ public class Regular extends Movie {
         return amount;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int calculateFrequentRenterPoints(final int daysRented) {
         return 1;

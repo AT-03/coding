@@ -1,5 +1,6 @@
 package org.fundacionjala.coding.danielmontecinos.movies;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -8,6 +9,16 @@ import static org.junit.Assert.assertEquals;
  * Class to test NewRelease class.
  */
 public class NewReleaseTest {
+    private static Movie newReleaseInstance;
+
+    /**
+     * Method to create a NewRelease instance.
+     */
+    @Before
+    public void setUp() {
+        newReleaseInstance = new NewRelease("Test");
+    }
+
 
     /**
      * Test to verify the amount if the rented days
@@ -15,10 +26,7 @@ public class NewReleaseTest {
      */
     @Test
     public void testCalculateAmountWhenTheRentedDaysIsLessThanThree() {
-        // given:
-        NewRelease newReleaseInstance = new NewRelease("Test");
 
-        // when:
         final double actualResult = newReleaseInstance.calculateAmount(1);
 
         // then
@@ -32,13 +40,8 @@ public class NewReleaseTest {
      */
     @Test
     public void testCalculateAmountWhenTheRentedDaysIsGreaterThanThree() {
-        // given:
-        NewRelease newReleaseInstance = new NewRelease("Test");
-
-        // when:
         final double actualResult = newReleaseInstance.calculateAmount(10);
 
-        // then:
         final double expectedResult = 30;
         assertEquals(0, expectedResult, actualResult);
     }
@@ -49,31 +52,18 @@ public class NewReleaseTest {
      */
     @Test
     public void testCalculateFrequentRenterPointsVerifyTheResultIsOne() {
-        // given:
-        NewRelease newReleaseInstance = new NewRelease("Test");
-
-        // when:
         final int actualResultOne = newReleaseInstance.calculateFrequentRenterPoints(1);
 
-        // then:
         final int expectedResultOne = 1;
         assertEquals(expectedResultOne, actualResultOne);
 
-        // given: newReleaseInstance
-
-        // when:
         final int actualResultTwo = newReleaseInstance.calculateFrequentRenterPoints(3);
 
-        // then:
         final int expectedResultTwo = 2;
         assertEquals(expectedResultTwo, actualResultTwo);
 
-        // give: newReleaseInstance
-
-        // when:
         final int actualResultThree = newReleaseInstance.calculateFrequentRenterPoints(1000);
 
-        // then:
         final int expectedResultThree = 2;
         assertEquals(actualResultThree, expectedResultThree);
     }

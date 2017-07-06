@@ -16,6 +16,9 @@ public class Children extends Movie {
         super(title);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public double calculateAmount(final int daysRented) {
         double amount = NO_RELEASE_MOVIE_FEE;
@@ -25,6 +28,9 @@ public class Children extends Movie {
         return amount;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int calculateFrequentRenterPoints(final int daysRented) {
         return 1;
