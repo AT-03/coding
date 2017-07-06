@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
  * Class to test Children class.
  */
 public class ChildrenTest {
-    private static Movie childrenInstance;
+    private Movie childrenInstance;
 
     /**
      * Method to create a Children instance.

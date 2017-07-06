@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
  * Class to test NewRelease class.
  */
 public class NewReleaseTest {
-    private static Movie newReleaseInstance;
+    private Movie newReleaseInstance;
 
     /**
      * Method to create a NewRelease instance.
