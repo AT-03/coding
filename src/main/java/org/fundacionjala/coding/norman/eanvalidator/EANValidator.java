@@ -24,9 +24,7 @@ public final class EANValidator {
     static boolean validate(final String eAN) {
         int sum = 0;
 
-        if (13 != eAN.length()) {
-            return false;
-        }
+
         for (int i = 1; i < eAN.length(); i++) {
             int numericValue = Character.getNumericValue(eAN.charAt(i - 1));
             sum += i % 2 == 0 ? numericValue * ODD_DIGIT_MULTIPLIER : numericValue;
