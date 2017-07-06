@@ -87,4 +87,20 @@ public class ChildrenTest {
         final int expectedResultThree = 1;
         assertEquals(actualResultThree, expectedResultThree);
     }
+
+    /**
+     * test getRental.
+     */
+    @Test
+    public void getRental() {
+
+
+        Movie movie = new Children("Rental");
+
+        Rental movieRental = new Rental(movie, 12);
+        int resultExpected = movieRental.getDaysRented();
+
+        assertEquals(12, resultExpected);
+
+    }
 }
