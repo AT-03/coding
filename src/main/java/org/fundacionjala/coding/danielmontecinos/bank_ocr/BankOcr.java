@@ -96,7 +96,9 @@ final class BankOcr {
      * @return true or false
      */
     private static boolean isLegible(final String account) {
+
 //        return account.chars().map(Character::getNumericValue).allMatch(Character::isDigit);
+
         boolean isCorrect = true;
 
         for (int i = 0; i < account.length(); i++) {
@@ -163,7 +165,7 @@ final class BankOcr {
     static String[] parseScannedNumbers(final String scannedAccount) {
         String[] scannedDigits = {"", "", "", "", "", "", "", "", ""};
 
-        if (!lengthScannedImageIsValid(scannedAccount)) {
+        if (scannedAccount.length() != CORRECT_SCANNED_ACCOUNT_LENGTH) {
             int index = 0;
             int start = SUB_STRING_START;
             int end = SUB_STRING_END;
@@ -179,17 +181,6 @@ final class BankOcr {
             }
         }
         return scannedDigits;
-    }
-
-    /**
-     * This method validates if an scanned account has the correct digit
-     * numbers.
-     *
-     * @param scannedAccount of String type.
-     * @return true.
-     */
-    private static boolean lengthScannedImageIsValid(final String scannedAccount) {
-        return scannedAccount.length() == CORRECT_SCANNED_ACCOUNT_LENGTH;
     }
 
     /**

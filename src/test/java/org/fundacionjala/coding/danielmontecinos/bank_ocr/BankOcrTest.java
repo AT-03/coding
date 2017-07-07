@@ -32,8 +32,7 @@ public class BankOcrTest {
      */
     @Test
     public void testGetKeyWhenScannedNumbersAreBetween0And9() {
-        // given:
-        String[] scannedImage = {
+        final String[] scannedImage = {
                 " _ "
                         + "| |"
                         + "|_|",
@@ -75,11 +74,9 @@ public class BankOcrTest {
                         + " _|"
         };
 
-        // when:
-        String actualResult = BankOcr.accountRepresentation(scannedImage);
+        final String actualResult = BankOcr.accountRepresentation(scannedImage);
 
-        // then:
-        String expectedResult = "0123456789";
+        final String expectedResult = "0123456789";
         assertEquals(expectedResult, actualResult);
     }
 
@@ -88,8 +85,7 @@ public class BankOcrTest {
      */
     @Test
     public void testGetKeyWhenScannedImageHasDifferentValues() {
-        // given:
-        String[] scannedImage = {
+        final String[] scannedImage = {
                 " _ "
                         + "| |"
                         + "|_|",
@@ -105,11 +101,9 @@ public class BankOcrTest {
                         + " _|"
         };
 
-        // when:
-        String actualResult = BankOcr.accountRepresentation(scannedImage);
+        final String actualResult = BankOcr.accountRepresentation(scannedImage);
 
-        // then:
-        String expectedResult = "09??5";
+        final String expectedResult = "09??5";
         assertEquals(expectedResult, actualResult);
     }
 
@@ -118,8 +112,7 @@ public class BankOcrTest {
      */
     @Test
     public void testValidateAccountWhenTheGivenAccountIsCorrect() {
-        // given:
-        String[] scannedImage = {
+        final String[] scannedImage = {
                 "__ "
                         + " _|"
                         + "__|",
@@ -156,12 +149,10 @@ public class BankOcrTest {
                         + "|_ "
                         + " _|",
         };
-        String correctAccount = BankOcr.accountRepresentation(scannedImage);
+        final String correctAccount = BankOcr.accountRepresentation(scannedImage);
 
-        // when:
-        boolean actualResult = BankOcr.validateAccount(correctAccount);
+        final boolean actualResult = BankOcr.validateAccount(correctAccount);
 
-        // then:
         assertTrue(actualResult);
 
     }
@@ -171,8 +162,7 @@ public class BankOcrTest {
      */
     @Test
     public void testValidateAccountWhenTheGivenAccountIsIncorrect() {
-        // given:
-        String[] scannedImage = {
+        final String[] scannedImage = {
                 "   "
                         + "|_|"
                         + "  |",
@@ -190,12 +180,10 @@ public class BankOcrTest {
                         + "  |",
 
         };
-        String incorrectAccount = BankOcr.accountRepresentation(scannedImage);
+        final String incorrectAccount = BankOcr.accountRepresentation(scannedImage);
 
-        // when:
-        boolean actualResult = BankOcr.validateAccount(incorrectAccount);
+        final boolean actualResult = BankOcr.validateAccount(incorrectAccount);
 
-        // then:
         assertFalse(actualResult);
     }
 
@@ -204,14 +192,11 @@ public class BankOcrTest {
      */
     @Test
     public void testGetAccountStatusWithACorrectAccount() {
-        // given:
-        String correctAccount = "345882865";
+        final String correctAccount = "345882865";
 
-        // when:
-        String actualResult = BankOcr.getAccountStatus(correctAccount);
+        final String actualResult = BankOcr.getAccountStatus(correctAccount);
 
-        // then:
-        String expectResult = "";
+        final String expectResult = "";
         assertEquals(expectResult, actualResult);
     }
 
@@ -220,14 +205,11 @@ public class BankOcrTest {
      */
     @Test
     public void testGetAccountStatusWithAnIncorrectAccount() {
-        // given:
-        String incorrectAccount = "021453789";
+        final String incorrectAccount = "021453789";
 
-        // when:
-        String actualResult = BankOcr.getAccountStatus(incorrectAccount);
+        final String actualResult = BankOcr.getAccountStatus(incorrectAccount);
 
-        // then:
-        String expectedResult = "ERR";
+        final String expectedResult = "ERR";
         assertEquals(expectedResult, actualResult);
     }
 
@@ -236,14 +218,11 @@ public class BankOcrTest {
      */
     @Test
     public void testGetAccountStatusWithAnIllegibleAccount() {
-        // given:
-        String illegibleAccount = "  560  |";
+        final String illegibleAccount = "  560  |";
 
-        // when:
-        String actualResult = BankOcr.getAccountStatus(illegibleAccount);
+        final String actualResult = BankOcr.getAccountStatus(illegibleAccount);
 
-        // then:
-        String expectedResult = "ILL";
+        final String expectedResult = "ILL";
         assertEquals(expectedResult, actualResult);
     }
 
@@ -252,19 +231,16 @@ public class BankOcrTest {
      */
     @Test
     public void testParseScannedNumbersWithNineDigits() {
-        // given:
-        String scannedString =
+        final String scannedString =
                 "__     _  _  _  _  _  _  _ "
                         + " _||_||_ |_||_| _||_||_ |_ "
                         + "__|  | _||_||_||_ |_||_| _|";
 
-        String[] accountArray = BankOcr.parseScannedNumbers(scannedString);
+        final String[] accountArray = BankOcr.parseScannedNumbers(scannedString);
 
-        // when:
-        String actualResult = BankOcr.accountRepresentation(accountArray);
+        final String actualResult = BankOcr.accountRepresentation(accountArray);
 
-        // then:
-        String expectedResult = "345882865";
+        final String expectedResult = "345882865";
         assertEquals(expectedResult, actualResult);
     }
 }
