@@ -31,7 +31,7 @@ public class ChildrenTest {
 
         // then
         final double expectedResult = 1.5;
-        assertEquals(0, expectedResult, actualResult);
+        assertEquals(expectedResult, actualResult, 0);
     }
 
     /**
@@ -44,8 +44,8 @@ public class ChildrenTest {
         final double actualResult = movie.calculateAmount(10);
 
         // then:
-        final double expectedResult = 10.5;
-        assertEquals(0, expectedResult, actualResult);
+        final double expectedResult = 12.0;
+        assertEquals(expectedResult, actualResult, 0);
     }
 
     /**

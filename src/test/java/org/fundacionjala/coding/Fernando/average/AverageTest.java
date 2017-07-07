@@ -15,14 +15,14 @@ import static org.junit.Assert.assertEquals;
  */
 public class AverageTest {
 
-    private Average p;
+    private Average average;
 
     /**
      * Create average.
      */
     @Before
     public void average() {
-        p = new Average();
+        average = new Average();
     }
     /**
      * Test to get the prom when we have 5 elements.
@@ -34,7 +34,7 @@ public class AverageTest {
         final int[] num = {2, 2, 2, 2, 2};
 
         // when:
-        final double[] actualResult = p.average(num);
+        final double[] actualResult = average.average(num);
 
         // then:
         final double[] expectedResult = {2.0, 2.0, 2.0, 2.0};
@@ -52,7 +52,7 @@ public class AverageTest {
         final int[] num = {1, 3, 5, 1, -10};
 
         // when:
-        final double[] actualResult = p.average(num);
+        final double[] actualResult = average.average(num);
 
         // then:
         final double[] expectedResult = {2.0, 4.0, 3.0, -4.5};
@@ -69,7 +69,7 @@ public class AverageTest {
         final int[] num = {2, -2, 2, -2, 2};
 
         // when:
-        final double[] actualResult = p.average(num);
+        final double[] actualResult = average.average(num);
 
         // then:
         final double[] expectedResult = {0.0, 0.0, 0.0, 0.0};
@@ -86,7 +86,7 @@ public class AverageTest {
         final int[] num = null;
 
         // when:
-        final double[] actualResult = p.average(num);
+        final double[] actualResult = average.average(num);
 
         // then:
         final double[] expectedResult = {};
@@ -103,7 +103,7 @@ public class AverageTest {
         final int[] num = {};
 
         // when:
-        final double[] actualResult = p.average(num);
+        final double[] actualResult = average.average(num);
 
         // then:
         final double[] expectedResult = {};
@@ -121,7 +121,7 @@ public class AverageTest {
         final int[] num = {2};
 
         // when:
-        final double[] actualResult = p.average(num);
+        final double[] actualResult = average.average(num);
 
         // then:
         final double[] expectedResult = {};

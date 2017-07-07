@@ -59,10 +59,10 @@ public class BankOCRTest {
         };
 
         // when:
-        String actualResult = BankOCR.parseDigit(data);
+        final String actualResult = BankOCR.parseDigit(data);
 
         // then:
-        String expectedResult = "0123456789";
+        final String expectedResult = "0123456789";
         assertEquals(expectedResult, actualResult);
     }
 
@@ -89,10 +89,10 @@ public class BankOCRTest {
         };
 
         // when:
-        String actualResult = BankOCR.parseDigit(data);
+        final String actualResult = BankOCR.parseDigit(data);
 
         // then:
-        String expectedResult = "09??5";
+        final String expectedResult = "09??5";
         assertEquals(expectedResult, actualResult);
     }
 
@@ -120,10 +120,10 @@ public class BankOCRTest {
                         + "  |",
 
         };
-        String value = BankOCR.parseDigit(data);
+       final String value = BankOCR.parseDigit(data);
 
         // when:
-        boolean actualResult = BankOCR.validAccountNumbers(value);
+        final boolean actualResult = BankOCR.validAccountNumbers(value);
 
         // then:
         assertFalse(actualResult);

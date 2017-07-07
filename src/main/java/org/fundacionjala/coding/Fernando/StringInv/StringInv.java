@@ -8,7 +8,7 @@ package org.fundacionjala.coding.Fernando.StringInv;
  */
 public final class StringInv {
 
-    static final int CANT_MAJOR = 5;
+    static final int MAJOR_FIVE_LETTERS = 5;
 
     /**
      * @param text param.
@@ -18,7 +18,7 @@ public final class StringInv {
         int pos = 0;
         String[] parts = text.split(" ");
         while (pos < parts.length) {
-            if (parts[pos].length() > CANT_MAJOR) {
+            if (parts[pos].length() > MAJOR_FIVE_LETTERS) {
                 parts[pos] = new StringBuilder(parts[pos]).reverse().toString();
             }
             pos++;

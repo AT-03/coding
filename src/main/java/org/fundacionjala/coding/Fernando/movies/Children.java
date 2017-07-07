@@ -6,6 +6,7 @@ package org.fundacionjala.coding.Fernando.movies;
 public class Children extends Movie {
     private static final int LIMITNEWCHILD = 3;
     private static final double PRICE = 1.5;
+    private static final int RENT_ONE_DAY = 1;
 
     /**
      * @param title param.
@@ -33,6 +34,6 @@ public class Children extends Movie {
      */
     @Override
     public int calculateFrequentRenterPoints(final int daysRented) {
-        return 1;
+        return RENT_ONE_DAY;
     }
 }

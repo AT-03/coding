@@ -6,7 +6,7 @@ import java.lang.reflect.Modifier;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertTrue;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 /**
  * The test class CheckSumTest.
@@ -40,9 +40,7 @@ public class CheckSumTest {
         // when:
         final boolean actualResult = CheckSum.canValues(sentence);
 
-        // then
-        final boolean expectedResult = true;
-        assertEquals(actualResult, expectedResult);
+        assertTrue(actualResult);
     }
 
     /**
@@ -57,8 +55,6 @@ public class CheckSumTest {
         // when:
         final boolean actualResult = CheckSum.canValues(sentence);
 
-        // then
-        final boolean expectedResult = false;
-        assertEquals(actualResult, expectedResult);
+        assertFalse(actualResult);
     }
 }

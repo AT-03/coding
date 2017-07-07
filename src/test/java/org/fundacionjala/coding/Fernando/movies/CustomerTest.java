@@ -62,6 +62,11 @@ public class CustomerTest {
      */
     @Test
     public void testCustomer() {
+        final double rentalAmountONe = 6.0;
+        final double rentalAmountTwo = 2.0;
+        final double rentalTotalAmount = 8.0;
+        final int earnedFrequentRenter = 3;
+
         // given
         customer.addRental(new Rental(new NewRelease("Moana"), 2));
         customer.addRental(new Rental(new Regular("Titanic"), 1));
@@ -70,12 +75,14 @@ public class CustomerTest {
         final String actualResult = customer.generateDetail();
 
         // then
-        final String expectedResult = "Rental Record for Fernando\n"
-                + "\tMoana\t6.0\n"
-                + "\tTitanic\t2.0\n"
-                + "Amount owed is 8.0\n"
-                + "You earned 3 frequent renter points";
-        assertEquals(actualResult, expectedResult);
-    }
+        StringBuilder expectedResult = new StringBuilder();
+        expectedResult.append(String.format("Rental Record for %s %n", "Fernando"));
+        expectedResult.append(String.format("\t %s \t%f %n", "Moana", rentalAmountONe));
+        expectedResult.append(String.format("\t %s \t%f %n", "Titanic", rentalAmountTwo));
 
+        expectedResult.append(String.format("Amount owed is %f %n", rentalTotalAmount));
+        expectedResult.append(String.format("You earned %d frequent renter points", earnedFrequentRenter));
+
+        assertEquals(expectedResult.toString(), actualResult);
+    }
 }

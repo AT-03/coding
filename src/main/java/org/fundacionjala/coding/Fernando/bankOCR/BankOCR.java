@@ -94,8 +94,7 @@ public final class BankOCR {
         String res = "";
         StringBuilder value = new StringBuilder();
         for (String data : cad) {
-            String key = getMapKey(data);
-            res = value.append(key).toString();
+            res = value.append(getMapKey(data)).toString();
         }
 
         return res;
