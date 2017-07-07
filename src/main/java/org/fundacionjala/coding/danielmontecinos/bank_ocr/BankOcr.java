@@ -96,18 +96,7 @@ final class BankOcr {
      * @return true or false
      */
     private static boolean isLegible(final String account) {
-
-//        return account.chars().map(Character::getNumericValue).allMatch(Character::isDigit);
-
-        boolean isCorrect = true;
-
-        for (int i = 0; i < account.length(); i++) {
-            if (!Character.isDigit(account.charAt(i))) {
-                isCorrect = false;
-                break;
-            }
-        }
-        return isCorrect;
+        return account.chars().allMatch(Character::isDigit);
     }
 
     /**
@@ -117,7 +106,7 @@ final class BankOcr {
      * @return true if the passed account is true, false otherwise.
      */
     static boolean validateAccount(final String account) {
-        if (!(account.length() == CORRECT_ACCOUNT_LENGTH) || !isLegible(account)) {
+        if (account.length() != CORRECT_ACCOUNT_LENGTH || !isLegible(account)) {
             return false;
         }
 
@@ -171,7 +160,7 @@ final class BankOcr {
             int end = SUB_STRING_END;
 
             for (int i = 0; i < scannedAccount.length(); i += SUB_STRING_END) {
-                index = index % INDEX_MODULUS_FACTOR;
+                index %= INDEX_MODULUS_FACTOR;
 
                 scannedDigits[index] += scannedAccount.substring(start, end);
 
