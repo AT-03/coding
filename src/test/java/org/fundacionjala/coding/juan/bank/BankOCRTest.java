@@ -106,13 +106,13 @@ public class BankOCRTest {
     @Test
     public void verifyIfTheStatusAccountIsIncorrect() {
         // given:
-        String account = "021453789";
+        final String account = "021453789";
 
         // when:
-        String expectedResult = "ERR";
+        final String expectedResult = "ERR";
 
         // then:
-        String actualResult = BankOCR.getStatusAccount(account);
+        final String actualResult = BankOCR.getStatusAccount(account);
         assertEquals(expectedResult, actualResult);
     }
 
@@ -122,18 +122,18 @@ public class BankOCRTest {
     @Test
     public void verifyIfAnImageContainsNineDigitsAndIsParsedCorrectly() {
         // given:
-        String figureScanned =
+        final String figureScanned =
                 "       _  _  _  _  _  _  _ "
                         + "  ||_||_||_||_| _||_||_ |_|"
                         + "  |  | _||_||_||_ |_||_| _|";
 
-        String[] accountArray = BankOCR.parseScannedFigures(figureScanned);
+        final String[] accountArray = BankOCR.parseScannedFigures(figureScanned);
 
         // when:
-        String actualResult = BankOCR.accountRepresentation(accountArray);
+        final String actualResult = BankOCR.accountRepresentation(accountArray);
 
         // then:
-        String expectedResult = "149882869";
+        final String expectedResult = "149882869";
         assertEquals(expectedResult, actualResult);
     }
 
@@ -141,13 +141,13 @@ public class BankOCRTest {
      * Testing an invalid account.
      */
     @Test
-    public void verifyValidateAccountNumbersFalse() {
+    public void verifyIfaScannedFigureIsValid() {
         // given:
-        String figureScanned =
+        final String figureScanned =
                 "       _  _  _  _  _  _  _ "
                         + "  ||_||_||_||_| _";
         // when:
-        Boolean actualResult = BankOCR.validateAccountNumbers(figureScanned);
+        final Boolean actualResult = BankOCR.validateAccountNumbers(figureScanned);
 
         //then:
         assertFalse(actualResult);
@@ -160,12 +160,12 @@ public class BankOCRTest {
     @Test
     public void parceIntScannedFiguredReturnEmpty() {
         // given:
-        String figureScanned = "";
+        final String figureScanned = "";
         // when:
-        String[] actualResult = BankOCR.parseScannedFigures(figureScanned);
+        final String[] actualResult = BankOCR.parseScannedFigures(figureScanned);
 
         // then:
-        String[] expectedResult = new String[]{"", "", "", "", "", "", "", "", ""};
+        final String[] expectedResult = new String[]{"", "", "", "", "", "", "", "", ""};
         assertArrayEquals(expectedResult, actualResult);
 
 
