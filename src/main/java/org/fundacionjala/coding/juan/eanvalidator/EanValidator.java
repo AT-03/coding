@@ -15,21 +15,15 @@ public final class EanValidator {
      * @param eanCode is the code provided as input.
      * @return the validation.
      */
-
     public static boolean validating(final String eanCode) {
-        int sum = 0;
-        int checksum = 0;
-        final int finalNumber = 12;
-        final int multiply = 3;
-        final int finalFactor = 10;
-        final int aux = 48;
-        for (int i = 0; i < finalNumber; i++) {
-            sum += (i % 2 != 0) ? ((eanCode.charAt(i) - aux) * multiply) : (eanCode.charAt(i) - aux);
-
+        char[] code = eanCode.toCharArray();
+        int checkSum = 0;
+        int digit = 0;
+        for (int i = 0; i < code.length; i++) {
+            digit = (code[i]);
+            checkSum += ((i + 1) % 2 == 0) ? digit * 3 : digit;
         }
-        if (sum % finalFactor != 0) {
-            checksum = (finalFactor - (sum % finalFactor));
-        }
-        return eanCode.charAt(eanCode.length() - 1) - aux == checksum;
+        digit = (code[code.length - 1]);
+        return checkSum % 10 == 0 || 10 - (checkSum % 10) == digit;
     }
 }

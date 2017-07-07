@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by Juan  on 26/03/2017.
+ * Created by Juan P  on 26/03/2017.
  */
 public final class BankOCR {
 
@@ -27,7 +27,7 @@ public final class BankOCR {
 
     static {
         MAP_NUMBERS.put(ZERO,
-                " _ "
+                          " _ "
                         + "| |"
                         + "|_|");
         MAP_NUMBERS.put(ONE,

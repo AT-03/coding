@@ -90,10 +90,10 @@ public class BankOCRTest {
     @Test
     public void verifyIfTheStatusAccountIsIllegible() {
         // given:
-        String account = "  560  |";
+        final String account = "  560  |";
 
         // when:
-        String expectedResult = "ILL";
+        final String expectedResult = "ILL";
 
         // then:
         String actualResult = BankOCR.getStatusAccount(account);

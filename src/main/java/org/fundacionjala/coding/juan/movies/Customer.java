@@ -38,28 +38,32 @@ public final class Customer {
      * @return the string.
      */
     public String generateDetail() {
-        StringBuffer result = new StringBuffer();
-        result.append("Rental Record for " + getName() + "\n");
+        String result = String.format("Rental Record for %s%n", getName());
+
+
         for (Rental rental : rentalsCustomer) {
-            result.append("\t" + rental.getMovie().getTitle() + "\t");
-            result.append(rental.calculateAmount() + "\n");
+
+            result += String.format("%s  ", rental.getMovie().getTitle());
+            result += String.format(rental.calculateAmount() + "%n");
         }
-        result.append("Amount owed is " + calculateTotalAmount() + "\n");
-        result.append("You earned " + calculateTotalFrequentRenterPoints() + " frequent renter points");
+        result += String.format("Amount owed is  %s%n", calculateTotalAmount());
+        result += String.format("You earned %s frequent renter points", calculateTotalFrequentRenterPoints());
         return result.toString();
     }
+
     /**
+     * @return the total amount.
      * @ this method will calculate the total amount of the customer.
-     * @return  the total amount.
      */
     public double calculateTotalAmount() {
         return rentalsCustomer.stream()
                 .mapToDouble(Rental::calculateAmount)
                 .sum();
     }
+
     /**
+     * @return the total points.
      * @ this method will calcule the potins of the customer.
-     * @return  the total points.
      */
     public int calculateTotalFrequentRenterPoints() {
 

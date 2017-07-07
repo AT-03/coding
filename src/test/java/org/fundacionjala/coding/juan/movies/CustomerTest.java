@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
+
 /**
  * @author Juan Pablo
  */
@@ -56,25 +57,8 @@ public class CustomerTest {
         assertEquals(MINORPRICE, actualResult, 0);
     }
 
-    /**
-     * Test customer class.
-     */
-    @Test
-    public void testCustomer() {
-        customer.addRental(new Rental(new NewRelease("The Avengers"), 2));
-        customer.addRental(new Rental(new Regular("Iron Man"), 1));
-
-        // when
-        final String actualResult = customer.generateDetail();
-
-        // then
-        final String expectedResult = "Rental Record for Juan\n"
-                + "\tThe Avengers\t6.0\n"
-                + "\tIron Man\t1.5\n"
-                + "Amount owed is 7.5\n"
-                + "You earned 3 frequent renter points";
-        assertEquals(actualResult, expectedResult);
-    }
-
 
 }
+
+
+
