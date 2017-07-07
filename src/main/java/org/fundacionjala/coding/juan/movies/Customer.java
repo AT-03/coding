@@ -38,16 +38,14 @@ public final class Customer {
      * @return the string.
      */
     public String generateDetail() {
-        String result = String.format("Rental Record for %s%n", getName());
-
-
+        StringBuilder result = new StringBuilder();
+        result.append("Rental Record for " + getName() + "\n");
         for (Rental rental : rentalsCustomer) {
-
-            result += String.format("%s  ", rental.getMovie().getTitle());
-            result += String.format(rental.calculateAmount() + "%n");
+            result.append(rental.getMovie().getTitle() + "  ");
+            result.append(rental.calculateAmount() + "\n");
         }
-        result += String.format("Amount owed is  %s%n", calculateTotalAmount());
-        result += String.format("You earned %s frequent renter points", calculateTotalFrequentRenterPoints());
+        result.append("Amount owed is  " + calculateTotalAmount() + "\n");
+        result.append("You earned " + calculateTotalFrequentRenterPoints() + " frequent renter points");
         return result.toString();
     }
 
