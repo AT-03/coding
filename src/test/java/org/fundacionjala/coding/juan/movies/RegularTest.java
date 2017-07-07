@@ -14,7 +14,7 @@ public class RegularTest {
      * Initialize variables.
      */
     @Before
-    public void initialize() {
+    public void setUp() {
         regular = new Regular("Logan");
     }
 

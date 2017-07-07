@@ -14,7 +14,7 @@ public class ChildrenTest {
      * Initialize variables.
      */
     @Before
-    public void initialize() {
+    public void setUp() {
         children = new Children("Spy Kids");
     }
 

@@ -14,7 +14,7 @@ public class RentalTest {
      * Initialize variables.
      */
     @Before
-    public void initialize() {
+    public void setUp() {
         regular = new Regular("Logan");
     }
 

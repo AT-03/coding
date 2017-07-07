@@ -19,7 +19,7 @@ public class CustomerTest {
      * Initialize variables.
      */
     @Before
-    public void iniciallize() {
+    public void setUp() {
         customer = new Customer("Juan");
     }
 
