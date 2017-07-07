@@ -1,14 +1,18 @@
-package org.fundacionjala.coding.norman.movie;
+package org.fundacionjala.coding.norman.movies;
+
 /**
- * Created by reinaldo on 11/03/2017.
+ * Created by NORMAN on 2/7/2017.
  */
+
 class Rental {
     private Movie movie;
     private int daysRented;
 
     /**
-     * @param movie      Movie.
-     * @param daysRented DaysRented.
+     * Rental movie's constructor.
+     *
+     * @param movie      receives the movie.
+     * @param daysRented receives the movie's days rented.
      */
     Rental(final Movie movie, final int daysRented) {
         this.movie = movie;
@@ -16,31 +20,36 @@ class Rental {
     }
 
     /**
-     * @return the daysRented.
+     * Getter method to obtain days a movies was rented.
+     *
+     * @return movies days rented.
      */
     public int getDaysRented() {
         return daysRented;
     }
 
     /**
-     * @return movie object.
+     * Getter method to obtain the movie information.
+     *
+     * @return the movie object.
      */
-    public Movie getMovie() {
-        return this.movie;
+    Movie getMovie() {
+        return movie;
     }
 
     /**
      * @return price object.
      */
-    public double calculateAmount() {
+    double calculateAmount() {
         return movie.calculateAmount(daysRented);
     }
 
     /**
      * @return calculateFrequentRenterPoint int.
      */
-    public int calculateFrequentRenterPoint() {
+    int calculateFrequentRenterPoint() {
         return movie.calculateFrequentRenterPoints(daysRented);
     }
-}
 
+
+}
