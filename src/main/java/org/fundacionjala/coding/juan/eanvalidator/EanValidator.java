@@ -20,8 +20,8 @@ public final class EanValidator {
         int checkSum = 0;
         int digit = 0;
         for (int i = 0; i < code.length; i++) {
-            digit = (code[i]);
-            checkSum += ((i + 1) % 2 == 0) ? digit * 3 : digit;
+            digit = code[i];
+            checkSum += (i + 1) % 2 == 0 ? digit * 3 : digit;
         }
         digit = (code[code.length - 1]);
         return checkSum % 10 == 0 || 10 - (checkSum % 10) == digit;
