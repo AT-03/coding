@@ -1,6 +1,5 @@
 package org.fundacionjala.coding.Fernando.multiples;
 
-import org.fundacionjala.coding.pablo.MultiplesThreeAndFive.Multiples;
 import org.junit.Test;
 
 import java.lang.reflect.Constructor;
@@ -13,18 +12,6 @@ import static org.junit.Assert.assertTrue;
  * Created by PC on 03/07/2017.
  */
 public class MultiplesTest {
-
-    /**
-     * Test constructor.
-     * @throws Exception exception.
-     */
-    @Test
-    public void testConstructorIsPrivate() throws Exception {
-        Constructor constructor = Multiples.class.getDeclaredConstructor();
-        assertTrue(Modifier.isPrivate(constructor.getModifiers()));
-        constructor.setAccessible(true);
-        constructor.newInstance();
-    }
 
     /**
      * Unit Test about multiples of 3 and 5.
@@ -78,5 +65,17 @@ public class MultiplesTest {
         final int expectedVariable = 0;
 
         assertEquals(expectedResult, Multiples.solution(expectedVariable));
+    }
+
+    /**
+     * Test constructor.
+     * @throws Exception exception.
+     */
+    @Test
+    public void testConstructorIsPrivate() throws Exception {
+        Constructor constructor = Multiples.class.getDeclaredConstructor();
+        assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        constructor.setAccessible(true);
+        constructor.newInstance();
     }
 }
