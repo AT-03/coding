@@ -4,13 +4,16 @@ package org.fundacionjala.coding.juan.spinWords;
  * Created by Juan on 3/10/2017.
  */
 public final class SpinWords {
+    private static final int LIMIT_WORD = 4;
+
     /**
      * Constructor private.
      */
+
     private SpinWords() {
         //no called
     }
-    public static int   LIMIT_WORD = 4;
+
     /**
      * Get the words spined if it have 5 or more letters.
      *
