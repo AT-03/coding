@@ -10,7 +10,7 @@ public final class SpinWords {
     private SpinWords() {
         //no called
     }
-
+    public static int   LIMIT_WORD = 4;
     /**
      * Get the words spined if it have 5 or more letters.
      *
@@ -18,20 +18,19 @@ public final class SpinWords {
      * @return the word reversed.
      */
     public static String spinWords(final String sentence) {
-        final int limitWord = 4;
+
         if (sentence == null) {
             return "";
         }
-        if (sentence.length() <= limitWord) {
+        if (sentence.length() <= LIMIT_WORD) {
             return sentence;
         } else {
             String[] words = sentence.split(" ");
             for (int i = 0; i < words.length; i++) {
-                if (words[i].length() > limitWord) {
+                if (words[i].length() > LIMIT_WORD) {
                     words[i] = new StringBuilder(words[i]).reverse().toString();
                 }
             }
-
             return String.join(" ", words);
 
         }
