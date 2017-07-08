@@ -169,7 +169,7 @@ public final class BankOCR {
     }
 
     /**
-     * This method scans an image and returns it in string.
+     * This method scans an image and returns  string.
      *
      * @param account account.
      * @return string[] with nine digits.
