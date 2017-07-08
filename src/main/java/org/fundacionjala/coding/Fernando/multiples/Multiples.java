@@ -9,14 +9,22 @@ public abstract class Multiples {
     private static final int THREE = 3;
 
     /**
-     * The method get the sum of multiples of 3 and 5.
-     *
-     * @param number to calculate the sum.
-     * @return int of the sum multiples of 3 and 5.
+     * Constructor.
      */
-    public static int solution(final int number) {
+
+    private Multiples() {
+
+    }
+
+    /**
+     * Found multiples of 3 and 5.
+     * @param num Quantity
+     * @return aux value multiples of 3 and 5.
+     */
+
+    public static int solution(final int num) {
         int res = 0;
-        for (int i = 0; i < number; i++) {
+        for (int i = 0; i < num; i++) {
             if (i % THREE == 0 || i % FIVE == 0) {
                 res += i;
             }

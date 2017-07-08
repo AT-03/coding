@@ -9,12 +9,12 @@ import java.lang.reflect.Modifier;
 import static org.junit.Assert.assertEquals;
 
 /**
- * The test class CadInvTest.
+ * The test class StringInvTest.
  *
  * @author (your name)
  * @version (a version number or a date)
  */
-public class CadInvTest {
+public class StringInvTest {
 
     /**
      * Test Constructor.
