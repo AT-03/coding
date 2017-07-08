@@ -9,12 +9,6 @@ public abstract class Multiples {
     private static final int THREE = 3;
 
     /**
-     * Method Constructor.
-     */
-    private Multiples() {
-    }
-
-    /**
      * The method get the sum of multiples of 3 and 5.
      *
      * @param number to calculate the sum.

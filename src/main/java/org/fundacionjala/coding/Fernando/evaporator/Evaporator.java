@@ -8,12 +8,6 @@ public abstract class Evaporator {
     private static final double PORCENTAGE = 100;
 
     /**
-     * Constructor Evaporator.
-     */
-    private Evaporator() {
-    }
-
-    /**
      * @param content    the cant of gas.
      * @param evapPerDay PORCENTAGE_NUMBER of gas lost every day.
      * @param limit      of the gas.

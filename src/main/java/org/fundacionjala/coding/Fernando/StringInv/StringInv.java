@@ -11,10 +11,16 @@ public final class StringInv {
     static final int MAJOR_FIVE_LETTERS = 5;
 
     /**
+     * Constructor StringInv.
+     */
+    private StringInv() {
+    }
+
+    /**
      * @param text param.
      * @return String param.
      */
-    public String stringInv(final String text) {
+    public static String stringInv(final String text) {
         int pos = 0;
         String[] parts = text.split(" ");
         while (pos < parts.length) {

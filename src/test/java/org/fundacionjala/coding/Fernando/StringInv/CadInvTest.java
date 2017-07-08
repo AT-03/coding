@@ -1,7 +1,10 @@
 package org.fundacionjala.coding.Fernando.StringInv;
 
-import org.junit.Before;
+import org.junit.Assert;
 import org.junit.Test;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
 
 import static org.junit.Assert.assertEquals;
 
@@ -13,15 +16,18 @@ import static org.junit.Assert.assertEquals;
  */
 public class CadInvTest {
 
-    private StringInv cadI;
-
     /**
-     * SpinWord.
+     * Test Constructor.
+     * @throws Exception if the constructor is not private.
      */
-    @Before
-    public void spinWord() {
-        cadI = new StringInv();
+    @Test
+    public void testStringInv() throws Exception {
+        Constructor evaporatorConstructor = StringInv.class.getDeclaredConstructor();
+        Assert.assertTrue(Modifier.isPrivate(evaporatorConstructor.getModifiers()));
+        evaporatorConstructor.setAccessible(true);
+        evaporatorConstructor.newInstance();
     }
+
 
     /**
      * Test when sentence is empty.
@@ -33,7 +39,7 @@ public class CadInvTest {
         final String sentence = "";
 
         // when:
-        final String actualResult = cadI.stringInv(sentence);
+        final String actualResult = StringInv.stringInv(sentence);
 
         // then:
         final String expectedResult = "";
@@ -50,7 +56,7 @@ public class CadInvTest {
         final String sentence = "Hi guys how are you";
 
         // when:
-        final String actualResult = cadI.stringInv(sentence);
+        final String actualResult = StringInv.stringInv(sentence);
 
         // then:
         final String expectedResult = "Hi guys how are you";
@@ -67,7 +73,7 @@ public class CadInvTest {
         final String sentence = "Hey fellow warriors";
 
         // when:
-        final String actualResult = cadI.stringInv(sentence);
+        final String actualResult = StringInv.stringInv(sentence);
 
         // then:
         final String expectedResult = "Hey wollef sroirraw";
