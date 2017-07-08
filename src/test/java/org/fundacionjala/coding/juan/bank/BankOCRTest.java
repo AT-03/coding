@@ -109,7 +109,7 @@ public class BankOCRTest {
         final String account = "021453789";
 
         // when:
-        final String expectedResult = "ILL";
+        final String expectedResult = "ERR";
 
         // then:
         final String actualResult = BankOCR.getStatusAccount(account);
