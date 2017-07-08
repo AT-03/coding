@@ -6,6 +6,7 @@ package org.fundacionjala.coding.danielmontecinos.movies;
 public class Children extends Movie {
     private static final int LIMIT_DAYS_TO_RENT_CHILDREN_MOVIE = 3;
     private static final double NO_RELEASE_MOVIE_FEE = 1.5;
+    private static final int ONE = 1;
 
     /**
      * Children constructor.
@@ -33,6 +34,6 @@ public class Children extends Movie {
      */
     @Override
     public int calculateFrequentRenterPoints(final int daysRented) {
-        return 1;
+        return ONE;
     }
 }

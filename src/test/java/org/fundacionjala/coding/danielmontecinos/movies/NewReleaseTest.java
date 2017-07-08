@@ -65,6 +65,6 @@ public class NewReleaseTest {
         final int actualResultThree = newReleaseInstance.calculateFrequentRenterPoints(1000);
 
         final int expectedResultThree = 2;
-        assertEquals(actualResultThree, expectedResultThree);
+        assertEquals(expectedResultThree, actualResultThree);
     }
 }
