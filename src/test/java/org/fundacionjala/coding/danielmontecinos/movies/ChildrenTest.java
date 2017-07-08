@@ -28,7 +28,7 @@ public class ChildrenTest {
         final double actualResult = childrenInstance.calculateAmount(1);
 
         final double expectedResult = 1.5;
-        assertEquals(0, expectedResult, actualResult);
+        assertEquals(expectedResult, actualResult, 0);
     }
 
     /**
@@ -39,8 +39,8 @@ public class ChildrenTest {
     public void testCalculateAmountWhenTheRentedDaysIsGreaterThanThree() {
         final double actualResult = childrenInstance.calculateAmount(10);
 
-        final double expectedResult = 10.5;
-        assertEquals(0, expectedResult, actualResult);
+        final double expectedResult = 12.0;
+        assertEquals(expectedResult, actualResult, 0);
     }
 
     /**

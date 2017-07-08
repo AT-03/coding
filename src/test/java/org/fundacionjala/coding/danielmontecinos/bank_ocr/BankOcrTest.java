@@ -163,19 +163,19 @@ public class BankOcrTest {
     @Test
     public void testValidateAccountWhenTheGivenAccountIsIncorrect() {
         final String[] scannedImage = {
-                "   "
+                          "   "
                         + "|_|"
                         + "  |",
 
-                " _ "
+                          " _ "
                         + "|_ "
                         + " _|",
 
-                " _ "
+                          " _ "
                         + "|_ "
                         + "|_|",
 
-                "__ "
+                          "__ "
                         + "  |"
                         + "  |",
 
@@ -232,7 +232,7 @@ public class BankOcrTest {
     @Test
     public void testParseScannedNumbersWithNineDigits() {
         final String scannedString =
-                "__     _  _  _  _  _  _  _ "
+                          "__     _  _  _  _  _  _  _ "
                         + " _||_||_ |_||_| _||_||_ |_ "
                         + "__|  | _||_||_||_ |_||_| _|";
 

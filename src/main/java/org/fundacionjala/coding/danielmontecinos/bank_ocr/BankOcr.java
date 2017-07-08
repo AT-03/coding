@@ -180,12 +180,15 @@ final class BankOcr {
         FOUR(4), FIVE(5), SIX(6),
         SEVEN(7), EIGHT(8), NINE(9);
 
+        private int i;
+
         /**
          * Construct for Enum type.
          *
          * @param i of int type.
          */
         KEY(final int i) {
+            this.i = i;
         }
     }
 }
