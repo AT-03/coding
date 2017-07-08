@@ -10,7 +10,7 @@ public final class Evaporator {
      */
     private Evaporator() {
     }
-
+    private static final int PERCENT = 100;
     /**
      * Calculate the life of gas.
      *
@@ -22,9 +22,9 @@ public final class Evaporator {
     public static int evaporator(final double content, final int evap, final int threshold) {
         int days = 0;
         double cont = content;
-        double limit1 = content * threshold / 100.00;
+        double limit1 = content * threshold / PERCENT;
         while (cont >= limit1) {
-            cont = cont - cont * evap / 100.00;
+            cont = cont - cont * evap / PERCENT;
             days++;
         }
         return days;

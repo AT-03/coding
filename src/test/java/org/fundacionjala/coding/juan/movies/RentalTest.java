@@ -8,7 +8,7 @@ import static org.junit.Assert.assertEquals;
  * Created by Administrator on 7/2/2017.
  */
 public class RentalTest {
-    private Regular regular;
+    private Movie regular;
 
     /**
      * Initialize variables.

@@ -11,7 +11,6 @@ public class NewRelease extends Movie {
     /**
      * constructor.
      * {@inheritDoc}
-     *
      * @param title is the title of the moview.
      */
     public NewRelease(final String title) {
