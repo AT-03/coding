@@ -139,16 +139,9 @@ public final class BankOCR {
      * @param account account.
      * @return true or false.
      */
-    protected static boolean isLegible(final String account) {
-
-        for (int i = 0; i < account.length(); i++) {
-            if (!Character.isDigit(account.charAt(i))) {
-                return false;
-            }
-        }
-        return true;
+    static boolean isLegible(final String account) {
+        return account.contains("?");
     }
-
     /**
      * This method return the value scanned.
      *
