@@ -7,7 +7,7 @@ package org.fundacionjala.coding.juan.movies;
 public class Regular extends Movie {
 
     private static final double PRICE = 1.5;
-
+    private static final int ONE = 1;
     private static final int LIMITREGULAR = 2;
 
     /**
@@ -28,6 +28,6 @@ public class Regular extends Movie {
 
     @Override
     public int calculateFrequentRenterPoints(final int daysRented) {
-        return 1;
+        return ONE;
     }
 }

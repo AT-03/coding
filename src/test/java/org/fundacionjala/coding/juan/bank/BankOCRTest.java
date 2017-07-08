@@ -147,7 +147,7 @@ public class BankOCRTest {
                 "       _  _  _  _  _  _  _ "
                         + "  ||_||_||_||_| _";
         // when:
-        final Boolean actualResult = BankOCR.validateAccountNumbers(figureScanned);
+        final boolean actualResult = BankOCR.validateAccountNumbers(figureScanned);
 
         //then:
         assertFalse(actualResult);

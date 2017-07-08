@@ -7,8 +7,11 @@ package org.fundacionjala.coding.juan.movies;
 public class NewRelease extends Movie {
 
     private static final int LIMITNEWCHILD = 3;
+
     /**
      * constructor.
+     * {@inheritDoc}
+     *
      * @param title is the title of the moview.
      */
     public NewRelease(final String title) {
