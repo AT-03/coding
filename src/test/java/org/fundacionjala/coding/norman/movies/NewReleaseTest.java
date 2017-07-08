@@ -1,13 +1,25 @@
 package org.fundacionjala.coding.norman.movies;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by NORMAN on 2/7/2017.
  */
 public class NewReleaseTest {
+    private Movie newReleaseInstance;
+
+    /**
+     * create NewRelease movie.
+     */
+    @Before
+    public void before() {
+        newReleaseInstance = new NewRelease("Test");
+    }
+
 
     /**
      * Test to verify the amount if the rented days
@@ -16,14 +28,14 @@ public class NewReleaseTest {
     @Test
     public void testCalculateAmountWhenTheRentedDaysIsLessThanThree() {
         // given:
-        NewRelease newReleaseInstance = new NewRelease("Test");
 
         // when:
         final double actualResult = newReleaseInstance.calculateAmount(1);
 
         // then
         final double expectedResult = 3;
-        assertEquals(0, expectedResult, actualResult);
+        assertTrue(expectedResult - actualResult == 0);
+
     }
 
     /**
@@ -33,14 +45,13 @@ public class NewReleaseTest {
     @Test
     public void testCalculateAmountWhenTheRentedDaysIsGreaterThanThree() {
         // given:
-        NewRelease newReleaseInstance = new NewRelease("Test");
 
         // when:
         final double actualResult = newReleaseInstance.calculateAmount(10);
 
         // then:
         final double expectedResult = 30;
-        assertEquals(0, expectedResult, actualResult);
+        assertTrue(expectedResult - actualResult == 0);
     }
 
     /**
@@ -50,7 +61,6 @@ public class NewReleaseTest {
     @Test
     public void testCalculateFrequentRenterPointsVerifyTheResultIsOne() {
         // given:
-        NewRelease newReleaseInstance = new NewRelease("Test");
 
         // when:
         final int actualResultOne = newReleaseInstance.calculateFrequentRenterPoints(1);
