@@ -2,6 +2,10 @@ package org.fundacionjala.coding.Fernando.bankOCR;
 
 import org.junit.Test;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
+
+import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
@@ -9,6 +13,18 @@ import static org.junit.Assert.assertFalse;
  * Created by PC on 24/06/2017.
  */
 public class BankOCRTest {
+
+    /**
+     * Test Constructor.
+     * @throws Exception if the constructor is not private.
+     */
+    @Test
+    public void testBankOCRConstructorIsPrivate() throws Exception {
+        Constructor constructor = BankOCR.class.getDeclaredConstructor();
+        assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        constructor.setAccessible(true);
+        constructor.newInstance();
+    }
 
     /**
      * Test the number.
@@ -144,5 +160,6 @@ public class BankOCRTest {
         String expectedResult = "ERR";
         assertEquals(expectedResult, actualResult);
     }
+
 }
 

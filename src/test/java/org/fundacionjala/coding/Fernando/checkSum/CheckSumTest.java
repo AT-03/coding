@@ -57,4 +57,19 @@ public class CheckSumTest {
 
         assertFalse(actualResult);
     }
+
+    /**
+     * Test when sentence has more than one word major that five.
+     */
+    @Test
+    public void testWhenSentenceHasLessThanThrerteenWords() {
+
+        // given:
+        final String sentence = "123456789";
+
+        // when:
+        final boolean actualResult = CheckSum.canValues(sentence);
+
+        assertFalse(actualResult);
+    }
 }

@@ -2,12 +2,27 @@ package org.fundacionjala.coding.Fernando.evaporator;
 
 import org.junit.Test;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
+
+import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 
 /**
  * Created by PC on 28/06/2017.
  */
 public class EvaporatorTest {
+
+    /**
+     * Test Constructor.
+     * @throws Exception if the constructor is not private.
+     */
+    @Test
+    public void testEvaporatorConstructorIsPrivate() throws Exception {
+        Constructor constructor = Evaporator.class.getDeclaredConstructor();
+        assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        constructor.setAccessible(true);
+    }
 
     /**
      * Test evaporator one.
