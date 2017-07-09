@@ -179,7 +179,7 @@ public class CustomerTest {
     public void testMovieWhenIsOneCalculatecFrequentRenterPoints() {
         //given
         Movie movie = new NewRelease("fantacy");
-        int resul = movie.calculateFrequentRenterPoints(1);
+        final int resul = movie.calculateFrequentRenterPoints(1);
         assertEquals(1, resul);
 
     }

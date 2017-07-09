@@ -5,15 +5,15 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
- * Created by reinaldo on 14/03/2017.
+ * Created by reinaldo on 08/07/2017.
  */
-public class FileNumberBankOcr {
+final class EncodedDigit {
     private Map<Integer, String> numberMap;
 
     /**
      * constructor.
      */
-    FileNumberBankOcr() {
+    private EncodedDigit() {
         numberMap = new HashMap<Integer, String>();
         fillNumber();
 
@@ -22,13 +22,13 @@ public class FileNumberBankOcr {
     /**
      * method fill number digite.
      */
-    public void fillNumber() {
+    private void fillNumber() {
         numberMap.put(Digit.CERO.ordinal(),
                 " _ "
                         + "| |"
                         + "|_|");
         numberMap.put(Digit.ONE.ordinal(),
-                "  |"
+                "   "
                         + "  |"
                         + "  |");
         numberMap.put(Digit.TWO.ordinal(),
@@ -36,27 +36,27 @@ public class FileNumberBankOcr {
                         + " _|"
                         + "|_ ");
         numberMap.put(Digit.THREE.ordinal(),
-                "__ "
+                " _ "
                         + " _|"
-                        + "__|");
+                        + " _|");
         numberMap.put(Digit.FOUR.ordinal(),
                 "   "
                         + "|_|"
                         + "  |");
         numberMap.put(Digit.FIVE.ordinal(),
-                " __"
-                        + "|__"
-                        + " __|");
+                " _ "
+                        + "|_ "
+                        + " _|");
         numberMap.put(Digit.SIX.ordinal(),
-                " __"
-                        + "|__"
-                        + "|__|");
+                " _ "
+                        + "|_ "
+                        + "|_|");
         numberMap.put(Digit.SEVEN.ordinal(),
-                "__ "
+                " _ "
                         + "  |"
                         + "  |");
         numberMap.put(Digit.EIGHT.ordinal(),
-                " _ "
+                          " _ "
                         + "|_|"
                         + "|_|");
         numberMap.put(Digit.NINE.ordinal(),
@@ -69,16 +69,19 @@ public class FileNumberBankOcr {
      * @param lineNumber this is string parameter.
      * @return String.
      */
-    public String comparation(final String lineNumber) {
-        Iterator<Map.Entry<Integer, String>> it = numberMap.entrySet().iterator();
+    static String comparation(final String lineNumber) {
+        EncodedDigit encodedDigit = new EncodedDigit();
+        Iterator<Map.Entry<Integer, String>> it = encodedDigit.numberMap.entrySet().iterator();
         String resulValue = "?";
         while (it.hasNext()) {
             Map.Entry<Integer, String> entry = it.next();
-            if (entry.getValue().toString().equalsIgnoreCase(lineNumber)) {
-                resulValue = entry.getKey().toString();
+            if (entry.getValue().equalsIgnoreCase(lineNumber)) {
+                return entry.getKey().toString();
+
             }
         }
 
         return resulValue;
     }
 }
+
