@@ -1,8 +1,6 @@
 package org.fundacionjala.coding.danielcabero.bank_ocr;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -117,22 +115,13 @@ final class BankOcr {
      * @return true if the passed account is true, false otherwise.
      */
     static boolean validateNumberAccount(final String account) {
-        if (account.length() == ACCOUNT_LENGTH && isCorrectLength(account)) {
-
-            String[] acct = account.split("");
-
-            int checksum = 0;
-            int factor = MULTIPLY_FACTOR;
-
-            for (String value : acct) {
-                checksum += Integer.parseInt(value) * factor;
-                factor--;
-            }
-
-            return checksum % MODULUS_FACTOR == 0;
-        } else {
-            return false;
+        int checksum = 0;
+        int multi = MULTIPLY_FACTOR;
+        for (char num : account.toString().toCharArray()) {
+            checksum += Integer.parseInt(String.valueOf(num)) * multi;
+            multi--;
         }
+        return checksum % MODULUS_FACTOR == 0;
     }
 
     /**
@@ -166,37 +155,6 @@ final class BankOcr {
             actPresent.append(getKey(number));
         }
         return actPresent.toString();
-    }
-
-    /**
-     * This method take and scanned account of exactly 9 digits and return
-     * an array representation of them.
-     *
-     * @param scannedAccount String, represents the account.
-     * @return an array of nine string digits.
-     */
-    static String[] parseToInt(final String scannedAccount) {
-
-        List<String> scanningDigits = new ArrayList<String>();
-
-        if (!sizeImageIsValid(scannedAccount)) {
-            int index = 0;
-            int start = NUMBER_START;
-            int end = NUMBER_END;
-
-            int aux = 0;
-            while (aux < scannedAccount.length()) {
-                index = index % INDEX_MODULUS_FACTOR;
-
-                scanningDigits.set(index, scannedAccount.substring(start, end));
-
-                start = end;
-                end += NUMBER_END;
-                index++;
-                aux += NUMBER_END;
-            }
-        }
-        return scanningDigits.toArray(new String[0]);
     }
 
     /**

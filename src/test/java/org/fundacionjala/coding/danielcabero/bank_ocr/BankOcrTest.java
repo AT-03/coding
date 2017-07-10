@@ -11,6 +11,7 @@ import static org.junit.Assert.assertTrue;
  * Created by administrator on 3/10/2017.
  */
 public class BankOcrTest {
+
     /**
      * Test if scanned image recognized numbers between 0 and 9.
      */
@@ -146,7 +147,7 @@ public class BankOcrTest {
         final boolean actualResult = BankOcr.validateNumberAccount(correctAccount);
 
         // then:
-        assertFalse(actualResult);
+        assertTrue(actualResult);
 
     }
 
