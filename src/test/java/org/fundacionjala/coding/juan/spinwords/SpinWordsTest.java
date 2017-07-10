@@ -25,7 +25,7 @@ public class SpinWordsTest {
         //Given
         final String sentece = "holas";
         //When
-        final String actualResult = SpinWords.spinWords(sentece);
+        final String actualResult = SpinWords.spinWord(sentece);
         // then
         final String exectedResult = "saloh";
         assertEquals(exectedResult, actualResult);
@@ -42,7 +42,7 @@ public class SpinWordsTest {
         //Given
         final String sentece = "Paralelepipedo";
         //When
-        final String actualResult = SpinWords.spinWords(sentece);
+        final String actualResult = SpinWords.spinWord(sentece);
         // then
         final String exectedResult = "odepipelelaraP";
         assertEquals(exectedResult, actualResult);
@@ -58,8 +58,8 @@ public class SpinWordsTest {
         final String sentece = "Wellcome to the jungle";
         final String senteceA = "Esta es una prueba";
         //When
-        final String actualResult = SpinWords.spinWords(sentece);
-        final String actualResultA = SpinWords.spinWords(senteceA);
+        final String actualResult = SpinWords.spinWord(sentece);
+        final String actualResultA = SpinWords.spinWord(senteceA);
         // then
         final String exectedResult = "emoclleW to the elgnuj";
         final String exectedResultA = "Esta es una abeurp";
@@ -75,7 +75,7 @@ public class SpinWordsTest {
         //given
         final String sentence = null;
         //When
-        final String actualResult = SpinWords.spinWords(sentence);
+        final String actualResult = SpinWords.spinWord(sentence);
         //Then
         final String expectedResult = "";
         assertEquals(expectedResult, actualResult);
@@ -90,7 +90,7 @@ public class SpinWordsTest {
         //given
         final String sentence = "hi";
         //When
-        final String actualResult = SpinWords.spinWords(sentence);
+        final String actualResult = SpinWords.spinWord(sentence);
         //Then
         final String expectedResult = "hi";
         assertEquals(expectedResult, actualResult);

@@ -20,7 +20,7 @@ public final class SpinWords {
      * @param sentence is the word or words
      * @return the word reversed.
      */
-    public static String spinWords(final String sentence) {
+    public static String spinWord(final String sentence) {
         if (sentence == null) {
             return "";
         }
