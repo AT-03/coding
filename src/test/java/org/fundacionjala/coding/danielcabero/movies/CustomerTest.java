@@ -64,4 +64,6 @@ public class CustomerTest {
                 + "You earned 8.0 frequent renter points";
         assertEquals(actualResult, expectedResult);
     }
+
+
 }

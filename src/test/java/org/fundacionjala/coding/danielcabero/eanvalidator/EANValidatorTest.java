@@ -97,5 +97,20 @@ public class EANValidatorTest {
         constructor.newInstance();
     }
 
+    /**
+     * Test when the EAN string number checksum is equal to 0.
+     */
+    @Test
+    public void testValidateTheCheckSumIsFalse() {
+        // given:
+        final String eanStringNumber = "s2343112";
+
+        // when:
+        final boolean actualResult = EANValidator.validate(eanStringNumber);
+
+        // then:
+        assertFalse(actualResult);
+    }
+
 }
 

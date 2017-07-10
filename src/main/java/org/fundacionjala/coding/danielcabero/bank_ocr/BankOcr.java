@@ -90,22 +90,12 @@ final class BankOcr {
      * @return <code>true</code> \\ <code>false</code>
      */
     private static boolean isCorrectLength(final String numberAccount) {
-        if (numberAccount.length() == ACCOUNT_LENGTH && sizeImageIsValid(numberAccount)) {
-
-            String[] acct = numberAccount.split("");
-
-            int checksum = 0;
-            int factor = MULTIPLY_FACTOR;
-
-            for (String value : acct) {
-                checksum += Integer.parseInt(value) * factor;
-                factor--;
+        for (int i = 0; i < numberAccount.length(); i++) {
+            if (Character.isDigit(numberAccount.charAt(i))) {
+                return false;
             }
-
-            return checksum % MODULUS_FACTOR == 0;
-        } else {
-            return false;
         }
+        return true;
     }
 
     /**

@@ -1,6 +1,7 @@
 package org.fundacionjala.coding.danielcabero.movies;
 
 import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -46,4 +47,18 @@ public class RentalTest {
         //Then
         assertEquals(movie, rental.getMovieTitle());
     }
+
+    /**
+     * test get movie.
+     */
+    @Test
+    public void getMovieFrequentPoints() {
+        //when
+        Rental rental = new Rental(movie, 3);
+        final int expected = 2;
+        //Then
+        assertEquals(expected, rental.calculateFrequentRenterPoint());
+    }
+
+
 }

@@ -62,18 +62,6 @@ class Customer {
     }
 
     /**
-     * This method calculates the total frequent points of rented movies.
-     *
-     * @return total frequent renter points.
-     */
-    private int totalFrequentPointsRent() {
-        return rentalsList.stream()
-                .mapToInt(Rental::calculateFrequentRenterPoint)
-                .sum();
-    }
-
-    /**
-     *
      * @return the List of the c
      */
     List<Rental> getRentalsList() {
