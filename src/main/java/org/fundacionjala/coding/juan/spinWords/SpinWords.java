@@ -1,10 +1,10 @@
 package org.fundacionjala.coding.juan.spinWords;
 
 /**
- * Created by Juan on 3/10/2017.
+ * Created by Juan P  on 26/03/2017.
  */
 public final class SpinWords {
-    private static final int LIMIT_WORD = 4;
+    private static final int LIMIT_WORD = 5;
 
     /**
      * Constructor private.
@@ -21,21 +21,16 @@ public final class SpinWords {
      * @return the word reversed.
      */
     public static String spinWords(final String sentence) {
-
         if (sentence == null) {
             return "";
         }
-        if (sentence.length() <= LIMIT_WORD) {
-            return sentence;
-        } else {
-            String[] words = sentence.split(" ");
-            for (int i = 0; i < words.length; i++) {
-                if (words[i].length() > LIMIT_WORD) {
-                    words[i] = new StringBuilder(words[i]).reverse().toString();
-                }
+        String[] words = sentence.split(" ");
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() >= LIMIT_WORD) {
+                words[i] = new StringBuilder(words[i]).reverse().toString();
             }
-            return String.join(" ", words);
-
         }
+        return String.join(" ", words);
     }
 }
+
