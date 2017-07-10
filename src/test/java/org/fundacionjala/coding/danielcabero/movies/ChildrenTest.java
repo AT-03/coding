@@ -22,7 +22,7 @@ public class ChildrenTest {
 
         // then
         final double expectedResult = 1.5;
-        assertEquals(0, expectedResult, actualResult);
+        assertEquals(expectedResult, actualResult, 0);
     }
 
     /**
@@ -39,7 +39,7 @@ public class ChildrenTest {
 
         // then:
         final double expectedResult = 10.5;
-        assertEquals(0, expectedResult, actualResult);
+        assertEquals(expectedResult, 0, actualResult);
     }
 
     /**

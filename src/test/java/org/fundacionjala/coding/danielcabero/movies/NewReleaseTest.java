@@ -23,7 +23,7 @@ public class NewReleaseTest {
 
         // then
         final double expectedResult = 3;
-        assertEquals(0, expectedResult, actualResult);
+        assertEquals(expectedResult, actualResult, 0);
     }
 
     /**
@@ -40,7 +40,7 @@ public class NewReleaseTest {
 
         // then:
         final double expectedResult = 30;
-        assertEquals(0, expectedResult, actualResult);
+        assertEquals(expectedResult, actualResult, 0);
     }
 
     /**

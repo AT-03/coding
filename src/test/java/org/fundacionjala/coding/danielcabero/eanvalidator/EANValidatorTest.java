@@ -3,6 +3,7 @@ package org.fundacionjala.coding.danielcabero.eanvalidator;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Modifier;
 import org.junit.Test;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -36,7 +37,7 @@ public class EANValidatorTest {
         final boolean actualResult = EANValidator.checkCorrectLength(eanStringNumber);
 
         // then:
-        assertTrue(!actualResult);
+        assertFalse(actualResult);
     }
 
     /**
@@ -51,7 +52,7 @@ public class EANValidatorTest {
         final boolean actualResult = EANValidator.checkCorrectLength(eanStringNumber);
 
         // then:
-        assertTrue(!actualResult);
+        assertFalse(actualResult);
     }
 
     /**

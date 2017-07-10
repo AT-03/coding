@@ -42,10 +42,11 @@ class Customer {
         result.append("Rental Record for ").append(getName()).append("\n");
         for (Rental rental : rentalsList) {
             result.append("\t").append(rental.getMovieTitle().getTitleMovie()).append("\t");
-            result.append(rental.calculateAmount()).append("\n");
+            result.append("\t").append(rental.calculateAmount()).append("\t");
+            result.append("Days Rental ").append(rental.getDaysRent()).append("\n");
         }
         result.append("Amount owed is ").append(calculateTotalAmount()).append("\n");
-        result.append("You earned ").append(totalFrequentPointsRent()).append(" frequent renter points");
+        result.append("You earned ").append(calculateTotalAmount()).append(" frequent renter points");
         return result.toString();
     }
 
@@ -73,7 +74,7 @@ class Customer {
 
     /**
      *
-     * @return the List of the customer.
+     * @return the List of the c
      */
     List<Rental> getRentalsList() {
         return rentalsList;

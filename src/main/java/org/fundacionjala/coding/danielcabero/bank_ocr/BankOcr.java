@@ -91,16 +91,23 @@ final class BankOcr {
      * @param numberAccount image of type String.
      * @return <code>true</code> \\ <code>false</code>
      */
-    private static boolean size(final String numberAccount) {
-        boolean isCorrect = true;
+    private static boolean isCorrectLength(final String numberAccount) {
+        if (numberAccount.length() == ACCOUNT_LENGTH && sizeImageIsValid(numberAccount)) {
 
-        for (int aux = 0; aux < numberAccount.length(); aux++) {
-            if (!Character.isDigit(numberAccount.charAt(aux))) {
-                isCorrect = false;
-                break;
+            String[] acct = numberAccount.split("");
+
+            int checksum = 0;
+            int factor = MULTIPLY_FACTOR;
+
+            for (String value : acct) {
+                checksum += Integer.parseInt(value) * factor;
+                factor--;
             }
+
+            return checksum % MODULUS_FACTOR == 0;
+        } else {
+            return false;
         }
-        return isCorrect;
     }
 
     /**
@@ -110,7 +117,7 @@ final class BankOcr {
      * @return true if the passed account is true, false otherwise.
      */
     static boolean validateNumberAccount(final String account) {
-        if (account.length() == ACCOUNT_LENGTH && size(account)) {
+        if (account.length() == ACCOUNT_LENGTH && isCorrectLength(account)) {
 
             String[] acct = account.split("");
 
@@ -138,7 +145,7 @@ final class BankOcr {
     static String getNumberAccount(final String numberAccountUser) {
         String error = "";
 
-        if (!size(numberAccountUser)) {
+        if (!isCorrectLength(numberAccountUser)) {
             error = "ILL";
         } else if (!validateNumberAccount(numberAccountUser)) {
             error = "ERR";

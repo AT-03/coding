@@ -23,7 +23,7 @@ public class RegularTest {
 
         // then
         final double expectedResult = 2;
-        assertEquals(0, expectedResult, actualResult);
+        assertEquals(expectedResult, actualResult, 0);
     }
 
     /**
@@ -40,7 +40,7 @@ public class RegularTest {
 
         // then:
         final double expectedResult = 14;
-        assertEquals(0, expectedResult, actualResult);
+        assertEquals(expectedResult, actualResult, 0);
     }
 
     /**
