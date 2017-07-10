@@ -10,6 +10,9 @@ public final class BankOCR {
 
     private static final Map<Integer, String> MAP_NUMBERS = new HashMap<>();
 
+    private static final int START_STRING = 0;
+    private static final int END_STRING = 3;
+    private static final int MODULE_NINE = 9;
     private static final int MODULE_ELEVEN = 11;
     private static final int SCANNED_LENGTH = 72;
     private static final int QUANTITY_LENGTH = 9;
@@ -27,7 +30,7 @@ public final class BankOCR {
 
     static {
         MAP_NUMBERS.put(ZERO,
-                          " _ "
+                " _ "
                         + "| |"
                         + "|_|");
         MAP_NUMBERS.put(ONE,
@@ -148,6 +151,7 @@ public final class BankOCR {
         }
         return true;
     }
+
     /**
      * This method return the value scanned.
      *
@@ -180,16 +184,16 @@ public final class BankOCR {
      * @param account account.
      * @return string[] with nine digits.
      */
-    static String[] parseScannedFigures(final String account) {
+    static String[] parseScannedString(final String account) {
 
         String[] scannedDigits = {"", "", "", "", "", "", "", "", ""};
         int stringFinal = 3;
 
         if (account.length() != SCANNED_LENGTH) {
             int index = 0;
-            int start = 0;
-            int end = 3;
-            int indexModule = 9;
+            int start = START_STRING;
+            int end = END_STRING;
+            int indexModule = MODULE_NINE;
 
             for (int i = 0; i < account.length(); i += stringFinal) {
                 index = index % indexModule;

@@ -61,7 +61,7 @@ public class CustomerTest {
      */
     @Test
     public void testCustomer() {
-        customer.addRental(new Rental(new NewRelease("The Avengers"), 2));
+        customer.addRental(new Rental(new NewReleases("The Avengers"), 2));
         customer.addRental(new Rental(new Regular("Iron Man"), 1));
 
         // when

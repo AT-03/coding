@@ -127,7 +127,7 @@ public class BankOCRTest {
                         + "  ||_||_||_||_| _||_||_ |_|"
                         + "  |  | _||_||_||_ |_||_| _|";
 
-        final String[] accountArray = BankOCR.parseScannedFigures(figureScanned);
+        final String[] accountArray = BankOCR.parseScannedString(figureScanned);
 
         // when:
         final String actualResult = BankOCR.accountRepresentation(accountArray);
@@ -162,7 +162,7 @@ public class BankOCRTest {
         // given:
         final String figureScanned = "";
         // when:
-        final String[] actualResult = BankOCR.parseScannedFigures(figureScanned);
+        final String[] actualResult = BankOCR.parseScannedString(figureScanned);
 
         // then:
         final String[] expectedResult = new String[]{"", "", "", "", "", "", "", "", ""};

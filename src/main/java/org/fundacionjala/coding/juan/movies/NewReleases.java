@@ -4,23 +4,22 @@ package org.fundacionjala.coding.juan.movies;
 /**
  * @author Juan Pablo
  */
-public class NewRelease extends Movie {
+public class NewReleases extends Movie {
 
-    private static final int LIMITNEWCHILD = 3;
+    private static final int LIMIT_NEW_CHILD = 3;
 
     /**
      * constructor.
      * {@inheritDoc}
-     *
      * @param title is the title of the moview.
      */
-    public NewRelease(final String title) {
+    public NewReleases(final String title) {
         super(title);
     }
 
     @Override
     public double calculateAmount(final int daysRented) {
-        return daysRented * LIMITNEWCHILD;
+        return daysRented * LIMIT_NEW_CHILD;
     }
 
     @Override

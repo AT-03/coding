@@ -15,7 +15,7 @@ public class NewReleaseTest {
     public void testNewRealeasenMovieAmount() {
 
         // given:
-        final Movie newRelease = new NewRelease("Logan");
+        final Movie newRelease = new NewReleases("Logan");
         final int daysRentet = 2;
         // when:
         final double actualResult = newRelease.calculateAmount(daysRentet);
