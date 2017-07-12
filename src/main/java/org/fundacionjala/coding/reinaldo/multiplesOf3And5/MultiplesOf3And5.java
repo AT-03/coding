@@ -6,8 +6,8 @@ import java.util.stream.IntStream;
  * Created by Administrator on 6/30/2017.
  */
 final class MultiplesOf3And5 {
-    private static final int NUMBERDIVISOR = 3;
-    private static final int NUMBERDIVISORCINCO = 5;
+    private static final int NUMBERTHREE = 3;
+    private static final int NUMBERFIVE = 5;
 
     /**
      * This is the constructor MultiplesOf3And5 class.
@@ -24,8 +24,8 @@ final class MultiplesOf3And5 {
      */
     static int getSolution(final int number) {
 
-        return IntStream.range(NUMBERDIVISOR, number)
-                .filter(num -> num % NUMBERDIVISOR == 0 || num % NUMBERDIVISORCINCO == 0)
+        return IntStream.range(NUMBERTHREE, number)
+                .filter(num -> num % NUMBERTHREE == 0 || num % NUMBERFIVE == 0)
                 .sum();
     }
 }

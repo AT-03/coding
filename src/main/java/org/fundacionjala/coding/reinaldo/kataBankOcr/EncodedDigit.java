@@ -8,58 +8,57 @@ import java.util.Map;
  * Created by reinaldo on 08/07/2017.
  */
 final class EncodedDigit {
-    private Map<Integer, String> numberMap;
+    private static final Map<Integer, String> MUMBER_MAP;
 
     /**
      * constructor.
      */
     private EncodedDigit() {
-        numberMap = new HashMap<Integer, String>();
-        fillNumber();
-
     }
 
     /**
      * method fill number digite.
      */
-    private void fillNumber() {
-        numberMap.put(Digit.CERO.ordinal(),
+    static {
+
+        MUMBER_MAP = new HashMap<Integer, String>();
+        MUMBER_MAP.put(Digit.CERO.ordinal(),
                 " _ "
                         + "| |"
                         + "|_|");
-        numberMap.put(Digit.ONE.ordinal(),
+        MUMBER_MAP.put(Digit.ONE.ordinal(),
                 "   "
                         + "  |"
                         + "  |");
-        numberMap.put(Digit.TWO.ordinal(),
+        MUMBER_MAP.put(Digit.TWO.ordinal(),
                 " _ "
                         + " _|"
                         + "|_ ");
-        numberMap.put(Digit.THREE.ordinal(),
+        MUMBER_MAP.put(Digit.THREE.ordinal(),
                 " _ "
                         + " _|"
                         + " _|");
-        numberMap.put(Digit.FOUR.ordinal(),
+        MUMBER_MAP.put(Digit.FOUR.ordinal(),
                 "   "
                         + "|_|"
                         + "  |");
-        numberMap.put(Digit.FIVE.ordinal(),
+        MUMBER_MAP.put(Digit.FIVE.ordinal(),
                 " _ "
                         + "|_ "
                         + " _|");
-        numberMap.put(Digit.SIX.ordinal(),
+        MUMBER_MAP.put(Digit.SIX.ordinal(),
                 " _ "
                         + "|_ "
                         + "|_|");
-        numberMap.put(Digit.SEVEN.ordinal(),
+        MUMBER_MAP.put(Digit.SEVEN.ordinal(),
                 " _ "
                         + "  |"
                         + "  |");
-        numberMap.put(Digit.EIGHT.ordinal(),
-                          " _ "
+        MUMBER_MAP.put(Digit.EIGHT.ordinal(),
+                " _ "
                         + "|_|"
                         + "|_|");
-        numberMap.put(Digit.NINE.ordinal(),
+        MUMBER_MAP.put(Digit.NINE.ordinal(),
                 " _ "
                         + "|_|"
                         + " _|");
@@ -70,8 +69,7 @@ final class EncodedDigit {
      * @return String.
      */
     static String comparation(final String lineNumber) {
-        EncodedDigit encodedDigit = new EncodedDigit();
-        Iterator<Map.Entry<Integer, String>> it = encodedDigit.numberMap.entrySet().iterator();
+        Iterator<Map.Entry<Integer, String>> it = MUMBER_MAP.entrySet().iterator();
         String resulValue = "?";
         while (it.hasNext()) {
             Map.Entry<Integer, String> entry = it.next();
@@ -84,4 +82,5 @@ final class EncodedDigit {
         return resulValue;
     }
 }
+
 
